@@ -7,7 +7,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:BL3ProfileEditor"
         mc:Ignorable="d"
-        Title="Borderlands 3 Profile Editor" Height="321" Width="379">
+        Title="Borderlands 3 Profile Editor" Height="336" Width="379">
     <Grid>
         <ToolBar HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="371">
             <Button Name="OpenButton" Width="75" Margin="0,0,0,5" Click="OpenButton_Click">
@@ -27,7 +27,11 @@
                     <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="HelpCircleOutline" />
                 </DockPanel>
             </Button>
-        </ToolBar>
 
+        </ToolBar>
+        <Button Content="Unlock Room Decorations" HorizontalAlignment="Left" Margin="10,269,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Lock Room Decorations" HorizontalAlignment="Left" Margin="191,269,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Unlock Customizations" HorizontalAlignment="Left" Margin="10,0,0,60" VerticalAlignment="Bottom" Width="170"/>
+        <Button Content="Lock Customizations" HorizontalAlignment="Left" Margin="191,0,0,60" VerticalAlignment="Bottom" Width="170"/>
     </Grid>
 </Controls:MetroWindow>

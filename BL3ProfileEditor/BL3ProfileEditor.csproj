@@ -70,8 +70,14 @@
     <Reference Include="PackageIO">
       <HintPath>K:\Borderlands 3 - Tools\Profile Editor\BL2 Profile Editor\Deobfuscated\Borderlands Profile Editor v.1010-32-1-0-1-0\PackageIO.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>packages\protobuf-net.2.4.0\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -104,6 +110,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
