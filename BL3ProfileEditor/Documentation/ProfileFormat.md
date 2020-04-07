@@ -1,0 +1,61 @@
+Profile.GuardianRank
+	- `AvailableTokens`: 4
+	- `GuardianExperience`: 129235287
+	- `GuardianRank`: 301
+	- `RankRewards`: {Count = 17}
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 7
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_Accuracy.GuardianReward_Accuracy"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 42
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_ActionSkillCooldown.GuardianReward_ActionSkillCooldown"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 31
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_CriticalDamage.GuardianReward_CriticalDamage"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 18
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_FFYLDuration.GuardianReward_FFYLDuration"	string
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 30
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_GrenadeDamage.GuardianReward_GrenadeDamage"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 35
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_GunDamage.GuardianReward_GunDamage"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 24
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_GunFireRate.GuardianReward_GunFireRate"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 20
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_MaxHealth.GuardianReward_MaxHealth"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 18
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_MeleeDamage.GuardianReward_MeleeDamage"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 34
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_RarityRate.GuardianReward_RarityRate"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 1
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_RecoilReduction.GuardianReward_RecoilReduction"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 23
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_ReloadSpeed.GuardianReward_ReloadSpeed"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 21
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_ShieldCapacity.GuardianReward_ShieldCapacity"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 1
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_ShieldRechargeDelay.GuardianReward_ShieldRechargeDelay"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 11
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_ShieldRechargeRate.GuardianReward_ShieldRechargeRate"
+		- {OakSave.GuardianRankRewardSaveGameData}
+			- `NumTokens`: 1
+			- `RewardDataPath`: "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_VehicleDamage.GuardianReward_VehicleDamage"
+	- `UnlockedCrewQuartersDecorations` {Count = 63}
+		- {OakSave.CrewQuartersDecorationItemSaveGameData}
+			- `DecorationItemAssetPath`: "/Game/Pickups/RoomDecoration/RoomDecoration_65.RoomDecoration_65"
+			- `IsNew`: true
+	- `UnlockedCustomizations` {Count = 286}
+		- {OakSave.OakCustomizationSaveGameData}
+			- `CustomizationAssetPath`: "/Game/PlayerCharacters/_Customizations/EchoDevice/ECHOTheme_14.ECHOTheme_14"
+			- `IsNew`: false

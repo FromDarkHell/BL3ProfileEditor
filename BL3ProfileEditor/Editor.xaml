@@ -6,32 +6,73 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:BL3ProfileEditor"
+        xmlns:locClass = "clr-namespace:BL3ProfileEditor.Protobufs.Translations"
         mc:Ignorable="d"
-        Title="Borderlands 3 Profile Editor" Height="336" Width="379">
+        Title="Borderlands 3 Profile Editor" Height="412" Width="429" Background="{StaticResource WindowBackgroundBrush}">
+    <Controls:MetroWindow.Resources>
+        <ObjectDataProvider x:Key="GetGuardianRewards" MethodName="GetGuardianRewards"/>
+    </Controls:MetroWindow.Resources>
+
     <Grid>
-        <ToolBar HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="371">
-            <Button Name="OpenButton" Width="75" Margin="0,0,0,5" Click="OpenButton_Click">
-                <DockPanel LastChildFill="True">
-                    <iconPacks:PackIconModern DockPanel.Dock="Left" Kind="FolderOpen" />
-                    <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Open</TextBlock>
-                </DockPanel>
-            </Button>
-            <Button Name="SaveButton" Height="25" VerticalAlignment="Top" Width="65" Click="SaveButton_Click">
-                <DockPanel LastChildFill="True">
-                    <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="ContentSave" />
-                    <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Save</TextBlock>
-                </DockPanel>
-            </Button>
-            <Button Name="HelpButton" Height="25" VerticalAlignment="Top" Width="30" Click="HelpButton_Click">
-                <DockPanel LastChildFill="True">
-                    <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="HelpCircleOutline" />
-                </DockPanel>
-            </Button>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="67*"/>
+        </Grid.ColumnDefinitions>
+
+        <ToolBar Background="{StaticResource ControlBackgroundBrush}" Height="35" VerticalAlignment="Top" Width="421" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <DockPanel Background="{StaticResource ControlBackgroundBrush}" Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}" Margin="0,0,0,-5">
+
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                    </Style>
+                </DockPanel.Resources>
+
+                <Button Name="OpenButton" Width="80" Click="OpenButton_Click" Margin="0,0,0,5">
+                    <DockPanel LastChildFill="True">
+                        <iconPacks:PackIconModern DockPanel.Dock="Left" Kind="FolderOpen" />
+                        <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Open</TextBlock>
+                    </DockPanel>
+                </Button>
+                <Button Name="SaveButton" Height="30" VerticalAlignment="Top" Width="70" Click="SaveButton_Click">
+                    <DockPanel LastChildFill="True">
+                        <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="ContentSave" />
+                        <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Save</TextBlock>
+                    </DockPanel>
+                </Button>
+                <Button Name="HelpButton" Height="30" VerticalAlignment="Top" Width="40" Click="HelpButton_Click">
+                    <DockPanel LastChildFill="True" >
+                        <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="HelpCircleOutline" />
+                    </DockPanel>
+                </Button>
+
+                <Button Name="DebugButton" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Click="OpenDebugMenu">
+                    <DockPanel LastChildFill="True" HorizontalAlignment="Right">
+                        <iconPacks:PackIconFontAwesome Kind="WrenchSolid" DockPanel.Dock="Right" />
+                    </DockPanel>
+                </Button>
+            </DockPanel>
+
 
         </ToolBar>
-        <Button Content="Unlock Room Decorations" HorizontalAlignment="Left" Margin="10,269,0,0" VerticalAlignment="Top" Width="170"/>
-        <Button Content="Lock Room Decorations" HorizontalAlignment="Left" Margin="191,269,0,0" VerticalAlignment="Top" Width="170"/>
-        <Button Content="Unlock Customizations" HorizontalAlignment="Left" Margin="10,0,0,60" VerticalAlignment="Bottom" Width="170"/>
-        <Button Content="Lock Customizations" HorizontalAlignment="Left" Margin="191,0,0,60" VerticalAlignment="Bottom" Width="170"/>
+
+        <Button Content="Unlock Room Decorations" HorizontalAlignment="Left" Margin="27,289,0,0" VerticalAlignment="Top" Width="170" Height="27" Click="UnlockRoomDecorations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+        <Button Content="Lock Room Decorations" HorizontalAlignment="Left" Margin="34,289,0,0" VerticalAlignment="Top" Width="170" Grid.Column="1" Height="27" Click="LockRoomDecorations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+        <Button Content="Unlock Customizations" HorizontalAlignment="Left" Margin="27,0,0,10" VerticalAlignment="Bottom" Width="170" Height="27" Click="UnlockCustomizations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+        <Button Content="Lock Customizations" HorizontalAlignment="Left" Margin="34,0,0,10" VerticalAlignment="Bottom" Width="170" Grid.Column="1" Height="27" Click="LockCustomizations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="244" Margin="0,40,0,0" VerticalAlignment="Top" Width="250" Name="GuardianRankDataGrid" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Name"  Binding="{Binding Path=str}" Width="*"/>
+                <Controls:DataGridNumericUpDownColumn IsReadOnly="False" Header="Spent Tokens"  Binding="{Binding Path=value}"  Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Controls:NumericUpDown Name="UnspentTokensUp" Margin="48,70,10,281" Grid.Column="1" IsEnabled="False"/>
+        <Label Content="Unspent Tokens" Grid.Column="1" HorizontalAlignment="Left" Margin="77,39,0,0" VerticalAlignment="Top"/>
+        <Controls:NumericUpDown Name="GuardianRank" Margin="48,126,10,225"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+        <Label Content="Guardian Rank" Grid.Column="1" HorizontalAlignment="Left" Margin="77,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="Guardian Experience" Grid.Column="1" HorizontalAlignment="Left" Margin="70,161,0,0" VerticalAlignment="Top"/>
+        <Controls:NumericUpDown Name="GuardianXP" Margin="48,192,10,159"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
     </Grid>
 </Controls:MetroWindow>

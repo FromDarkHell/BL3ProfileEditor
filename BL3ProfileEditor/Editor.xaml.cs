@@ -3,10 +3,21 @@ using Microsoft.Win32;
 using PackageIO;
 using System;
 using System.IO;
-using ProtoSerializer = ProtoBuf.Serializer;
-using System.Security.Cryptography;
-using static BL3ProfileEditor.BL3;
-using System.Linq;
+using System.Text;
+using ProtoBuf;
+
+using OakSave;
+using Gibbed.Borderlands3.ProfileFormats;
+using System.Collections.ObjectModel;
+using BL3ProfileEditor.Protobufs.Translations;
+using System.Collections.Generic;
+using System.Windows.Interop;
+using System.Windows.Data;
+using MahApps.Metro.Controls;
+using System.Threading;
+using System.Windows.Threading;
+using BL3ProfileEditor.Debug;
+using BL3ProfileEditor.Protobufs.GVAS;
 
 namespace BL3ProfileEditor
 {
@@ -15,13 +26,13 @@ namespace BL3ProfileEditor
     /// </summary>
     public partial class MainWindow
     {
-        public static Entry[] Entries;
         public string filePath;
-        public int brokenEntries = 0;
         public string strippedPath;
 
         public Profile loadedProfile;
+        private GVASSave saveData;
 
+        private DebugConsole child;
 
         public MainWindow()
         {
@@ -35,11 +46,12 @@ namespace BL3ProfileEditor
         }
 
         #region UI Handling
+
+        #region Button Clickings
         public async void showMessage(string title, string message)
         {
             await this.ShowMessageAsync(title, message);
         }
-
         private void OpenButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog
@@ -50,40 +62,293 @@ namespace BL3ProfileEditor
             if (fileDialog.ShowDialog() == true)
             {
                 filePath = fileDialog.FileName;
-                identifyEntryTypes();
+                LoadFileFromDisk();
             }
         }
 
         private void SaveButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            SaveFileToDisk();
         }
-
 
         private void HelpButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             showMessage("Help", "Made by: FromDarkHell, icon courtesy of BrokenNoah (deviantart)");
         }
 
+        private void OpenDebugMenu(object sender, System.Windows.RoutedEventArgs e)
+        {
+            child = new DebugConsole();
+            child.Show();
+        }
+
+        #region Save Editing Shenanigans
+
+        #region Customizations
+        private void UnlockCustomizations(object sender, System.Windows.RoutedEventArgs e)
+        {
+            List<string> customizationAssetPaths = DataPathTranslations.GetCustomizationAssetPaths();
+            List<OakCustomizationSaveGameData> saveData = loadedProfile.UnlockedCustomizations;
+            List<OakCustomizationSaveGameData> output = new List<OakCustomizationSaveGameData>();
+
+            foreach (string assetPath in customizationAssetPaths)
+            {
+                string lowerAsset = assetPath.ToLower();
+
+                if (lowerAsset.Contains("default") || (lowerAsset.Contains("emote") && (lowerAsset.Contains("wave") || lowerAsset.Contains("cheer") || lowerAsset.Contains("laugh") || lowerAsset.Contains("point")))) continue;
+
+                //if (!lowerAsset.Contains("beastmaster")) continue;
+
+                bool bAlreadyOwnsCustomization = false;
+                foreach (OakCustomizationSaveGameData customizatonData in saveData)
+                {
+                    if (customizatonData.CustomizationAssetPath.Equals(assetPath))
+                    {
+                        Console.WriteLine("Already owns {0}", assetPath);
+                        bAlreadyOwnsCustomization = true;
+                        break;
+                    }
+                }
+                if (!bAlreadyOwnsCustomization)
+                {
+                    OakCustomizationSaveGameData d = new OakCustomizationSaveGameData
+                    {
+                        CustomizationAssetPath = assetPath,
+                        IsNew = true
+                    };
+                    output.Add(d);
+                    //Console.WriteLine("Doesn't own {0}", assetPath);
+                }
+            }
+            saveData.AddRange(output);
+        }
+
+        private void LockCustomizations(object sender, System.Windows.RoutedEventArgs e)
+        {
+            loadedProfile.UnlockedCustomizations.RemoveRange(0, loadedProfile.UnlockedCustomizations.Count);
+        }
+        #endregion
+
+        #region Room Decorations
+        private void UnlockRoomDecorations(object sender, System.Windows.RoutedEventArgs e)
+        {
+            /*List<string> roomDecos = DataPathTranslations.decoAssetPaths;
+            foreach (string assetPath in roomDecos)
+            {
+                bool bAlreadyOwned = false;
+                foreach (CrewQuartersDecorationItemSaveGameData d in loadedProfile.UnlockedCrewQuartersDecorations)
+                {
+                    if (d.DecorationItemAssetPath.Equals(assetPath))
+                    {
+                        bAlreadyOwned = true;
+                        break;
+                    }
+                }
+                if (!bAlreadyOwned)
+                {
+                    CrewQuartersDecorationItemSaveGameData d = new CrewQuartersDecorationItemSaveGameData()
+                    {
+                        DecorationItemAssetPath = assetPath,
+                        IsNew = true
+                    };
+                    loadedProfile.UnlockedCrewQuartersDecorations.Add(d);
+                }
+            }
+            */
+        }
+
+        private void LockRoomDecorations(object sender, System.Windows.RoutedEventArgs e)
+        {
+            loadedProfile.UnlockedCrewQuartersDecorations.RemoveRange(0, loadedProfile.UnlockedCrewQuartersDecorations.Count);
+        }
+
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        #region Save Display Data
+
+        public ObservableCollection<StringIntPair> GetGuardianRewards()
+        {
+            ObservableCollection<StringIntPair> pairs = new ObservableCollection<StringIntPair>();
+            if (loadedProfile == null || loadedProfile.GuardianRank == null || loadedProfile.GuardianRank.RankRewards.Count <= 0)
+            {
+                foreach (string humanName in DataPathTranslations.GuardianRankRewards.Values)
+                {
+                    pairs.Add(new StringIntPair(humanName, 0));
+                }
+                return pairs;
+            }
+            foreach (GuardianRankRewardSaveGameData rankData in loadedProfile.GuardianRank.RankRewards)
+            {
+                string humanName = DataPathTranslations.GetHumanRewardString(rankData.RewardDataPath);
+                Console.WriteLine("Rank Data ({0}): {1}", humanName, rankData.NumTokens);
+                pairs.Add(new StringIntPair(humanName, rankData.NumTokens));
+            }
+
+            return pairs;
+        }
+
+        public class StringIntPair
+        {
+            public string str { get; set; } = "";
+            public int value { get; set; } = 0;
+            public StringIntPair(string name, int val)
+            {
+                str = name;
+                value = val;
+            }
+        }
+
+        public void UpdateSaveGUI()
+        {
+            UnspentTokensUp.IsEnabled = true;
+
+            UnspentTokensUp.SetBinding(NumericUpDown.ValueProperty, new Binding("AvailableTokens")
+            { Source = loadedProfile.GuardianRank });
+            GuardianRank.SetBinding(NumericUpDown.ValueProperty, new Binding("GuardianRank")
+            { Source = loadedProfile.GuardianRank });
+
+            GuardianXP.SetBinding(NumericUpDown.ValueProperty, new Binding("GuardianExperience")
+            { Source = loadedProfile.GuardianRank });
+
+            GuardianRankDataGrid.ItemsSource = GetGuardianRewards();
+        }
+
+        #endregion
+
         #endregion
 
         #region File Management / Editing
-        private void identifyEntryTypes()
+        private void LoadFileFromDisk()
         {
-            IO io = new IO(filePath, Endian.Little, 0x000004D4, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-            /*var sha1Hash = io.ReadBytes(3, Endian.Little);
-            byte[] computedSha1Hash;
-            using (var sha1 = new SHA1Managed())
+            IO io = new IO(filePath, Endian.Little, 0x0000000, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+            ReadGVASSave(io);
+
+            int remainingDataLength = io.ReadInt32();
+            Console.WriteLine("Length of data: {0}", remainingDataLength);
+            byte[] buf = io.ReadBytes(remainingDataLength);
+            io.Close();
+
+            ProfileBogoCrypt.Decrypt(buf, 0, remainingDataLength);
+
+            loadedProfile = Serializer.Deserialize<Profile>(new MemoryStream(buf));
+
+            UpdateSaveGUI();
+        }
+        private void SaveFileToDisk()
+        {
+            IO io = new IO(@"C:\Users\FromDarkHell\Documents\My Games\Borderlands 3\Saved\SaveGames\749a49478b93439a984b2703cbc1c46a\profile.sav", Endian.Little, 0x0000000, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+            ReadGUIData();
+
+            WriteGVASSave(io);
+            byte[] result;
+            using (var stream = new MemoryStream())
             {
-                computedSha1Hash = sha1.ComputeHash(io.ReadAll());
-            }*/
-            string type = new string(io.ReadChars(22));
-            var loadedProfile = ProtoSerializer.Deserialize<Profile>(io.CurrentStream);
-            int bgd = 0;
-            io.Close(true, true);
+                Serializer.Serialize<Profile>(stream, loadedProfile);
+                result = stream.ToArray();
+            }
+            ProfileBogoCrypt.Encrypt(result, 0, result.Length);
+
+            io.WriteInt32(result.Length);
+            io.WriteBytes(result);
+
+            io.Close();
+        }
+
+        private void ReadGUIData()
+        {
+
+            foreach (StringIntPair p in GuardianRankDataGrid.Items)
+            {
+                string assetPath = DataPathTranslations.GetAssetPathString(p.str);
+                bool bRankDataSaved = false;
+
+                foreach (GuardianRankRewardSaveGameData rankData in loadedProfile.GuardianRank.RankRewards)
+                {
+                    if (rankData.RewardDataPath.Equals(assetPath))
+                    {
+                        rankData.NumTokens = p.value;
+                        bRankDataSaved = true;
+                        break;
+                    }
+                }
+
+                if (!bRankDataSaved && p.value != 0)
+                {
+                    GuardianRankRewardSaveGameData rankData = new GuardianRankRewardSaveGameData()
+                    {
+                        RewardDataPath = assetPath,
+                        NumTokens = p.value
+                    };
+                    loadedProfile.GuardianRank.RankRewards.Add(rankData);
+                }
+            }
 
         }
+
+        #region GVAS Save Format Stuff
+        private void ReadGVASSave(IO io)
+        {
+            string header = io.ReadASCII(4);
+            Console.WriteLine("Header: {0}", header);
+            int sgVersion = io.ReadInt32();
+            Console.WriteLine("Save Game Version: {0}", sgVersion);
+            int pkgVersion = io.ReadInt32();
+            Console.WriteLine("Package version: {0}", pkgVersion);
+            short major = io.ReadInt16();
+            short minor = io.ReadInt16();
+            short patch = io.ReadInt16();
+            uint engineBuild = io.ReadUInt32();
+            Console.WriteLine("Engine version: {0}.{1}.{2}.{3}", major, minor, patch, engineBuild);
+
+            string buildId = Helpers.ReadUEString(io);
+            Console.WriteLine("Build ID: {0}", buildId);
+
+            int fmtVersion = io.ReadInt32();
+            Console.WriteLine("Custom Format Version: {0}", fmtVersion);
+            int fmtCount = io.ReadInt32();
+            Console.WriteLine("Custom Format Data Count: {0}", fmtCount);
+            Dictionary<byte[], int> keyValuePairs = new Dictionary<byte[], int>();
+            for (int i = 0; i < fmtCount; i++)
+            {
+                byte[] guid = io.ReadBytes(16);
+                int entry = io.ReadInt32();
+                keyValuePairs.Add(guid, entry);
+            }
+
+            string sgType = Helpers.ReadUEString(io);
+            Console.WriteLine("Save Game Type: {0}", sgType);
+            saveData = new GVASSave(sgVersion, pkgVersion, major, minor, patch, engineBuild, buildId, fmtVersion, fmtCount, keyValuePairs, sgType);
+        }
+
+        private void WriteGVASSave(IO io)
+        {
+            io.WriteASCII("GVAS");
+            io.WriteInt32(saveData.sg);
+            io.WriteInt32(saveData.pkg);
+            io.WriteInt16(saveData.mj);
+            io.WriteInt16(saveData.mn);
+            io.WriteInt16(saveData.pa);
+            io.WriteUInt32(saveData.eng);
+            io.WriteUEString(saveData.build);
+            io.WriteInt32(saveData.fmt);
+            io.WriteInt32(saveData.fmtLength);
+            foreach (KeyValuePair<byte[], int> entry in saveData.fmtData)
+            {
+                io.WriteBytes(entry.Key);
+                io.WriteInt32(entry.Value);
+            }
+            io.WriteUEString(saveData.sgType);
+        }
+
         #endregion
+
+        #endregion
+
 
     }
 
@@ -91,6 +356,8 @@ namespace BL3ProfileEditor
     // Extensions courtesy of Rick (Gibbed)
     public static partial class Helpers
     {
+        private static readonly Encoding Utf8 = new UTF8Encoding(false);
+
         public static MemoryStream ReadToMemoryStream(this Stream stream, long size, int buffer)
         {
             var memory = new MemoryStream();
@@ -115,6 +382,28 @@ namespace BL3ProfileEditor
         public static MemoryStream ReadToMemoryStream(this Stream stream, long size)
         {
             return stream.ReadToMemoryStream(size, 0x40000);
+        }
+
+        public static string ReadUEString(this IO io)
+        {
+            if (io.PeekChar() < 0) return null;
+            int length = io.ReadInt32();
+            if (length == 0) return null;
+            if (length == 1) return "";
+            var valueBytes = io.ReadBytes(length);
+            return Utf8.GetString(valueBytes, 0, valueBytes.Length - 1);
+        }
+
+        public static void WriteUEString(this IO io, string str)
+        {
+            if (str == null) io.WriteInt32(0);
+            else if (string.Empty.Equals(str)) io.WriteInt32(1);
+            else
+            {
+                byte[] data = Utf8.GetBytes(str + '\0');
+                io.WriteInt32(data.Length);
+                io.WriteBytes(data);
+            }
         }
 
     }

@@ -96,6 +96,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Debug\DebugConsole.xaml.cs">
+      <DependentUpon>DebugConsole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Debug\RedirectWriter.cs" />
+    <Compile Include="Protobufs\Decryption\ProfileBogoCrypt.cs" />
+    <Compile Include="Protobufs\Definitions\OakProfile.cs" />
+    <Compile Include="Protobufs\Definitions\OakSave.cs" />
+    <Compile Include="Protobufs\Definitions\OakShared.cs" />
+    <Compile Include="Protobufs\Definitions\Profile.cs" />
+    <Compile Include="Protobufs\Decryption\SaveBogoCrypt.cs" />
+    <Compile Include="Protobufs\GVAS\GVASData.cs" />
+    <Compile Include="Protobufs\Translations\DataPathTranslations.cs" />
+    <Page Include="Debug\DebugConsole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Editor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,7 +126,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -128,7 +143,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="BL3.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,5 +155,6 @@
   <ItemGroup>
     <Resource Include="Borderlands 3 004 512 x 512 ICO.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
