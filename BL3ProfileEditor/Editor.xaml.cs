@@ -226,12 +226,13 @@ namespace BL3ProfileEditor
             UnspentTokensUp.SetBinding(NumericUpDown.ValueProperty, new Binding("AvailableTokens") { Source = loadedProfile.GuardianRank });
             GuardianRank.SetBinding(NumericUpDown.ValueProperty, new Binding("GuardianRank") { Source = loadedProfile.GuardianRank });
 
-            GuardianXP.SetBinding(NumericUpDown.ValueProperty, new Binding("GuardianExperience") { Source = loadedProfile.GuardianRank });
+            GuardianXP.SetBinding(NumericUpDown.ValueProperty, new Binding("NewGuardianExperience") { Source = loadedProfile.GuardianRank });
 
             GuardianRankDataGrid.ItemsSource = GetGuardianRewards();
 
             BankSDUs.SetBinding(NumericUpDown.ValueProperty, new Binding("SduLevel") { Source = loadedProfile.ProfileSduLists.Where(x => x.SduDataPath.Equals(DataPathTranslations.BankSDUAssetPath)) });
             LLSDUs.SetBinding(NumericUpDown.ValueProperty, new Binding("SduLevel") { Source = loadedProfile.ProfileSduLists.Where(x => x.SduDataPath.Equals(DataPathTranslations.LLSDUAssetPath)) });
+            CSCurrency.SetBinding(NumericUpDown.ValueProperty, new Binding("CitizenScienceCSBucksAmount") { Source = loadedProfile });
         }
 
         #endregion

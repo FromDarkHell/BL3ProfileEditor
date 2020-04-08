@@ -85,8 +85,10 @@
                     <Controls:NumericUpDown x:Name="LLSDUs" Margin="10,89,287,206" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="8"  Minimum="0"/>
 
                     <Button Content="Clear Lost Loot" Margin="280,89,10,206" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="ClearLL" />
-                    <TextBox Name="ItemCodeBox" HorizontalAlignment="Left" Height="23" Margin="10,137,0,0" VerticalAlignment="Top" Width="257" Controls:TextBoxHelper.AutoWatermark="True" Controls:TextBoxHelper.Watermark="Item Code" TextWrapping="NoWrap"/>
-                    <Button Content="Add Item Code to Bank" Margin="280,137,10,158" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="AddItemCodeToBank" />
+                    <TextBox Name="ItemCodeBox" HorizontalAlignment="Left" Height="23" Margin="10,197,0,0" VerticalAlignment="Top" Width="257" Controls:TextBoxHelper.AutoWatermark="True" Controls:TextBoxHelper.Watermark="Item Code" TextWrapping="NoWrap"/>
+                    <Button Content="Add Item Code to Bank" Margin="280,197,10,98" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="AddItemCodeToBank" />
+                    <Label Content="Citizen Science Currency" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
+                    <Controls:NumericUpDown x:Name="CSCurrency" Margin="10,152,287,143" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"  Minimum="0"/>
                 </Grid>
             </TabItem>
 
