@@ -11,13 +11,12 @@ using Gibbed.Borderlands3.ProfileFormats;
 using System.Collections.ObjectModel;
 using BL3ProfileEditor.Protobufs.Translations;
 using System.Collections.Generic;
-using System.Windows.Interop;
 using System.Windows.Data;
 using MahApps.Metro.Controls;
-using System.Threading;
-using System.Windows.Threading;
 using BL3ProfileEditor.Debug;
 using BL3ProfileEditor.Protobufs.GVAS;
+using System.Linq;
+using System.Windows.Controls;
 
 namespace BL3ProfileEditor
 {
@@ -26,6 +25,15 @@ namespace BL3ProfileEditor
     /// </summary>
     public partial class MainWindow
     {
+
+        // TODO: Clear Lost Loot (Done??)
+
+        // TODO: Investigate `UnlockedInventoryCustomizationParts`
+
+        // TODO: Add items to bank/LL (Gibbed code)
+        // TODO: Mail GUIDs?
+        // TODO: Refactoring
+
         public string filePath;
         public string strippedPath;
 
@@ -104,7 +112,6 @@ namespace BL3ProfileEditor
                 {
                     if (customizatonData.CustomizationAssetPath.Equals(assetPath))
                     {
-                        Console.WriteLine("Already owns {0}", assetPath);
                         bAlreadyOwnsCustomization = true;
                         break;
                     }
@@ -117,7 +124,7 @@ namespace BL3ProfileEditor
                         IsNew = true
                     };
                     output.Add(d);
-                    //Console.WriteLine("Doesn't own {0}", assetPath);
+                    Console.WriteLine("Doesn't own customization: {0}", assetPath);
                 }
             }
             saveData.AddRange(output);
@@ -132,7 +139,7 @@ namespace BL3ProfileEditor
         #region Room Decorations
         private void UnlockRoomDecorations(object sender, System.Windows.RoutedEventArgs e)
         {
-            /*List<string> roomDecos = DataPathTranslations.decoAssetPaths;
+            List<string> roomDecos = DataPathTranslations.GetDecorationAssetPaths();
             foreach (string assetPath in roomDecos)
             {
                 bool bAlreadyOwned = false;
@@ -152,14 +159,28 @@ namespace BL3ProfileEditor
                         IsNew = true
                     };
                     loadedProfile.UnlockedCrewQuartersDecorations.Add(d);
+                    Console.WriteLine("Doesnt own room deco: {0}", assetPath);
                 }
             }
-            */
         }
 
         private void LockRoomDecorations(object sender, System.Windows.RoutedEventArgs e)
         {
             loadedProfile.UnlockedCrewQuartersDecorations.RemoveRange(0, loadedProfile.UnlockedCrewQuartersDecorations.Count);
+        }
+
+        #endregion
+
+        #region Lost Loot // Bank
+        private void ClearLL(object sender, System.Windows.RoutedEventArgs e)
+        {
+            loadedProfile.LostLootInventoryLists.Clear();
+        }
+
+
+        private void AddItemCodeToBank(object sender, System.Windows.RoutedEventArgs e)
+        {
+
         }
 
         #endregion
@@ -175,10 +196,7 @@ namespace BL3ProfileEditor
             ObservableCollection<StringIntPair> pairs = new ObservableCollection<StringIntPair>();
             if (loadedProfile == null || loadedProfile.GuardianRank == null || loadedProfile.GuardianRank.RankRewards.Count <= 0)
             {
-                foreach (string humanName in DataPathTranslations.GuardianRankRewards.Values)
-                {
-                    pairs.Add(new StringIntPair(humanName, 0));
-                }
+                foreach (string humanName in DataPathTranslations.GuardianRankRewards.Values) pairs.Add(new StringIntPair(humanName, 0));
                 return pairs;
             }
             foreach (GuardianRankRewardSaveGameData rankData in loadedProfile.GuardianRank.RankRewards)
@@ -202,6 +220,7 @@ namespace BL3ProfileEditor
             }
         }
 
+
         public void UpdateSaveGUI()
         {
             UnspentTokensUp.IsEnabled = true;
@@ -215,6 +234,11 @@ namespace BL3ProfileEditor
             { Source = loadedProfile.GuardianRank });
 
             GuardianRankDataGrid.ItemsSource = GetGuardianRewards();
+
+            BankSDUs.SetBinding(NumericUpDown.ValueProperty, new Binding("SduLevel")
+            { Source = loadedProfile.ProfileSduLists.Where(x => x.SduDataPath.Equals(DataPathTranslations.BankSDUAssetPath)) });
+            LLSDUs.SetBinding(NumericUpDown.ValueProperty, new Binding("SduLevel")
+            { Source = loadedProfile.ProfileSduLists.Where(x => x.SduDataPath.Equals(DataPathTranslations.LLSDUAssetPath)) });
         }
 
         #endregion
@@ -224,13 +248,21 @@ namespace BL3ProfileEditor
         #region File Management / Editing
         private void LoadFileFromDisk()
         {
+            Console.WriteLine("\n\n\n\n\nReading new file: \"{0}\"\n", filePath);
             IO io = new IO(filePath, Endian.Little, 0x0000000, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-            ReadGVASSave(io);
+            string saveGameType = ReadGVASSave(io);
 
             int remainingDataLength = io.ReadInt32();
             Console.WriteLine("Length of data: {0}", remainingDataLength);
             byte[] buf = io.ReadBytes(remainingDataLength);
             io.Close();
+
+            if (!saveGameType.Equals("BP_DefaultOakProfile_C"))
+            {
+                Console.WriteLine("Loaded file is not a profile...");
+                showMessage("File Error", "Loaded file is not a profile");
+                return;
+            }
 
             ProfileBogoCrypt.Decrypt(buf, 0, remainingDataLength);
 
@@ -261,10 +293,9 @@ namespace BL3ProfileEditor
 
         private void ReadGUIData()
         {
-
             foreach (StringIntPair p in GuardianRankDataGrid.Items)
             {
-                string assetPath = DataPathTranslations.GetAssetPathString(p.str);
+                string assetPath = DataPathTranslations.GetRewardAssetPathString(p.str);
                 bool bRankDataSaved = false;
 
                 foreach (GuardianRankRewardSaveGameData rankData in loadedProfile.GuardianRank.RankRewards)
@@ -278,20 +309,12 @@ namespace BL3ProfileEditor
                 }
 
                 if (!bRankDataSaved && p.value != 0)
-                {
-                    GuardianRankRewardSaveGameData rankData = new GuardianRankRewardSaveGameData()
-                    {
-                        RewardDataPath = assetPath,
-                        NumTokens = p.value
-                    };
-                    loadedProfile.GuardianRank.RankRewards.Add(rankData);
-                }
+                    loadedProfile.GuardianRank.RankRewards.Add(new GuardianRankRewardSaveGameData() { RewardDataPath = assetPath, NumTokens = p.value });
             }
-
         }
 
         #region GVAS Save Format Stuff
-        private void ReadGVASSave(IO io)
+        private string ReadGVASSave(IO io)
         {
             string header = io.ReadASCII(4);
             Console.WriteLine("Header: {0}", header);
@@ -323,6 +346,8 @@ namespace BL3ProfileEditor
             string sgType = Helpers.ReadUEString(io);
             Console.WriteLine("Save Game Type: {0}", sgType);
             saveData = new GVASSave(sgVersion, pkgVersion, major, minor, patch, engineBuild, buildId, fmtVersion, fmtCount, keyValuePairs, sgType);
+
+            return sgType;
         }
 
         private void WriteGVASSave(IO io)
@@ -345,10 +370,11 @@ namespace BL3ProfileEditor
             io.WriteUEString(saveData.sgType);
         }
 
-        #endregion
+
 
         #endregion
 
+        #endregion
 
     }
 

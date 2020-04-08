@@ -12,7 +12,6 @@ namespace BL3ProfileEditor.Protobufs.Translations
         #region Translation Dictionaries
 
         #region Guardian Rank
-
         public static readonly Dictionary<string, string> GuardianRankRewards = new Dictionary<string, string>()
         {
             {  "/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_Accuracy.GuardianReward_Accuracy", "Accuracy" },
@@ -34,11 +33,9 @@ namespace BL3ProfileEditor.Protobufs.Translations
             {"/Game/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_VehicleDamage.GuardianReward_VehicleDamage", "Vehicle Damage" },
             { "/Game/PatchDLC/Hibiscus/PlayerCharacters/_Shared/_Design/GuardianRank/GuardianReward_ElementalDamage.GuardianReward_ElementalDamage", "Elemental Damage" }
         };
-
         #endregion
 
         #region Customizations
-
         private static readonly List<string> emotesAssetPaths = new List<string>(){
             "/Game/PatchDLC/Dandelion/PlayerCharacters/_Customizations/Emotes/Beastmaster/CustomEmote_Beastmaster_13_HandsomeJack.CustomEmote_Beastmaster_13_HandsomeJack",
             "/Game/PatchDLC/Dandelion/PlayerCharacters/_Customizations/Emotes/Beastmaster/CustomEmote_Beastmaster_14_MakeItRain.CustomEmote_Beastmaster_14_MakeItRain",
@@ -159,7 +156,6 @@ namespace BL3ProfileEditor.Protobufs.Translations
             "/Game/PatchDLC/Hibiscus/Customizations/RoomDeco/RoomDeco_DLC2_8.RoomDeco_DLC2_8",
             "/Game/PatchDLC/Raid1/Customizations/RoomDeco/RoomDeco_Raid1_1.RoomDeco_Raid1_1"
         };
-
         private static readonly List<string> headAssetPaths = new List<string>(){
             "/Game/PatchDLC/Dandelion/PlayerCharacters/_Customizations/_Shared/CustomHead_Beastmaster_30.CustomHead_Beastmaster_30",
             "/Game/PatchDLC/Dandelion/PlayerCharacters/_Customizations/_Shared/CustomHead_Gunner_30.CustomHead_Gunner_30",
@@ -513,13 +509,16 @@ namespace BL3ProfileEditor.Protobufs.Translations
             "/Game/PatchDLC/Hibiscus/PlayerCharacters/_Customizations/EchoDevice/ECHOTheme_DLC2_04.ECHOTheme_DLC2_04",
             "/Game/PatchDLC/Raid1/Customizations/EchoDevice/ECHOTheme_38.ECHOTheme_38"
         };
-
-
         #endregion
+
+        public static readonly string BankSDUAssetPath = "/Game/Pickups/SDU/SDU_Bank.SDU_Bank";
+        public static readonly string LLSDUAssetPath = "/Game/Pickups/SDU/SDU_LostLoot.SDU_LostLoot";
+
 
         #endregion
 
         #region Functions
+
 
         #region Guardian Rank
 
@@ -533,17 +532,18 @@ namespace BL3ProfileEditor.Protobufs.Translations
             return GuardianRankRewards[assetPath];
         }
 
-        public static string GetAssetPathString(string human)
+        public static string GetRewardAssetPathString(string human)
         {
             if (!GuardianRankRewards.ContainsValue(human))
             {
-                throw new Exception(string.Format("Human formatted asset path undefined: {0}", human));
+                throw new Exception(string.Format("Human formatted guardian-rank asset path undefined: {0}", human));
             }
             return GuardianRankRewards.FirstOrDefault(x => x.Value.Equals(human)).Key;
         }
 
         #endregion
 
+        #region Customizations
         public static List<string> GetCustomizationAssetPaths()
         {
             List<string> customizations = emotesAssetPaths;
@@ -552,6 +552,14 @@ namespace BL3ProfileEditor.Protobufs.Translations
             customizations.AddRange(echoAssetPaths);
             return customizations;
         }
+
+        public static List<string> GetDecorationAssetPaths()
+        {
+            return decoAssetPaths;
+        }
+
+        #endregion
+
 
         #endregion
     }
