@@ -581,6 +581,16 @@ namespace OakSave
         public void ResetKickoffPlayed() => __pbn__KickoffPlayed = null;
         private bool? __pbn__KickoffPlayed;
 
+        [global::ProtoBuf.ProtoMember(8, Name = @"league_instance")]
+        public uint LeagueInstance
+        {
+            get { return __pbn__LeagueInstance.GetValueOrDefault(); }
+            set { __pbn__LeagueInstance = value; }
+        }
+        public bool ShouldSerializeLeagueInstance() => __pbn__LeagueInstance != null;
+        public void ResetLeagueInstance() => __pbn__LeagueInstance = null;
+        private uint? __pbn__LeagueInstance;
+
         [global::ProtoBuf.ProtoContract()]
         public enum MissionState
         {
@@ -948,109 +958,6 @@ namespace OakSave
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class ChallengeStatSaveGameData : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"current_stat_value")]
-        public int CurrentStatValue
-        {
-            get { return __pbn__CurrentStatValue.GetValueOrDefault(); }
-            set { __pbn__CurrentStatValue = value; }
-        }
-        public bool ShouldSerializeCurrentStatValue() => __pbn__CurrentStatValue != null;
-        public void ResetCurrentStatValue() => __pbn__CurrentStatValue = null;
-        private int? __pbn__CurrentStatValue;
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"challenge_stat_path")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string ChallengeStatPath
-        {
-            get { return __pbn__ChallengeStatPath ?? ""; }
-            set { __pbn__ChallengeStatPath = value; }
-        }
-        public bool ShouldSerializeChallengeStatPath() => __pbn__ChallengeStatPath != null;
-        public void ResetChallengeStatPath() => __pbn__ChallengeStatPath = null;
-        private string __pbn__ChallengeStatPath;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class ChallengeSaveGameData : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1, Name = @"completed_count")]
-        public int CompletedCount
-        {
-            get { return __pbn__CompletedCount.GetValueOrDefault(); }
-            set { __pbn__CompletedCount = value; }
-        }
-        public bool ShouldSerializeCompletedCount() => __pbn__CompletedCount != null;
-        public void ResetCompletedCount() => __pbn__CompletedCount = null;
-        private int? __pbn__CompletedCount;
-
-        [global::ProtoBuf.ProtoMember(2, Name = @"is_active")]
-        public bool IsActive
-        {
-            get { return __pbn__IsActive.GetValueOrDefault(); }
-            set { __pbn__IsActive = value; }
-        }
-        public bool ShouldSerializeIsActive() => __pbn__IsActive != null;
-        public void ResetIsActive() => __pbn__IsActive = null;
-        private bool? __pbn__IsActive;
-
-        [global::ProtoBuf.ProtoMember(3, Name = @"currently_completed")]
-        public bool CurrentlyCompleted
-        {
-            get { return __pbn__CurrentlyCompleted.GetValueOrDefault(); }
-            set { __pbn__CurrentlyCompleted = value; }
-        }
-        public bool ShouldSerializeCurrentlyCompleted() => __pbn__CurrentlyCompleted != null;
-        public void ResetCurrentlyCompleted() => __pbn__CurrentlyCompleted = null;
-        private bool? __pbn__CurrentlyCompleted;
-
-        [global::ProtoBuf.ProtoMember(4, Name = @"completed_progress_level")]
-        public int CompletedProgressLevel
-        {
-            get { return __pbn__CompletedProgressLevel.GetValueOrDefault(); }
-            set { __pbn__CompletedProgressLevel = value; }
-        }
-        public bool ShouldSerializeCompletedProgressLevel() => __pbn__CompletedProgressLevel != null;
-        public void ResetCompletedProgressLevel() => __pbn__CompletedProgressLevel = null;
-        private int? __pbn__CompletedProgressLevel;
-
-        [global::ProtoBuf.ProtoMember(5, Name = @"progress_counter")]
-        public int ProgressCounter
-        {
-            get { return __pbn__ProgressCounter.GetValueOrDefault(); }
-            set { __pbn__ProgressCounter = value; }
-        }
-        public bool ShouldSerializeProgressCounter() => __pbn__ProgressCounter != null;
-        public void ResetProgressCounter() => __pbn__ProgressCounter = null;
-        private int? __pbn__ProgressCounter;
-
-        [global::ProtoBuf.ProtoMember(6, Name = @"stat_instance_state")]
-        public global::System.Collections.Generic.List<ChallengeStatSaveGameData> StatInstanceStates { get; } = new global::System.Collections.Generic.List<ChallengeStatSaveGameData>();
-
-        [global::ProtoBuf.ProtoMember(7, Name = @"challenge_class_path")]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string ChallengeClassPath
-        {
-            get { return __pbn__ChallengeClassPath ?? ""; }
-            set { __pbn__ChallengeClassPath = value; }
-        }
-        public bool ShouldSerializeChallengeClassPath() => __pbn__ChallengeClassPath != null;
-        public void ResetChallengeClassPath() => __pbn__ChallengeClassPath = null;
-        private string __pbn__ChallengeClassPath;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
     public partial class CustomPlayerColorSaveGameData : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -1122,6 +1029,151 @@ namespace OakSave
         public bool ShouldSerializeGuardianExperience() => __pbn__GuardianExperience != null;
         public void ResetGuardianExperience() => __pbn__GuardianExperience = null;
         private int? __pbn__GuardianExperience;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GuardianRankRewardCharacterSaveGameData : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"num_tokens")]
+        public int NumTokens
+        {
+            get { return __pbn__NumTokens.GetValueOrDefault(); }
+            set { __pbn__NumTokens = value; }
+        }
+        public bool ShouldSerializeNumTokens() => __pbn__NumTokens != null;
+        public void ResetNumTokens() => __pbn__NumTokens = null;
+        private int? __pbn__NumTokens;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"is_enabled")]
+        public bool IsEnabled
+        {
+            get { return __pbn__IsEnabled.GetValueOrDefault(); }
+            set { __pbn__IsEnabled = value; }
+        }
+        public bool ShouldSerializeIsEnabled() => __pbn__IsEnabled != null;
+        public void ResetIsEnabled() => __pbn__IsEnabled = null;
+        private bool? __pbn__IsEnabled;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"reward_data_path")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string RewardDataPath
+        {
+            get { return __pbn__RewardDataPath ?? ""; }
+            set { __pbn__RewardDataPath = value; }
+        }
+        public bool ShouldSerializeRewardDataPath() => __pbn__RewardDataPath != null;
+        public void ResetRewardDataPath() => __pbn__RewardDataPath = null;
+        private string __pbn__RewardDataPath;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GuardianRankPerkCharacterSaveGameData : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"is_enabled")]
+        public bool IsEnabled
+        {
+            get { return __pbn__IsEnabled.GetValueOrDefault(); }
+            set { __pbn__IsEnabled = value; }
+        }
+        public bool ShouldSerializeIsEnabled() => __pbn__IsEnabled != null;
+        public void ResetIsEnabled() => __pbn__IsEnabled = null;
+        private bool? __pbn__IsEnabled;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"perk_data_path")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string PerkDataPath
+        {
+            get { return __pbn__PerkDataPath ?? ""; }
+            set { __pbn__PerkDataPath = value; }
+        }
+        public bool ShouldSerializePerkDataPath() => __pbn__PerkDataPath != null;
+        public void ResetPerkDataPath() => __pbn__PerkDataPath = null;
+        private string __pbn__PerkDataPath;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GuardianRankCharacterSaveGameData : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"guardian_available_tokens")]
+        public int GuardianAvailableTokens
+        {
+            get { return __pbn__GuardianAvailableTokens.GetValueOrDefault(); }
+            set { __pbn__GuardianAvailableTokens = value; }
+        }
+        public bool ShouldSerializeGuardianAvailableTokens() => __pbn__GuardianAvailableTokens != null;
+        public void ResetGuardianAvailableTokens() => __pbn__GuardianAvailableTokens = null;
+        private int? __pbn__GuardianAvailableTokens;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"guardian_rank")]
+        public int GuardianRank
+        {
+            get { return __pbn__GuardianRank.GetValueOrDefault(); }
+            set { __pbn__GuardianRank = value; }
+        }
+        public bool ShouldSerializeGuardianRank() => __pbn__GuardianRank != null;
+        public void ResetGuardianRank() => __pbn__GuardianRank = null;
+        private int? __pbn__GuardianRank;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"guardian_experience")]
+        public int GuardianExperience
+        {
+            get { return __pbn__GuardianExperience.GetValueOrDefault(); }
+            set { __pbn__GuardianExperience = value; }
+        }
+        public bool ShouldSerializeGuardianExperience() => __pbn__GuardianExperience != null;
+        public void ResetGuardianExperience() => __pbn__GuardianExperience = null;
+        private int? __pbn__GuardianExperience;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"rank_rewards")]
+        public global::System.Collections.Generic.List<GuardianRankRewardCharacterSaveGameData> RankRewards { get; } = new global::System.Collections.Generic.List<GuardianRankRewardCharacterSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"rank_perks")]
+        public global::System.Collections.Generic.List<GuardianRankPerkCharacterSaveGameData> RankPerks { get; } = new global::System.Collections.Generic.List<GuardianRankPerkCharacterSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"guardian_reward_random_seed")]
+        public int GuardianRewardRandomSeed
+        {
+            get { return __pbn__GuardianRewardRandomSeed.GetValueOrDefault(); }
+            set { __pbn__GuardianRewardRandomSeed = value; }
+        }
+        public bool ShouldSerializeGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed != null;
+        public void ResetGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed = null;
+        private int? __pbn__GuardianRewardRandomSeed;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"new_guardian_experience")]
+        public long NewGuardianExperience
+        {
+            get { return __pbn__NewGuardianExperience.GetValueOrDefault(); }
+            set { __pbn__NewGuardianExperience = value; }
+        }
+        public bool ShouldSerializeNewGuardianExperience() => __pbn__NewGuardianExperience != null;
+        public void ResetNewGuardianExperience() => __pbn__NewGuardianExperience = null;
+        private long? __pbn__NewGuardianExperience;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"is_rank_system_enabled")]
+        public bool IsRankSystemEnabled
+        {
+            get { return __pbn__IsRankSystemEnabled.GetValueOrDefault(); }
+            set { __pbn__IsRankSystemEnabled = value; }
+        }
+        public bool ShouldSerializeIsRankSystemEnabled() => __pbn__IsRankSystemEnabled != null;
+        public void ResetIsRankSystemEnabled() => __pbn__IsRankSystemEnabled = null;
+        private bool? __pbn__IsRankSystemEnabled;
 
     }
 
@@ -1946,6 +1998,29 @@ namespace OakSave
         public bool ShouldSerializeSaveGameGuid() => __pbn__SaveGameGuid != null;
         public void ResetSaveGameGuid() => __pbn__SaveGameGuid = null;
         private string __pbn__SaveGameGuid;
+
+        [global::ProtoBuf.ProtoMember(57, Name = @"guardian_rank_character_data")]
+        public GuardianRankCharacterSaveGameData GuardianRankCharacterData { get; set; }
+
+        [global::ProtoBuf.ProtoMember(58, Name = @"optional_objective_reward_fixup_applied")]
+        public bool OptionalObjectiveRewardFixupApplied
+        {
+            get { return __pbn__OptionalObjectiveRewardFixupApplied.GetValueOrDefault(); }
+            set { __pbn__OptionalObjectiveRewardFixupApplied = value; }
+        }
+        public bool ShouldSerializeOptionalObjectiveRewardFixupApplied() => __pbn__OptionalObjectiveRewardFixupApplied != null;
+        public void ResetOptionalObjectiveRewardFixupApplied() => __pbn__OptionalObjectiveRewardFixupApplied = null;
+        private bool? __pbn__OptionalObjectiveRewardFixupApplied;
+
+        [global::ProtoBuf.ProtoMember(59, Name = @"vehicle_part_rewards_fixup_applied")]
+        public bool VehiclePartRewardsFixupApplied
+        {
+            get { return __pbn__VehiclePartRewardsFixupApplied.GetValueOrDefault(); }
+            set { __pbn__VehiclePartRewardsFixupApplied = value; }
+        }
+        public bool ShouldSerializeVehiclePartRewardsFixupApplied() => __pbn__VehiclePartRewardsFixupApplied != null;
+        public void ResetVehiclePartRewardsFixupApplied() => __pbn__VehiclePartRewardsFixupApplied = null;
+        private bool? __pbn__VehiclePartRewardsFixupApplied;
 
         [global::ProtoBuf.ProtoContract()]
         public partial class NicknameMappingsEntry : global::ProtoBuf.IExtensible

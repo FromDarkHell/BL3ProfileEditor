@@ -500,6 +500,26 @@ namespace OakSave
         public void ResetGuardianExperience() => __pbn__GuardianExperience = null;
         private int? __pbn__GuardianExperience;
 
+        [global::ProtoBuf.ProtoMember(5, Name = @"guardian_reward_random_seed")]
+        public int GuardianRewardRandomSeed
+        {
+            get { return __pbn__GuardianRewardRandomSeed.GetValueOrDefault(); }
+            set { __pbn__GuardianRewardRandomSeed = value; }
+        }
+        public bool ShouldSerializeGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed != null;
+        public void ResetGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed = null;
+        private int? __pbn__GuardianRewardRandomSeed;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"new_guardian_experience")]
+        public long NewGuardianExperience
+        {
+            get { return __pbn__NewGuardianExperience.GetValueOrDefault(); }
+            set { __pbn__NewGuardianExperience = value; }
+        }
+        public bool ShouldSerializeNewGuardianExperience() => __pbn__NewGuardianExperience != null;
+        public void ResetNewGuardianExperience() => __pbn__NewGuardianExperience = null;
+        private long? __pbn__NewGuardianExperience;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -561,6 +581,48 @@ namespace OakSave
         private string __pbn__RoomItemAssetPath;
 
     }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class RecentlyMetPlayer : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"shift_player_id")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ShiftPlayerId
+        {
+            get { return __pbn__ShiftPlayerId ?? ""; }
+            set { __pbn__ShiftPlayerId = value; }
+        }
+        public bool ShouldSerializeShiftPlayerId() => __pbn__ShiftPlayerId != null;
+        public void ResetShiftPlayerId() => __pbn__ShiftPlayerId = null;
+        private string __pbn__ShiftPlayerId;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"first_party_player_id")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string FirstPartyPlayerId
+        {
+            get { return __pbn__FirstPartyPlayerId ?? ""; }
+            set { __pbn__FirstPartyPlayerId = value; }
+        }
+        public bool ShouldSerializeFirstPartyPlayerId() => __pbn__FirstPartyPlayerId != null;
+        public void ResetFirstPartyPlayerId() => __pbn__FirstPartyPlayerId = null;
+        private string __pbn__FirstPartyPlayerId;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"show_shift_player_entry")]
+        public bool ShowShiftPlayerEntry
+        {
+            get { return __pbn__ShowShiftPlayerEntry.GetValueOrDefault(); }
+            set { __pbn__ShowShiftPlayerEntry = value; }
+        }
+        public bool ShouldSerializeShowShiftPlayerEntry() => __pbn__ShowShiftPlayerEntry != null;
+        public void ResetShowShiftPlayerEntry() => __pbn__ShowShiftPlayerEntry = null;
+        private bool? __pbn__ShowShiftPlayerEntry;
+
+    }
+
 }
 
 #pragma warning restore CS1591, CS0612, CS3021, IDE1006

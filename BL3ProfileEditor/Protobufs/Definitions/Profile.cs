@@ -1,7 +1,8 @@
-﻿#pragma warning disable CS1591, CS0612, CS3021, IDE1006
+﻿using OakSave;
 
-namespace OakSave
+namespace BL3ProfileEditor.Protobufs.Definitions
 {
+
     [global::ProtoBuf.ProtoContract()]
     public partial class Profile : global::ProtoBuf.IExtensible
     {
@@ -88,7 +89,6 @@ namespace OakSave
         public bool ShouldSerializeEnableMouseSmoothing() => __pbn__EnableMouseSmoothing != null;
         public void ResetEnableMouseSmoothing() => __pbn__EnableMouseSmoothing = null;
         private bool? __pbn__EnableMouseSmoothing;
-
 
         [global::ProtoBuf.ProtoMember(9, Name = @"mouse_scale")]
         public float MouseScale
@@ -1050,8 +1050,15 @@ namespace OakSave
         public void ResetLastWhisperFetchStatusesTime() => __pbn__LastWhisperFetchStatusesTime = null;
         private long? __pbn__LastWhisperFetchStatusesTime;
 
-        [global::ProtoBuf.ProtoMember(132, Name = @"recently_met_players")]
-        public global::System.Collections.Generic.List<string> RecentlyMetPlayers { get; } = new global::System.Collections.Generic.List<string>();
+        [global::ProtoBuf.ProtoMember(113, Name = @"desired_crossplay_state")]
+        public uint DesiredCrossplayState
+        {
+            get { return __pbn__DesiredCrossplayState.GetValueOrDefault(); }
+            set { __pbn__DesiredCrossplayState = value; }
+        }
+        public bool ShouldSerializeDesiredCrossplayState() => __pbn__DesiredCrossplayState != null;
+        public void ResetDesiredCrossplayState() => __pbn__DesiredCrossplayState = null;
+        private uint? __pbn__DesiredCrossplayState;
 
         [global::ProtoBuf.ProtoMember(133, Name = @"friend_encounters")]
         public global::System.Collections.Generic.List<FriendEncountersEntry> FriendEncounters { get; } = new global::System.Collections.Generic.List<FriendEncountersEntry>();
@@ -1594,6 +1601,205 @@ namespace OakSave
         public void ResetDisableSpatialAudio() => __pbn__DisableSpatialAudio = null;
         private bool? __pbn__DisableSpatialAudio;
 
+        [global::ProtoBuf.ProtoMember(205, Name = @"total_playtime_seconds")]
+        public int TotalPlaytimeSeconds
+        {
+            get { return __pbn__TotalPlaytimeSeconds.GetValueOrDefault(); }
+            set { __pbn__TotalPlaytimeSeconds = value; }
+        }
+        public bool ShouldSerializeTotalPlaytimeSeconds() => __pbn__TotalPlaytimeSeconds != null;
+        public void ResetTotalPlaytimeSeconds() => __pbn__TotalPlaytimeSeconds = null;
+        private int? __pbn__TotalPlaytimeSeconds;
+
+        [global::ProtoBuf.ProtoMember(206, Name = @"moxxis_drink_event_enabled")]
+        public bool MoxxisDrinkEventEnabled
+        {
+            get { return __pbn__MoxxisDrinkEventEnabled.GetValueOrDefault(); }
+            set { __pbn__MoxxisDrinkEventEnabled = value; }
+        }
+        public bool ShouldSerializeMoxxisDrinkEventEnabled() => __pbn__MoxxisDrinkEventEnabled != null;
+        public void ResetMoxxisDrinkEventEnabled() => __pbn__MoxxisDrinkEventEnabled = null;
+        private bool? __pbn__MoxxisDrinkEventEnabled;
+
+        [global::ProtoBuf.ProtoMember(207, Name = @"moxxis_drink_event_bits_product_id")]
+        public int MoxxisDrinkEventBitsProductId
+        {
+            get { return __pbn__MoxxisDrinkEventBitsProductId.GetValueOrDefault(); }
+            set { __pbn__MoxxisDrinkEventBitsProductId = value; }
+        }
+        public bool ShouldSerializeMoxxisDrinkEventBitsProductId() => __pbn__MoxxisDrinkEventBitsProductId != null;
+        public void ResetMoxxisDrinkEventBitsProductId() => __pbn__MoxxisDrinkEventBitsProductId = null;
+        private int? __pbn__MoxxisDrinkEventBitsProductId;
+
+        [global::ProtoBuf.ProtoMember(208, Name = @"challenge_data")]
+        public global::System.Collections.Generic.List<ChallengeSaveGameData> ChallengeDatas { get; } = new global::System.Collections.Generic.List<ChallengeSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(209, Name = @"CitizenScienceLevelProgression")]
+        public int[] CitizenScienceLevelProgressions { get; set; }
+
+        [global::ProtoBuf.ProtoMember(211, Name = @"disable_event_content")]
+        public bool DisableEventContent
+        {
+            get { return __pbn__DisableEventContent.GetValueOrDefault(); }
+            set { __pbn__DisableEventContent = value; }
+        }
+        public bool ShouldSerializeDisableEventContent() => __pbn__DisableEventContent != null;
+        public void ResetDisableEventContent() => __pbn__DisableEventContent = null;
+        private bool? __pbn__DisableEventContent;
+
+        [global::ProtoBuf.ProtoMember(212, Name = @"desired_friend_sync_state")]
+        public uint DesiredFriendSyncState
+        {
+            get { return __pbn__DesiredFriendSyncState.GetValueOrDefault(); }
+            set { __pbn__DesiredFriendSyncState = value; }
+        }
+        public bool ShouldSerializeDesiredFriendSyncState() => __pbn__DesiredFriendSyncState != null;
+        public void ResetDesiredFriendSyncState() => __pbn__DesiredFriendSyncState = null;
+        private uint? __pbn__DesiredFriendSyncState;
+
+        [global::ProtoBuf.ProtoMember(213, Name = @"needs_shift_first_boot")]
+        public bool NeedsShiftFirstBoot
+        {
+            get { return __pbn__NeedsShiftFirstBoot.GetValueOrDefault(); }
+            set { __pbn__NeedsShiftFirstBoot = value; }
+        }
+        public bool ShouldSerializeNeedsShiftFirstBoot() => __pbn__NeedsShiftFirstBoot != null;
+        public void ResetNeedsShiftFirstBoot() => __pbn__NeedsShiftFirstBoot = null;
+        private bool? __pbn__NeedsShiftFirstBoot;
+
+        [global::ProtoBuf.ProtoMember(214, Name = @"recently_met_players")]
+        public global::System.Collections.Generic.List<RecentlyMetPlayer> RecentlyMetPlayers { get; } = new global::System.Collections.Generic.List<RecentlyMetPlayer>();
+
+        [global::ProtoBuf.ProtoMember(215)]
+        public int CitizenScienceActiveBoosterIndex
+        {
+            get { return __pbn__CitizenScienceActiveBoosterIndex.GetValueOrDefault(); }
+            set { __pbn__CitizenScienceActiveBoosterIndex = value; }
+        }
+        public bool ShouldSerializeCitizenScienceActiveBoosterIndex() => __pbn__CitizenScienceActiveBoosterIndex != null;
+        public void ResetCitizenScienceActiveBoosterIndex() => __pbn__CitizenScienceActiveBoosterIndex = null;
+        private int? __pbn__CitizenScienceActiveBoosterIndex;
+
+        [global::ProtoBuf.ProtoMember(216)]
+        public float CitizenScienceActiveBoosterRemainingTime
+        {
+            get { return __pbn__CitizenScienceActiveBoosterRemainingTime.GetValueOrDefault(); }
+            set { __pbn__CitizenScienceActiveBoosterRemainingTime = value; }
+        }
+        public bool ShouldSerializeCitizenScienceActiveBoosterRemainingTime() => __pbn__CitizenScienceActiveBoosterRemainingTime != null;
+        public void ResetCitizenScienceActiveBoosterRemainingTime() => __pbn__CitizenScienceActiveBoosterRemainingTime = null;
+        private float? __pbn__CitizenScienceActiveBoosterRemainingTime;
+
+        [global::ProtoBuf.ProtoMember(217)]
+        public float CitizenScienceActiveBoosterTotalTime
+        {
+            get { return __pbn__CitizenScienceActiveBoosterTotalTime.GetValueOrDefault(); }
+            set { __pbn__CitizenScienceActiveBoosterTotalTime = value; }
+        }
+        public bool ShouldSerializeCitizenScienceActiveBoosterTotalTime() => __pbn__CitizenScienceActiveBoosterTotalTime != null;
+        public void ResetCitizenScienceActiveBoosterTotalTime() => __pbn__CitizenScienceActiveBoosterTotalTime = null;
+        private float? __pbn__CitizenScienceActiveBoosterTotalTime;
+
+        [global::ProtoBuf.ProtoMember(218)]
+        public int StreamerPrimaryActiveBoosterIndex
+        {
+            get { return __pbn__StreamerPrimaryActiveBoosterIndex.GetValueOrDefault(); }
+            set { __pbn__StreamerPrimaryActiveBoosterIndex = value; }
+        }
+        public bool ShouldSerializeStreamerPrimaryActiveBoosterIndex() => __pbn__StreamerPrimaryActiveBoosterIndex != null;
+        public void ResetStreamerPrimaryActiveBoosterIndex() => __pbn__StreamerPrimaryActiveBoosterIndex = null;
+        private int? __pbn__StreamerPrimaryActiveBoosterIndex;
+
+        [global::ProtoBuf.ProtoMember(219)]
+        public float StreamerPrimaryActiveBoosterRemainingTime
+        {
+            get { return __pbn__StreamerPrimaryActiveBoosterRemainingTime.GetValueOrDefault(); }
+            set { __pbn__StreamerPrimaryActiveBoosterRemainingTime = value; }
+        }
+        public bool ShouldSerializeStreamerPrimaryActiveBoosterRemainingTime() => __pbn__StreamerPrimaryActiveBoosterRemainingTime != null;
+        public void ResetStreamerPrimaryActiveBoosterRemainingTime() => __pbn__StreamerPrimaryActiveBoosterRemainingTime = null;
+        private float? __pbn__StreamerPrimaryActiveBoosterRemainingTime;
+
+        [global::ProtoBuf.ProtoMember(220)]
+        public float StreamerPrimaryActiveBoosterTotalTime
+        {
+            get { return __pbn__StreamerPrimaryActiveBoosterTotalTime.GetValueOrDefault(); }
+            set { __pbn__StreamerPrimaryActiveBoosterTotalTime = value; }
+        }
+        public bool ShouldSerializeStreamerPrimaryActiveBoosterTotalTime() => __pbn__StreamerPrimaryActiveBoosterTotalTime != null;
+        public void ResetStreamerPrimaryActiveBoosterTotalTime() => __pbn__StreamerPrimaryActiveBoosterTotalTime = null;
+        private float? __pbn__StreamerPrimaryActiveBoosterTotalTime;
+
+        [global::ProtoBuf.ProtoMember(221)]
+        public int StreamerSecondaryActiveBoosterIndex
+        {
+            get { return __pbn__StreamerSecondaryActiveBoosterIndex.GetValueOrDefault(); }
+            set { __pbn__StreamerSecondaryActiveBoosterIndex = value; }
+        }
+        public bool ShouldSerializeStreamerSecondaryActiveBoosterIndex() => __pbn__StreamerSecondaryActiveBoosterIndex != null;
+        public void ResetStreamerSecondaryActiveBoosterIndex() => __pbn__StreamerSecondaryActiveBoosterIndex = null;
+        private int? __pbn__StreamerSecondaryActiveBoosterIndex;
+
+        [global::ProtoBuf.ProtoMember(222)]
+        public float StreamerSecondaryActiveBoosterRemainingTime
+        {
+            get { return __pbn__StreamerSecondaryActiveBoosterRemainingTime.GetValueOrDefault(); }
+            set { __pbn__StreamerSecondaryActiveBoosterRemainingTime = value; }
+        }
+        public bool ShouldSerializeStreamerSecondaryActiveBoosterRemainingTime() => __pbn__StreamerSecondaryActiveBoosterRemainingTime != null;
+        public void ResetStreamerSecondaryActiveBoosterRemainingTime() => __pbn__StreamerSecondaryActiveBoosterRemainingTime = null;
+        private float? __pbn__StreamerSecondaryActiveBoosterRemainingTime;
+
+        [global::ProtoBuf.ProtoMember(223)]
+        public float StreamerSecondaryActiveBoosterTotalTime
+        {
+            get { return __pbn__StreamerSecondaryActiveBoosterTotalTime.GetValueOrDefault(); }
+            set { __pbn__StreamerSecondaryActiveBoosterTotalTime = value; }
+        }
+        public bool ShouldSerializeStreamerSecondaryActiveBoosterTotalTime() => __pbn__StreamerSecondaryActiveBoosterTotalTime != null;
+        public void ResetStreamerSecondaryActiveBoosterTotalTime() => __pbn__StreamerSecondaryActiveBoosterTotalTime = null;
+        private float? __pbn__StreamerSecondaryActiveBoosterTotalTime;
+
+        [global::ProtoBuf.ProtoMember(224)]
+        public int StreamerBoosterTier
+        {
+            get { return __pbn__StreamerBoosterTier.GetValueOrDefault(); }
+            set { __pbn__StreamerBoosterTier = value; }
+        }
+        public bool ShouldSerializeStreamerBoosterTier() => __pbn__StreamerBoosterTier != null;
+        public void ResetStreamerBoosterTier() => __pbn__StreamerBoosterTier = null;
+        private int? __pbn__StreamerBoosterTier;
+
+        [global::ProtoBuf.ProtoMember(226)]
+        public int CitizenScienceCSBucksAmount
+        {
+            get { return __pbn__CitizenScienceCSBucksAmount.GetValueOrDefault(); }
+            set { __pbn__CitizenScienceCSBucksAmount = value; }
+        }
+        public bool ShouldSerializeCitizenScienceCSBucksAmount() => __pbn__CitizenScienceCSBucksAmount != null;
+        public void ResetCitizenScienceCSBucksAmount() => __pbn__CitizenScienceCSBucksAmount = null;
+        private int? __pbn__CitizenScienceCSBucksAmount;
+
+        [global::ProtoBuf.ProtoMember(227)]
+        public bool bCitizenScienceHasSeenIntroVideo
+        {
+            get { return __pbn__bCitizenScienceHasSeenIntroVideo.GetValueOrDefault(); }
+            set { __pbn__bCitizenScienceHasSeenIntroVideo = value; }
+        }
+        public bool ShouldSerializebCitizenScienceHasSeenIntroVideo() => __pbn__bCitizenScienceHasSeenIntroVideo != null;
+        public void ResetbCitizenScienceHasSeenIntroVideo() => __pbn__bCitizenScienceHasSeenIntroVideo = null;
+        private bool? __pbn__bCitizenScienceHasSeenIntroVideo;
+
+        [global::ProtoBuf.ProtoMember(228)]
+        public bool bCitizenScienceTutorialDone
+        {
+            get { return __pbn__bCitizenScienceTutorialDone.GetValueOrDefault(); }
+            set { __pbn__bCitizenScienceTutorialDone = value; }
+        }
+        public bool ShouldSerializebCitizenScienceTutorialDone() => __pbn__bCitizenScienceTutorialDone != null;
+        public void ResetbCitizenScienceTutorialDone() => __pbn__bCitizenScienceTutorialDone = null;
+        private bool? __pbn__bCitizenScienceTutorialDone;
+
         [global::ProtoBuf.ProtoContract()]
         public partial class FriendEncountersEntry : global::ProtoBuf.IExtensible
         {
@@ -1616,10 +1822,5 @@ namespace OakSave
             public OakFriendEncounterData Value { get; set; }
 
         }
-
     }
-
 }
-
-
-#pragma warning restore CS1591, CS0612, CS3021, IDE1006

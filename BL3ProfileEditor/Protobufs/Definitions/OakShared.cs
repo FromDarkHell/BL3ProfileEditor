@@ -209,6 +209,131 @@ namespace OakSave
 
     }
 
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ChallengeStatSaveGameData : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"current_stat_value")]
+        public int CurrentStatValue
+        {
+            get { return __pbn__CurrentStatValue.GetValueOrDefault(); }
+            set { __pbn__CurrentStatValue = value; }
+        }
+        public bool ShouldSerializeCurrentStatValue() => __pbn__CurrentStatValue != null;
+        public void ResetCurrentStatValue() => __pbn__CurrentStatValue = null;
+        private int? __pbn__CurrentStatValue;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"challenge_stat_path")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ChallengeStatPath
+        {
+            get { return __pbn__ChallengeStatPath ?? ""; }
+            set { __pbn__ChallengeStatPath = value; }
+        }
+        public bool ShouldSerializeChallengeStatPath() => __pbn__ChallengeStatPath != null;
+        public void ResetChallengeStatPath() => __pbn__ChallengeStatPath = null;
+        private string __pbn__ChallengeStatPath;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class OakChallengeRewardSaveGameData : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"challenge_reward_claimed")]
+        public bool ChallengeRewardClaimed
+        {
+            get { return __pbn__ChallengeRewardClaimed.GetValueOrDefault(); }
+            set { __pbn__ChallengeRewardClaimed = value; }
+        }
+        public bool ShouldSerializeChallengeRewardClaimed() => __pbn__ChallengeRewardClaimed != null;
+        public void ResetChallengeRewardClaimed() => __pbn__ChallengeRewardClaimed = null;
+        private bool? __pbn__ChallengeRewardClaimed;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ChallengeSaveGameData : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"completed_count")]
+        public int CompletedCount
+        {
+            get { return __pbn__CompletedCount.GetValueOrDefault(); }
+            set { __pbn__CompletedCount = value; }
+        }
+        public bool ShouldSerializeCompletedCount() => __pbn__CompletedCount != null;
+        public void ResetCompletedCount() => __pbn__CompletedCount = null;
+        private int? __pbn__CompletedCount;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"is_active")]
+        public bool IsActive
+        {
+            get { return __pbn__IsActive.GetValueOrDefault(); }
+            set { __pbn__IsActive = value; }
+        }
+        public bool ShouldSerializeIsActive() => __pbn__IsActive != null;
+        public void ResetIsActive() => __pbn__IsActive = null;
+        private bool? __pbn__IsActive;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"currently_completed")]
+        public bool CurrentlyCompleted
+        {
+            get { return __pbn__CurrentlyCompleted.GetValueOrDefault(); }
+            set { __pbn__CurrentlyCompleted = value; }
+        }
+        public bool ShouldSerializeCurrentlyCompleted() => __pbn__CurrentlyCompleted != null;
+        public void ResetCurrentlyCompleted() => __pbn__CurrentlyCompleted = null;
+        private bool? __pbn__CurrentlyCompleted;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"completed_progress_level")]
+        public int CompletedProgressLevel
+        {
+            get { return __pbn__CompletedProgressLevel.GetValueOrDefault(); }
+            set { __pbn__CompletedProgressLevel = value; }
+        }
+        public bool ShouldSerializeCompletedProgressLevel() => __pbn__CompletedProgressLevel != null;
+        public void ResetCompletedProgressLevel() => __pbn__CompletedProgressLevel = null;
+        private int? __pbn__CompletedProgressLevel;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"progress_counter")]
+        public int ProgressCounter
+        {
+            get { return __pbn__ProgressCounter.GetValueOrDefault(); }
+            set { __pbn__ProgressCounter = value; }
+        }
+        public bool ShouldSerializeProgressCounter() => __pbn__ProgressCounter != null;
+        public void ResetProgressCounter() => __pbn__ProgressCounter = null;
+        private int? __pbn__ProgressCounter;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"stat_instance_state")]
+        public global::System.Collections.Generic.List<ChallengeStatSaveGameData> StatInstanceStates { get; } = new global::System.Collections.Generic.List<ChallengeStatSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"challenge_class_path")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ChallengeClassPath
+        {
+            get { return __pbn__ChallengeClassPath ?? ""; }
+            set { __pbn__ChallengeClassPath = value; }
+        }
+        public bool ShouldSerializeChallengeClassPath() => __pbn__ChallengeClassPath != null;
+        public void ResetChallengeClassPath() => __pbn__ChallengeClassPath = null;
+        private string __pbn__ChallengeClassPath;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"challenge_reward_info")]
+        public global::System.Collections.Generic.List<OakChallengeRewardSaveGameData> ChallengeRewardInfoes { get; } = new global::System.Collections.Generic.List<OakChallengeRewardSaveGameData>();
+
+    }
+
 }
 
 #pragma warning restore CS1591, CS0612, CS3021, IDE1006

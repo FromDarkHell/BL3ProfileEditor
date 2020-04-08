@@ -514,7 +514,6 @@ namespace BL3ProfileEditor.Protobufs.Translations
         public static readonly string BankSDUAssetPath = "/Game/Pickups/SDU/SDU_Bank.SDU_Bank";
         public static readonly string LLSDUAssetPath = "/Game/Pickups/SDU/SDU_LostLoot.SDU_LostLoot";
 
-
         #endregion
 
         #region Functions
@@ -559,7 +558,6 @@ namespace BL3ProfileEditor.Protobufs.Translations
         }
 
         #endregion
-
 
         #endregion
     }
