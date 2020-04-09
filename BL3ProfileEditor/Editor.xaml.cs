@@ -53,8 +53,10 @@ namespace BL3ProfileEditor
             OpenFileDialog fileDialog = new OpenFileDialog
             {
                 Title = "Select BL3 Profile",
-                Filter = "Profile|*.sav"
+                Filter = "Profile|*.sav",
+                InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "Borderlands 3", "Saved", "SaveGames")
             };
+
             if (fileDialog.ShowDialog() == true)
             {
                 filePath = fileDialog.FileName;
