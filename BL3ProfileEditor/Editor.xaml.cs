@@ -206,16 +206,22 @@ namespace BL3ProfileEditor
         public ObservableCollection<StringIntPair> GetGuardianRewards()
         {
             ObservableCollection<StringIntPair> pairs = new ObservableCollection<StringIntPair>();
-            if (loadedProfile == null || loadedProfile.GuardianRank == null || loadedProfile.GuardianRank.RankRewards.Count <= 0)
+            foreach (string humanName in DataPathTranslations.GuardianRankRewards.Values)
             {
-                foreach (string humanName in DataPathTranslations.GuardianRankRewards.Values) pairs.Add(new StringIntPair(humanName, 0));
-                return pairs;
-            }
-            foreach (GuardianRankRewardSaveGameData rankData in loadedProfile.GuardianRank.RankRewards)
-            {
-                string humanName = DataPathTranslations.GetHumanRewardString(rankData.RewardDataPath);
-                Console.WriteLine("Rank Data ({0}): {1}", humanName, rankData.NumTokens);
-                pairs.Add(new StringIntPair(humanName, rankData.NumTokens));
+                bool bUpdatedRankData = false;
+                foreach (GuardianRankRewardSaveGameData rankData in loadedProfile.GuardianRank.RankRewards)
+                {
+                    string h = DataPathTranslations.GetHumanRewardString(rankData.RewardDataPath);
+                    if (h.Equals(humanName))
+                    {
+                        Console.WriteLine("Rank Data ({0}): {1}", humanName, rankData.NumTokens);
+                        pairs.Add(new StringIntPair(humanName, rankData.NumTokens));
+                        bUpdatedRankData = true;
+                        break;
+                    }
+                }
+                if (!bUpdatedRankData)
+                    pairs.Add(new StringIntPair(humanName, 0));
             }
 
             return pairs;
@@ -318,9 +324,14 @@ namespace BL3ProfileEditor
                     }
                 }
 
-                if (!bRankDataSaved && p.value != 0)
+                if (!bRankDataSaved)
                     loadedProfile.GuardianRank.RankRewards.Add(new GuardianRankRewardSaveGameData() { RewardDataPath = assetPath, NumTokens = p.value });
+
+                if (p.value == 0)
+                    loadedProfile.GuardianRank.RankRewards.RemoveAll(x => x.RewardDataPath.Equals(assetPath));
             }
+
+            loadedProfile.GuardianRank.GuardianExperience = (int)loadedProfile.GuardianRank.NewGuardianExperience;
         }
 
         #endregion
