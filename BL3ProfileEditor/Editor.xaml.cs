@@ -16,6 +16,7 @@ using Gibbed.Borderlands3.ProfileFormats;
 using BL3ProfileEditor.Protobufs.Helpers;
 using BL3ProfileEditor.Protobufs.Definitions;
 using BL3ProfileEditor.Protobufs.Translations;
+using Gibbed.Borderlands3.SaveFormats;
 
 namespace BL3ProfileEditor
 {
@@ -195,6 +196,93 @@ namespace BL3ProfileEditor
 
         #endregion
 
+        private void InjectGRSaves(object sender, System.Windows.RoutedEventArgs e)
+        {
+            GRInjection();
+        }
+
+        private void GRInjection()
+        {
+            DirectoryInfo saveFiles = new DirectoryInfo(Path.GetDirectoryName(filePath));
+            IEnumerable<FileInfo> infos = saveFiles.EnumerateFiles("*.sav");
+
+            foreach (FileInfo saveFile in infos) // Get all of our .sav files
+            {
+                if (saveFile.IsReadOnly) continue;
+
+                IO io = new IO(saveFile.FullName, Endian.Little, 0x0000000, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                Console.WriteLine("Reading file \"{0}\"", saveFile.FullName);
+                GVASSave gvas = Helpers.ReadGVASSave(io);
+
+                if (gvas == null || !gvas.sgType.Equals("OakSaveGame"))
+                {
+                    Console.WriteLine("File \"{0}\" is not a save.", saveFile.FullName);
+                    continue;
+                }
+
+                int remainingDataLength = io.ReadInt32();
+                Console.WriteLine("Length of data: {0}", remainingDataLength);
+                byte[] buf = io.ReadBytes(remainingDataLength);
+
+                SaveBogoCrypt.Decrypt(buf, 0, remainingDataLength);
+
+                Character characterSave = Serializer.Deserialize<Character>(new MemoryStream(buf));
+                Console.WriteLine("Parsing save: {0}", characterSave.PreferredCharacterName);
+
+                GuardianRankCharacterSaveGameData grcd = characterSave.GuardianRankCharacterData;
+                if (grcd == null)
+                {
+                    io.Close();
+                    continue;
+                }
+
+                grcd.GuardianAvailableTokens = loadedProfile.GuardianRank.AvailableTokens;
+                grcd.GuardianExperience = loadedProfile.GuardianRank.GuardianExperience;
+                grcd.NewGuardianExperience = loadedProfile.GuardianRank.NewGuardianExperience;
+                grcd.GuardianRewardRandomSeed = loadedProfile.GuardianRank.GuardianRewardRandomSeed;
+                grcd.GuardianRank = loadedProfile.GuardianRank.GuardianRank;
+                List<GuardianRankRewardCharacterSaveGameData> outputGR = new List<GuardianRankRewardCharacterSaveGameData>();
+                foreach (GuardianRankRewardCharacterSaveGameData grData in grcd.RankRewards)
+                {
+                    bool bFoundMatch = false;
+                    foreach (GuardianRankRewardSaveGameData pGRData in loadedProfile.GuardianRank.RankRewards)
+                    {
+                        if (pGRData.RewardDataPath.Equals(grData.RewardDataPath))
+                        {
+                            grData.NumTokens = pGRData.NumTokens;
+                            if (grData.NumTokens == 0)
+                                outputGR.Add(grData);
+                            bFoundMatch = true;
+                        }
+                    }
+
+                    if (!bFoundMatch) outputGR.Add(grData);
+
+                }
+                outputGR = outputGR.Distinct().ToList();
+                grcd.RankRewards.RemoveAll(x => outputGR.Contains(x));
+                io.Close();
+
+
+                io = new IO(saveFile.FullName, Endian.Little, 0x0000000, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                Helpers.WriteGVASSave(io, gvas);
+                byte[] result;
+                using (var stream = new MemoryStream())
+                {
+                    Serializer.Serialize<Character>(stream, characterSave);
+                    result = stream.ToArray();
+                }
+                SaveBogoCrypt.Encrypt(result, 0, result.Length);
+                io.WriteInt32(result.Length);
+                io.WriteBytes(result);
+
+                io.Close();
+            }
+
+            Console.WriteLine("Done injecting GR into saves");
+        }
+
         #endregion
 
         #endregion
@@ -305,6 +393,9 @@ namespace BL3ProfileEditor
             io.WriteBytes(result);
 
             io.Close();
+
+            Console.WriteLine("Injecting GR into saves...");
+            GRInjection();
         }
 
         private void ReadGUIData()
@@ -335,6 +426,7 @@ namespace BL3ProfileEditor
         }
 
         #endregion
+
 
     }
 }

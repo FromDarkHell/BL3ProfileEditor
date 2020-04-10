@@ -22,7 +22,7 @@
                         <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Open</TextBlock>
                     </DockPanel>
                 </Button>
-                <Button Name="SaveButton" Height="30" VerticalAlignment="Top" Width="70" Click="SaveButton_Click">
+                <Button IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Name="SaveButton" Height="30" VerticalAlignment="Top" Width="70" Click="SaveButton_Click">
                     <DockPanel LastChildFill="True">
                         <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="ContentSave" />
                         <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Save</TextBlock>
@@ -86,6 +86,12 @@
                     <Button Content="Add Item Code to Bank" Margin="280,197,10,98" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="AddItemCodeToBank" />
                     <Label Content="Citizen Science Currency" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
                     <Controls:NumericUpDown x:Name="CSCurrency" Margin="10,152,287,143" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"  Minimum="0"/>
+
+                    <GroupBox Header="Mass Save &quot;Editing&quot;" HorizontalAlignment="Left" Height="83" Margin="10,228,0,0" VerticalAlignment="Top" Width="410">
+                        <Grid>
+                            <Button Content="Inject Guardian Rank into Saves" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="InjectGRSaves" Margin="0,5,195,10" />
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
 
