@@ -12,11 +12,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using MahApps.Metro.Controls.Dialogs;
 using BL3ProfileEditor.Protobufs.GVAS;
+using Gibbed.Borderlands3.SaveFormats;
 using Gibbed.Borderlands3.ProfileFormats;
 using BL3ProfileEditor.Protobufs.Helpers;
-using BL3ProfileEditor.Protobufs.Definitions;
 using BL3ProfileEditor.Protobufs.Translations;
-using Gibbed.Borderlands3.SaveFormats;
 
 namespace BL3ProfileEditor
 {
@@ -265,7 +264,7 @@ namespace BL3ProfileEditor
                 io.Close();
 
 
-                io = new IO(saveFile.FullName, Endian.Little, 0x0000000, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                io = new IO(saveFile.FullName, Endian.Little, 0x0000000, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite);
                 Helpers.WriteGVASSave(io, gvas);
                 byte[] result;
                 using (var stream = new MemoryStream())

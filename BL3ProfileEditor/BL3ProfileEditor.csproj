@@ -107,11 +107,10 @@
     </Compile>
     <Compile Include="Debug\RedirectWriter.cs" />
     <Compile Include="Protobufs\Decryption\ProfileBogoCrypt.cs" />
+    <Compile Include="Protobufs\Decryption\SaveBogoCrypt.cs" />
     <Compile Include="Protobufs\Definitions\OakProfile.cs" />
     <Compile Include="Protobufs\Definitions\OakSave.cs" />
     <Compile Include="Protobufs\Definitions\OakShared.cs" />
-    <Compile Include="Protobufs\Decryption\SaveBogoCrypt.cs" />
-    <Compile Include="Protobufs\Definitions\Profile.cs" />
     <Compile Include="Protobufs\GVAS\GVASData.cs" />
     <Compile Include="Protobufs\Helpers\Helpers.cs" />
     <Compile Include="Protobufs\Translations\DataPathTranslations.cs" />
@@ -165,6 +164,7 @@
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Fody.6.1.1\build\Fody.targets" Condition="Exists('packages\Fody.6.1.1\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

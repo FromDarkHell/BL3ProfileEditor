@@ -2,7 +2,7 @@
 // Consider using 'partial classes' to extend these types
 // Input: OakProfile.proto
 
-#pragma warning disable CS1591, CS0612, CS3021, IDE1006
+#pragma warning disable CS0612, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace OakSave
 {
 
@@ -15,14 +15,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"rebind_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RebindDataPath
-        {
-            get { return __pbn__RebindDataPath ?? ""; }
-            set { __pbn__RebindDataPath = value; }
-        }
-        public bool ShouldSerializeRebindDataPath() => __pbn__RebindDataPath != null;
-        public void ResetRebindDataPath() => __pbn__RebindDataPath = null;
-        private string __pbn__RebindDataPath;
+        public string RebindDataPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"key_names")]
         public global::System.Collections.Generic.List<string> KeyNames { get; } = new global::System.Collections.Generic.List<string>();
@@ -38,14 +31,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"key_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string KeyName
-        {
-            get { return __pbn__KeyName ?? ""; }
-            set { __pbn__KeyName = value; }
-        }
-        public bool ShouldSerializeKeyName() => __pbn__KeyName != null;
-        public void ResetKeyName() => __pbn__KeyName = null;
-        private string __pbn__KeyName;
+        public string KeyName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"scale_3d")]
         public Vec3 Scale3d { get; set; }
@@ -61,14 +47,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"rebind_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RebindDataPath
-        {
-            get { return __pbn__RebindDataPath ?? ""; }
-            set { __pbn__RebindDataPath = value; }
-        }
-        public bool ShouldSerializeRebindDataPath() => __pbn__RebindDataPath != null;
-        public void ResetRebindDataPath() => __pbn__RebindDataPath = null;
-        private string __pbn__RebindDataPath;
+        public string RebindDataPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"keys")]
         public global::System.Collections.Generic.List<PlayerInputBindingAxisKey> Keys { get; } = new global::System.Collections.Generic.List<PlayerInputBindingAxisKey>();
@@ -84,25 +63,11 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"category_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string CategoryDataPath
-        {
-            get { return __pbn__CategoryDataPath ?? ""; }
-            set { __pbn__CategoryDataPath = value; }
-        }
-        public bool ShouldSerializeCategoryDataPath() => __pbn__CategoryDataPath != null;
-        public void ResetCategoryDataPath() => __pbn__CategoryDataPath = null;
-        private string __pbn__CategoryDataPath;
+        public string CategoryDataPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"context_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ContextDataPath
-        {
-            get { return __pbn__ContextDataPath ?? ""; }
-            set { __pbn__ContextDataPath = value; }
-        }
-        public bool ShouldSerializeContextDataPath() => __pbn__ContextDataPath != null;
-        public void ResetContextDataPath() => __pbn__ContextDataPath = null;
-        private string __pbn__ContextDataPath;
+        public string ContextDataPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"button_bindings")]
         public global::System.Collections.Generic.List<PlayerInputBindingButton> ButtonBindings { get; } = new global::System.Collections.Generic.List<PlayerInputBindingButton>();
@@ -133,24 +98,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"slot_type_id")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SlotTypeId
-        {
-            get { return __pbn__SlotTypeId ?? ""; }
-            set { __pbn__SlotTypeId = value; }
-        }
-        public bool ShouldSerializeSlotTypeId() => __pbn__SlotTypeId != null;
-        public void ResetSlotTypeId() => __pbn__SlotTypeId = null;
-        private string __pbn__SlotTypeId;
+        public string SlotTypeId { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"last_filter_index")]
-        public int LastFilterIndex
-        {
-            get { return __pbn__LastFilterIndex.GetValueOrDefault(); }
-            set { __pbn__LastFilterIndex = value; }
-        }
-        public bool ShouldSerializeLastFilterIndex() => __pbn__LastFilterIndex != null;
-        public void ResetLastFilterIndex() => __pbn__LastFilterIndex = null;
-        private int? __pbn__LastFilterIndex;
+        public int LastFilterIndex { get; set; }
 
     }
 
@@ -165,24 +116,10 @@ namespace OakSave
         public global::System.Collections.Generic.List<string> SeenTutorials { get; } = new global::System.Collections.Generic.List<string>();
 
         [global::ProtoBuf.ProtoMember(2, Name = @"tutorials_disabled")]
-        public bool TutorialsDisabled
-        {
-            get { return __pbn__TutorialsDisabled.GetValueOrDefault(); }
-            set { __pbn__TutorialsDisabled = value; }
-        }
-        public bool ShouldSerializeTutorialsDisabled() => __pbn__TutorialsDisabled != null;
-        public void ResetTutorialsDisabled() => __pbn__TutorialsDisabled = null;
-        private bool? __pbn__TutorialsDisabled;
+        public bool TutorialsDisabled { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"tutorials_allowed_in_non_game_modes")]
-        public bool TutorialsAllowedInNonGameModes
-        {
-            get { return __pbn__TutorialsAllowedInNonGameModes.GetValueOrDefault(); }
-            set { __pbn__TutorialsAllowedInNonGameModes = value; }
-        }
-        public bool ShouldSerializeTutorialsAllowedInNonGameModes() => __pbn__TutorialsAllowedInNonGameModes != null;
-        public void ResetTutorialsAllowedInNonGameModes() => __pbn__TutorialsAllowedInNonGameModes = null;
-        private bool? __pbn__TutorialsAllowedInNonGameModes;
+        public bool TutorialsAllowedInNonGameModes { get; set; }
 
     }
 
@@ -194,24 +131,10 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"num_encounters")]
-        public uint NumEncounters
-        {
-            get { return __pbn__NumEncounters.GetValueOrDefault(); }
-            set { __pbn__NumEncounters = value; }
-        }
-        public bool ShouldSerializeNumEncounters() => __pbn__NumEncounters != null;
-        public void ResetNumEncounters() => __pbn__NumEncounters = null;
-        private uint? __pbn__NumEncounters;
+        public uint NumEncounters { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"time_last_encounter")]
-        public long TimeLastEncounter
-        {
-            get { return __pbn__TimeLastEncounter.GetValueOrDefault(); }
-            set { __pbn__TimeLastEncounter = value; }
-        }
-        public bool ShouldSerializeTimeLastEncounter() => __pbn__TimeLastEncounter != null;
-        public void ResetTimeLastEncounter() => __pbn__TimeLastEncounter = null;
-        private long? __pbn__TimeLastEncounter;
+        public long TimeLastEncounter { get; set; }
 
     }
 
@@ -223,110 +146,40 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"mail_item_type")]
-        public uint MailItemType
-        {
-            get { return __pbn__MailItemType.GetValueOrDefault(); }
-            set { __pbn__MailItemType = value; }
-        }
-        public bool ShouldSerializeMailItemType() => __pbn__MailItemType != null;
-        public void ResetMailItemType() => __pbn__MailItemType = null;
-        private uint? __pbn__MailItemType;
+        public uint MailItemType { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"sender_display_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SenderDisplayName
-        {
-            get { return __pbn__SenderDisplayName ?? ""; }
-            set { __pbn__SenderDisplayName = value; }
-        }
-        public bool ShouldSerializeSenderDisplayName() => __pbn__SenderDisplayName != null;
-        public void ResetSenderDisplayName() => __pbn__SenderDisplayName = null;
-        private string __pbn__SenderDisplayName;
+        public string SenderDisplayName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"subject")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string Subject
-        {
-            get { return __pbn__Subject ?? ""; }
-            set { __pbn__Subject = value; }
-        }
-        public bool ShouldSerializeSubject() => __pbn__Subject != null;
-        public void ResetSubject() => __pbn__Subject = null;
-        private string __pbn__Subject;
+        public string Subject { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(4, Name = @"body")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string Body
-        {
-            get { return __pbn__Body ?? ""; }
-            set { __pbn__Body = value; }
-        }
-        public bool ShouldSerializeBody() => __pbn__Body != null;
-        public void ResetBody() => __pbn__Body = null;
-        private string __pbn__Body;
+        public string Body { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(5, Name = @"gear_serial_number")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string GearSerialNumber
-        {
-            get { return __pbn__GearSerialNumber ?? ""; }
-            set { __pbn__GearSerialNumber = value; }
-        }
-        public bool ShouldSerializeGearSerialNumber() => __pbn__GearSerialNumber != null;
-        public void ResetGearSerialNumber() => __pbn__GearSerialNumber = null;
-        private string __pbn__GearSerialNumber;
+        public string GearSerialNumber { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(6, Name = @"mail_guid")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string MailGuid
-        {
-            get { return __pbn__MailGuid ?? ""; }
-            set { __pbn__MailGuid = value; }
-        }
-        public bool ShouldSerializeMailGuid() => __pbn__MailGuid != null;
-        public void ResetMailGuid() => __pbn__MailGuid = null;
-        private string __pbn__MailGuid;
+        public string MailGuid { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(7, Name = @"date_sent")]
-        public long DateSent
-        {
-            get { return __pbn__DateSent.GetValueOrDefault(); }
-            set { __pbn__DateSent = value; }
-        }
-        public bool ShouldSerializeDateSent() => __pbn__DateSent != null;
-        public void ResetDateSent() => __pbn__DateSent = null;
-        private long? __pbn__DateSent;
+        public long DateSent { get; set; }
 
         [global::ProtoBuf.ProtoMember(8, Name = @"expiration_date")]
-        public long ExpirationDate
-        {
-            get { return __pbn__ExpirationDate.GetValueOrDefault(); }
-            set { __pbn__ExpirationDate = value; }
-        }
-        public bool ShouldSerializeExpirationDate() => __pbn__ExpirationDate != null;
-        public void ResetExpirationDate() => __pbn__ExpirationDate = null;
-        private long? __pbn__ExpirationDate;
+        public long ExpirationDate { get; set; }
 
         [global::ProtoBuf.ProtoMember(9, Name = @"from_player_id")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string FromPlayerId
-        {
-            get { return __pbn__FromPlayerId ?? ""; }
-            set { __pbn__FromPlayerId = value; }
-        }
-        public bool ShouldSerializeFromPlayerId() => __pbn__FromPlayerId != null;
-        public void ResetFromPlayerId() => __pbn__FromPlayerId = null;
-        private string __pbn__FromPlayerId;
+        public string FromPlayerId { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(10, Name = @"has_been_read")]
-        public bool HasBeenRead
-        {
-            get { return __pbn__HasBeenRead.GetValueOrDefault(); }
-            set { __pbn__HasBeenRead = value; }
-        }
-        public bool ShouldSerializeHasBeenRead() => __pbn__HasBeenRead != null;
-        public void ResetHasBeenRead() => __pbn__HasBeenRead = null;
-        private bool? __pbn__HasBeenRead;
+        public bool HasBeenRead { get; set; }
 
     }
 
@@ -339,35 +192,14 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"gear_serial_number")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string GearSerialNumber
-        {
-            get { return __pbn__GearSerialNumber ?? ""; }
-            set { __pbn__GearSerialNumber = value; }
-        }
-        public bool ShouldSerializeGearSerialNumber() => __pbn__GearSerialNumber != null;
-        public void ResetGearSerialNumber() => __pbn__GearSerialNumber = null;
-        private string __pbn__GearSerialNumber;
+        public string GearSerialNumber { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"player_class_identifier_hash")]
-        public int PlayerClassIdentifierHash
-        {
-            get { return __pbn__PlayerClassIdentifierHash.GetValueOrDefault(); }
-            set { __pbn__PlayerClassIdentifierHash = value; }
-        }
-        public bool ShouldSerializePlayerClassIdentifierHash() => __pbn__PlayerClassIdentifierHash != null;
-        public void ResetPlayerClassIdentifierHash() => __pbn__PlayerClassIdentifierHash = null;
-        private int? __pbn__PlayerClassIdentifierHash;
+        public int PlayerClassIdentifierHash { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"friend_net_id")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string FriendNetId
-        {
-            get { return __pbn__FriendNetId ?? ""; }
-            set { __pbn__FriendNetId = value; }
-        }
-        public bool ShouldSerializeFriendNetId() => __pbn__FriendNetId != null;
-        public void ResetFriendNetId() => __pbn__FriendNetId = null;
-        private string __pbn__FriendNetId;
+        public string FriendNetId { get; set; } = "";
 
     }
 
@@ -379,25 +211,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"is_new")]
-        public bool IsNew
-        {
-            get { return __pbn__IsNew.GetValueOrDefault(); }
-            set { __pbn__IsNew = value; }
-        }
-        public bool ShouldSerializeIsNew() => __pbn__IsNew != null;
-        public void ResetIsNew() => __pbn__IsNew = null;
-        private bool? __pbn__IsNew;
+        public bool IsNew { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"customization_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string CustomizationAssetPath
-        {
-            get { return __pbn__CustomizationAssetPath ?? ""; }
-            set { __pbn__CustomizationAssetPath = value; }
-        }
-        public bool ShouldSerializeCustomizationAssetPath() => __pbn__CustomizationAssetPath != null;
-        public void ResetCustomizationAssetPath() => __pbn__CustomizationAssetPath = null;
-        private string __pbn__CustomizationAssetPath;
+        public string CustomizationAssetPath { get; set; } = "";
 
     }
 
@@ -409,24 +227,10 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"customization_part_hash")]
-        public uint CustomizationPartHash
-        {
-            get { return __pbn__CustomizationPartHash.GetValueOrDefault(); }
-            set { __pbn__CustomizationPartHash = value; }
-        }
-        public bool ShouldSerializeCustomizationPartHash() => __pbn__CustomizationPartHash != null;
-        public void ResetCustomizationPartHash() => __pbn__CustomizationPartHash = null;
-        private uint? __pbn__CustomizationPartHash;
+        public uint CustomizationPartHash { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"is_new")]
-        public bool IsNew
-        {
-            get { return __pbn__IsNew.GetValueOrDefault(); }
-            set { __pbn__IsNew = value; }
-        }
-        public bool ShouldSerializeIsNew() => __pbn__IsNew != null;
-        public void ResetIsNew() => __pbn__IsNew = null;
-        private bool? __pbn__IsNew;
+        public bool IsNew { get; set; }
 
     }
 
@@ -438,25 +242,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"num_tokens")]
-        public int NumTokens
-        {
-            get { return __pbn__NumTokens.GetValueOrDefault(); }
-            set { __pbn__NumTokens = value; }
-        }
-        public bool ShouldSerializeNumTokens() => __pbn__NumTokens != null;
-        public void ResetNumTokens() => __pbn__NumTokens = null;
-        private int? __pbn__NumTokens;
+        public int NumTokens { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"reward_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RewardDataPath
-        {
-            get { return __pbn__RewardDataPath ?? ""; }
-            set { __pbn__RewardDataPath = value; }
-        }
-        public bool ShouldSerializeRewardDataPath() => __pbn__RewardDataPath != null;
-        public void ResetRewardDataPath() => __pbn__RewardDataPath = null;
-        private string __pbn__RewardDataPath;
+        public string RewardDataPath { get; set; } = "";
 
     }
 
@@ -468,57 +258,22 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"available_tokens")]
-        public int AvailableTokens
-        {
-            get { return __pbn__AvailableTokens.GetValueOrDefault(); }
-            set { __pbn__AvailableTokens = value; }
-        }
-        public bool ShouldSerializeAvailableTokens() => __pbn__AvailableTokens != null;
-        public void ResetAvailableTokens() => __pbn__AvailableTokens = null;
-        private int? __pbn__AvailableTokens;
+        public int AvailableTokens { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"rank_rewards")]
         public global::System.Collections.Generic.List<GuardianRankRewardSaveGameData> RankRewards { get; } = new global::System.Collections.Generic.List<GuardianRankRewardSaveGameData>();
 
         [global::ProtoBuf.ProtoMember(3, Name = @"guardian_rank")]
-        public int GuardianRank
-        {
-            get { return __pbn__GuardianRank.GetValueOrDefault(); }
-            set { __pbn__GuardianRank = value; }
-        }
-        public bool ShouldSerializeGuardianRank() => __pbn__GuardianRank != null;
-        public void ResetGuardianRank() => __pbn__GuardianRank = null;
-        private int? __pbn__GuardianRank;
+        public int GuardianRank { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"guardian_experience")]
-        public int GuardianExperience
-        {
-            get { return __pbn__GuardianExperience.GetValueOrDefault(); }
-            set { __pbn__GuardianExperience = value; }
-        }
-        public bool ShouldSerializeGuardianExperience() => __pbn__GuardianExperience != null;
-        public void ResetGuardianExperience() => __pbn__GuardianExperience = null;
-        private int? __pbn__GuardianExperience;
+        public int GuardianExperience { get; set; }
 
         [global::ProtoBuf.ProtoMember(5, Name = @"guardian_reward_random_seed")]
-        public int GuardianRewardRandomSeed
-        {
-            get { return __pbn__GuardianRewardRandomSeed.GetValueOrDefault(); }
-            set { __pbn__GuardianRewardRandomSeed = value; }
-        }
-        public bool ShouldSerializeGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed != null;
-        public void ResetGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed = null;
-        private int? __pbn__GuardianRewardRandomSeed;
+        public int GuardianRewardRandomSeed { get; set; }
 
         [global::ProtoBuf.ProtoMember(6, Name = @"new_guardian_experience")]
-        public long NewGuardianExperience
-        {
-            get { return __pbn__NewGuardianExperience.GetValueOrDefault(); }
-            set { __pbn__NewGuardianExperience = value; }
-        }
-        public bool ShouldSerializeNewGuardianExperience() => __pbn__NewGuardianExperience != null;
-        public void ResetNewGuardianExperience() => __pbn__NewGuardianExperience = null;
-        private long? __pbn__NewGuardianExperience;
+        public long NewGuardianExperience { get; set; }
 
     }
 
@@ -530,25 +285,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"is_new")]
-        public bool IsNew
-        {
-            get { return __pbn__IsNew.GetValueOrDefault(); }
-            set { __pbn__IsNew = value; }
-        }
-        public bool ShouldSerializeIsNew() => __pbn__IsNew != null;
-        public void ResetIsNew() => __pbn__IsNew = null;
-        private bool? __pbn__IsNew;
+        public bool IsNew { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"decoration_item_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string DecorationItemAssetPath
-        {
-            get { return __pbn__DecorationItemAssetPath ?? ""; }
-            set { __pbn__DecorationItemAssetPath = value; }
-        }
-        public bool ShouldSerializeDecorationItemAssetPath() => __pbn__DecorationItemAssetPath != null;
-        public void ResetDecorationItemAssetPath() => __pbn__DecorationItemAssetPath = null;
-        private string __pbn__DecorationItemAssetPath;
+        public string DecorationItemAssetPath { get; set; } = "";
 
     }
 
@@ -560,25 +301,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"is_new")]
-        public bool IsNew
-        {
-            get { return __pbn__IsNew.GetValueOrDefault(); }
-            set { __pbn__IsNew = value; }
-        }
-        public bool ShouldSerializeIsNew() => __pbn__IsNew != null;
-        public void ResetIsNew() => __pbn__IsNew = null;
-        private bool? __pbn__IsNew;
+        public bool IsNew { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"room_item_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RoomItemAssetPath
-        {
-            get { return __pbn__RoomItemAssetPath ?? ""; }
-            set { __pbn__RoomItemAssetPath = value; }
-        }
-        public bool ShouldSerializeRoomItemAssetPath() => __pbn__RoomItemAssetPath != null;
-        public void ResetRoomItemAssetPath() => __pbn__RoomItemAssetPath = null;
-        private string __pbn__RoomItemAssetPath;
+        public string RoomItemAssetPath { get; set; } = "";
 
     }
 
@@ -591,38 +318,635 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"shift_player_id")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ShiftPlayerId
-        {
-            get { return __pbn__ShiftPlayerId ?? ""; }
-            set { __pbn__ShiftPlayerId = value; }
-        }
-        public bool ShouldSerializeShiftPlayerId() => __pbn__ShiftPlayerId != null;
-        public void ResetShiftPlayerId() => __pbn__ShiftPlayerId = null;
-        private string __pbn__ShiftPlayerId;
+        public string ShiftPlayerId { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"first_party_player_id")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string FirstPartyPlayerId
-        {
-            get { return __pbn__FirstPartyPlayerId ?? ""; }
-            set { __pbn__FirstPartyPlayerId = value; }
-        }
-        public bool ShouldSerializeFirstPartyPlayerId() => __pbn__FirstPartyPlayerId != null;
-        public void ResetFirstPartyPlayerId() => __pbn__FirstPartyPlayerId = null;
-        private string __pbn__FirstPartyPlayerId;
+        public string FirstPartyPlayerId { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"show_shift_player_entry")]
-        public bool ShowShiftPlayerEntry
+        public bool ShowShiftPlayerEntry { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Profile : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"enable_aim_assist")]
+        public bool EnableAimAssist { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"gamepad_invert_look")]
+        public bool GamepadInvertLook { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"gamepad_invert_turn")]
+        public bool GamepadInvertTurn { get; set; }
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"gamepad_invert_move")]
+        public bool GamepadInvertMove { get; set; }
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"gamepad_invert_strafe")]
+        public bool GamepadInvertStrafe { get; set; }
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"enable_vibration")]
+        public bool EnableVibration { get; set; }
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"invert_mouse_pitch")]
+        public bool InvertMousePitch { get; set; }
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"enable_mouse_smoothing")]
+        public bool EnableMouseSmoothing { get; set; }
+
+        [global::ProtoBuf.ProtoMember(9, Name = @"mouse_scale")]
+        public float MouseScale { get; set; }
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"show_damage_numbers")]
+        public bool ShowDamageNumbers { get; set; }
+
+        [global::ProtoBuf.ProtoMember(11, Name = @"show_damage_number_icons")]
+        public bool ShowDamageNumberIcons { get; set; }
+
+        [global::ProtoBuf.ProtoMember(12, Name = @"enable_training_messages")]
+        public bool EnableTrainingMessages { get; set; }
+
+        [global::ProtoBuf.ProtoMember(13, Name = @"show_text_chat")]
+        public bool ShowTextChat { get; set; }
+
+        [global::ProtoBuf.ProtoMember(14, Name = @"center_crosshair")]
+        public bool CenterCrosshair { get; set; }
+
+        [global::ProtoBuf.ProtoMember(15, Name = @"toggle_sprint")]
+        public bool ToggleSprint { get; set; }
+
+        [global::ProtoBuf.ProtoMember(16, Name = @"toggle_crouch")]
+        public bool ToggleCrouch { get; set; }
+
+        [global::ProtoBuf.ProtoMember(17, Name = @"censor_content")]
+        public bool CensorContent { get; set; }
+
+        [global::ProtoBuf.ProtoMember(18, Name = @"music_volume")]
+        public float MusicVolume { get; set; }
+
+        [global::ProtoBuf.ProtoMember(19, Name = @"sound_effects_volume")]
+        public float SoundEffectsVolume { get; set; }
+
+        [global::ProtoBuf.ProtoMember(20, Name = @"vo_volume")]
+        public float VoVolume { get; set; }
+
+        [global::ProtoBuf.ProtoMember(21, Name = @"voice_volume")]
+        public float VoiceVolume { get; set; }
+
+        [global::ProtoBuf.ProtoMember(22, Name = @"enable_optional_vo")]
+        public bool EnableOptionalVo { get; set; }
+
+        [global::ProtoBuf.ProtoMember(23, Name = @"push_to_talk")]
+        public bool PushToTalk { get; set; }
+
+        [global::ProtoBuf.ProtoMember(24, Name = @"enable_controller_audio")]
+        public bool EnableControllerAudio { get; set; }
+
+        [global::ProtoBuf.ProtoMember(25, Name = @"speaker_angle_front")]
+        public float SpeakerAngleFront { get; set; }
+
+        [global::ProtoBuf.ProtoMember(26, Name = @"speaker_angle_side")]
+        public float SpeakerAngleSide { get; set; }
+
+        [global::ProtoBuf.ProtoMember(27, Name = @"speaker_angle_back")]
+        public float SpeakerAngleBack { get; set; }
+
+        [global::ProtoBuf.ProtoMember(28, Name = @"speaker_setup")]
+        public uint SpeakerSetup { get; set; }
+
+        [global::ProtoBuf.ProtoMember(29, Name = @"mute_audio_on_focus_loss")]
+        public bool MuteAudioOnFocusLoss { get; set; }
+
+        [global::ProtoBuf.ProtoMember(34, Name = @"hide_strict_nat_help_dialog")]
+        public bool HideStrictNatHelpDialog { get; set; }
+
+        [global::ProtoBuf.ProtoMember(35, Name = @"player_input_bindings")]
+        public PlayerInputBindings PlayerInputBindings { get; set; }
+
+        [global::ProtoBuf.ProtoMember(36, Name = @"news_hashes", IsPacked = true)]
+        public uint[] NewsHashes { get; set; }
+
+        [global::ProtoBuf.ProtoMember(37, Name = @"last_used_savegame_id")]
+        public uint LastUsedSavegameId { get; set; }
+
+        [global::ProtoBuf.ProtoMember(38, Name = @"gamepad_hip_sensitivity_level")]
+        public int GamepadHipSensitivityLevel { get; set; }
+
+        [global::ProtoBuf.ProtoMember(39, Name = @"gamepad_zoomed_sensitivity_level")]
+        public int GamepadZoomedSensitivityLevel { get; set; }
+
+        [global::ProtoBuf.ProtoMember(40, Name = @"gamepad_vehicle_sensitivity_level")]
+        public int GamepadVehicleSensitivityLevel { get; set; }
+
+        [global::ProtoBuf.ProtoMember(41, Name = @"gamepad_movement_dead_zone_x")]
+        public float GamepadMovementDeadZoneX { get; set; }
+
+        [global::ProtoBuf.ProtoMember(42, Name = @"gamepad_movement_dead_zone_y")]
+        public float GamepadMovementDeadZoneY { get; set; }
+
+        [global::ProtoBuf.ProtoMember(43, Name = @"gamepad_look_dead_zone_inner_x")]
+        public float GamepadLookDeadZoneInnerX { get; set; }
+
+        [global::ProtoBuf.ProtoMember(44, Name = @"gamepad_look_dead_zone_outer_x")]
+        public float GamepadLookDeadZoneOuterX { get; set; }
+
+        [global::ProtoBuf.ProtoMember(45, Name = @"gamepad_look_dead_zone_inner_y")]
+        public float GamepadLookDeadZoneInnerY { get; set; }
+
+        [global::ProtoBuf.ProtoMember(46, Name = @"gamepad_look_dead_zone_outer_y")]
+        public float GamepadLookDeadZoneOuterY { get; set; }
+
+        [global::ProtoBuf.ProtoMember(47, Name = @"gamepad_vehicle_movement_dead_zone_x")]
+        public float GamepadVehicleMovementDeadZoneX { get; set; }
+
+        [global::ProtoBuf.ProtoMember(48, Name = @"gamepad_vehicle_movement_dead_zone_y")]
+        public float GamepadVehicleMovementDeadZoneY { get; set; }
+
+        [global::ProtoBuf.ProtoMember(49, Name = @"gamepad_vehicle_look_dead_zone_inner_x")]
+        public float GamepadVehicleLookDeadZoneInnerX { get; set; }
+
+        [global::ProtoBuf.ProtoMember(50, Name = @"gamepad_vehicle_look_dead_zone_outer_x")]
+        public float GamepadVehicleLookDeadZoneOuterX { get; set; }
+
+        [global::ProtoBuf.ProtoMember(51, Name = @"gamepad_vehicle_look_dead_zone_inner_y")]
+        public float GamepadVehicleLookDeadZoneInnerY { get; set; }
+
+        [global::ProtoBuf.ProtoMember(52, Name = @"gamepad_vehicle_look_dead_zone_outer_y")]
+        public float GamepadVehicleLookDeadZoneOuterY { get; set; }
+
+        [global::ProtoBuf.ProtoMember(53, Name = @"gamepad_left_dead_zone_inner")]
+        public float GamepadLeftDeadZoneInner { get; set; }
+
+        [global::ProtoBuf.ProtoMember(54, Name = @"gamepad_left_dead_zone_outer")]
+        public float GamepadLeftDeadZoneOuter { get; set; }
+
+        [global::ProtoBuf.ProtoMember(55, Name = @"gamepad_right_dead_zone_inner")]
+        public float GamepadRightDeadZoneInner { get; set; }
+
+        [global::ProtoBuf.ProtoMember(56, Name = @"gamepad_right_dead_zone_outer")]
+        public float GamepadRightDeadZoneOuter { get; set; }
+
+        [global::ProtoBuf.ProtoMember(57, Name = @"gamepad_look_axial_dead_zone_scale")]
+        public float GamepadLookAxialDeadZoneScale { get; set; }
+
+        [global::ProtoBuf.ProtoMember(58, Name = @"gamepad_move_axial_dead_zone_scale")]
+        public float GamepadMoveAxialDeadZoneScale { get; set; }
+
+        [global::ProtoBuf.ProtoMember(59, Name = @"gamepad_use_advanced_hip_aim_settings")]
+        public bool GamepadUseAdvancedHipAimSettings { get; set; }
+
+        [global::ProtoBuf.ProtoMember(60, Name = @"gamepad_use_advanced_zoomed_aim_settings")]
+        public bool GamepadUseAdvancedZoomedAimSettings { get; set; }
+
+        [global::ProtoBuf.ProtoMember(61, Name = @"gamepad_use_advanced_vehicle_aim_settings")]
+        public bool GamepadUseAdvancedVehicleAimSettings { get; set; }
+
+        [global::ProtoBuf.ProtoMember(62, Name = @"gamepad_hip_yaw_rate")]
+        public float GamepadHipYawRate { get; set; }
+
+        [global::ProtoBuf.ProtoMember(63, Name = @"gamepad_hip_pitch_rate")]
+        public float GamepadHipPitchRate { get; set; }
+
+        [global::ProtoBuf.ProtoMember(64, Name = @"gamepad_hip_extra_yaw")]
+        public float GamepadHipExtraYaw { get; set; }
+
+        [global::ProtoBuf.ProtoMember(65, Name = @"gamepad_hip_extra_pitch")]
+        public float GamepadHipExtraPitch { get; set; }
+
+        [global::ProtoBuf.ProtoMember(66, Name = @"gamepad_hip_ramp_up_time")]
+        public float GamepadHipRampUpTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(67, Name = @"gamepad_hip_ramp_up_delay")]
+        public float GamepadHipRampUpDelay { get; set; }
+
+        [global::ProtoBuf.ProtoMember(68, Name = @"gamepad_zoomed_yaw_rate")]
+        public float GamepadZoomedYawRate { get; set; }
+
+        [global::ProtoBuf.ProtoMember(69, Name = @"gamepad_zoomed_pitch_rate")]
+        public float GamepadZoomedPitchRate { get; set; }
+
+        [global::ProtoBuf.ProtoMember(70, Name = @"gamepad_zoomed_extra_yaw")]
+        public float GamepadZoomedExtraYaw { get; set; }
+
+        [global::ProtoBuf.ProtoMember(71, Name = @"gamepad_zoomed_extra_pitch")]
+        public float GamepadZoomedExtraPitch { get; set; }
+
+        [global::ProtoBuf.ProtoMember(72, Name = @"gamepad_zoomed_ramp_up_time")]
+        public float GamepadZoomedRampUpTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(73, Name = @"gamepad_zoomed_ramp_up_delay")]
+        public float GamepadZoomedRampUpDelay { get; set; }
+
+        [global::ProtoBuf.ProtoMember(74, Name = @"gamepad_vehicle_yaw_rate")]
+        public float GamepadVehicleYawRate { get; set; }
+
+        [global::ProtoBuf.ProtoMember(75, Name = @"gamepad_vehicle_pitch_rate")]
+        public float GamepadVehiclePitchRate { get; set; }
+
+        [global::ProtoBuf.ProtoMember(76, Name = @"gamepad_vehicle_extra_yaw")]
+        public float GamepadVehicleExtraYaw { get; set; }
+
+        [global::ProtoBuf.ProtoMember(77, Name = @"gamepad_vehicle_extra_pitch")]
+        public float GamepadVehicleExtraPitch { get; set; }
+
+        [global::ProtoBuf.ProtoMember(78, Name = @"gamepad_vehicle_ramp_up_time")]
+        public float GamepadVehicleRampUpTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(79, Name = @"gamepad_vehicle_ramp_up_delay")]
+        public float GamepadVehicleRampUpDelay { get; set; }
+
+        [global::ProtoBuf.ProtoMember(80, Name = @"ironsight_aim_assist")]
+        public bool IronsightAimAssist { get; set; }
+
+        [global::ProtoBuf.ProtoMember(81, Name = @"walking_joystick_scheme")]
+        public uint WalkingJoystickScheme { get; set; }
+
+        [global::ProtoBuf.ProtoMember(82, Name = @"driving_joystick_scheme")]
+        public uint DrivingJoystickScheme { get; set; }
+
+        [global::ProtoBuf.ProtoMember(83, Name = @"mouse_ads_scale")]
+        public float MouseAdsScale { get; set; }
+
+        [global::ProtoBuf.ProtoMember(84, Name = @"mouse_vehicle_scale")]
+        public float MouseVehicleScale { get; set; }
+
+        [global::ProtoBuf.ProtoMember(85, Name = @"mouse_ironsight_aim_assist")]
+        public bool MouseIronsightAimAssist { get; set; }
+
+        [global::ProtoBuf.ProtoMember(86, Name = @"vehicle_input_mode")]
+        public uint VehicleInputMode { get; set; }
+
+        [global::ProtoBuf.ProtoMember(87, Name = @"weapon_aim_toggle")]
+        public bool WeaponAimToggle { get; set; }
+
+        [global::ProtoBuf.ProtoMember(88, Name = @"mantle_requires_button")]
+        public bool MantleRequiresButton { get; set; }
+
+        [global::ProtoBuf.ProtoMember(89, Name = @"fixed_minimap_rotation")]
+        public bool FixedMinimapRotation { get; set; }
+
+        [global::ProtoBuf.ProtoMember(90, Name = @"map_invert_pitch")]
+        public bool MapInvertPitch { get; set; }
+
+        [global::ProtoBuf.ProtoMember(91, Name = @"map_invert_yaw")]
+        public bool MapInvertYaw { get; set; }
+
+        [global::ProtoBuf.ProtoMember(92, Name = @"difficulty")]
+        public uint Difficulty { get; set; }
+
+        [global::ProtoBuf.ProtoMember(93, Name = @"swap_dual_wield_controls")]
+        public bool SwapDualWieldControls { get; set; }
+
+        [global::ProtoBuf.ProtoMember(94, Name = @"base_fov")]
+        public float BaseFov { get; set; }
+
+        [global::ProtoBuf.ProtoMember(95, Name = @"crosshair_neutral_color_frame")]
+        public uint CrosshairNeutralColorFrame { get; set; }
+
+        [global::ProtoBuf.ProtoMember(96, Name = @"crosshair_enemy_color_frame")]
+        public uint CrosshairEnemyColorFrame { get; set; }
+
+        [global::ProtoBuf.ProtoMember(97, Name = @"crosshair_ally_color_frame")]
+        public uint CrosshairAllyColorFrame { get; set; }
+
+        [global::ProtoBuf.ProtoMember(98, Name = @"enable_subtitles")]
+        public bool EnableSubtitles { get; set; }
+
+        [global::ProtoBuf.ProtoMember(99, Name = @"enable_closed_captions")]
+        public bool EnableClosedCaptions { get; set; }
+
+        [global::ProtoBuf.ProtoMember(100, Name = @"last_status_menu_page")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string LastStatusMenuPage { get; set; } = "";
+
+        [global::ProtoBuf.ProtoMember(101, Name = @"inventory_screen_last_filter")]
+        public global::System.Collections.Generic.List<OakProfileLastInventoryFilterInfo> InventoryScreenLastFilters { get; } = new global::System.Collections.Generic.List<OakProfileLastInventoryFilterInfo>();
+
+        [global::ProtoBuf.ProtoMember(102, Name = @"tutorial_info")]
+        public OakProfileMenuTutorialInfo TutorialInfo { get; set; }
+
+        [global::ProtoBuf.ProtoMember(103, Name = @"default_network_type")]
+        public uint DefaultNetworkType { get; set; }
+
+        [global::ProtoBuf.ProtoMember(104, Name = @"default_invite_type")]
+        public uint DefaultInviteType { get; set; }
+
+        [global::ProtoBuf.ProtoMember(105, Name = @"matchmaking_region")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string MatchmakingRegion { get; set; } = "";
+
+        [global::ProtoBuf.ProtoMember(106, Name = @"streaming_service")]
+        public uint StreamingService { get; set; }
+
+        [global::ProtoBuf.ProtoMember(107, Name = @"max_cached_friend_events")]
+        public int MaxCachedFriendEvents { get; set; }
+
+        [global::ProtoBuf.ProtoMember(108, Name = @"max_cached_friend_statuses")]
+        public int MaxCachedFriendStatuses { get; set; }
+
+        [global::ProtoBuf.ProtoMember(109, Name = @"friend_events")]
+        public global::System.Collections.Generic.List<string> FriendEvents { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(110, Name = @"friend_statuses")]
+        public global::System.Collections.Generic.List<string> FriendStatuses { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(111, Name = @"last_whisper_fetch_events_time")]
+        public long LastWhisperFetchEventsTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(112, Name = @"last_whisper_fetch_statuses_time")]
+        public long LastWhisperFetchStatusesTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(113, Name = @"desired_crossplay_state")]
+        public uint DesiredCrossplayState { get; set; }
+
+        [global::ProtoBuf.ProtoMember(133, Name = @"friend_encounters")]
+        public global::System.Collections.Generic.List<FriendEncountersEntry> FriendEncounters { get; } = new global::System.Collections.Generic.List<FriendEncountersEntry>();
+
+        [global::ProtoBuf.ProtoMember(134, Name = @"max_friend_encounter_size")]
+        public int MaxFriendEncounterSize { get; set; }
+
+        [global::ProtoBuf.ProtoMember(135, Name = @"profile_stats_data")]
+        public global::System.Collections.Generic.List<GameStatSaveGameData> ProfileStatsDatas { get; } = new global::System.Collections.Generic.List<GameStatSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(136, Name = @"bank_inventory_category_list")]
+        public global::System.Collections.Generic.List<InventoryCategorySaveData> BankInventoryCategoryLists { get; } = new global::System.Collections.Generic.List<InventoryCategorySaveData>();
+
+        [global::ProtoBuf.ProtoMember(137, Name = @"bank_inventory_list")]
+        public global::System.Collections.Generic.List<byte[]> BankInventoryLists { get; } = new global::System.Collections.Generic.List<byte[]>();
+
+        [global::ProtoBuf.ProtoMember(138, Name = @"lost_loot_inventory_list")]
+        public global::System.Collections.Generic.List<byte[]> LostLootInventoryLists { get; } = new global::System.Collections.Generic.List<byte[]>();
+
+        [global::ProtoBuf.ProtoMember(139, Name = @"npc_mail_items")]
+        public global::System.Collections.Generic.List<OakMailItem> NpcMailItems { get; } = new global::System.Collections.Generic.List<OakMailItem>();
+
+        [global::ProtoBuf.ProtoMember(140, Name = @"mail_guids")]
+        public global::System.Collections.Generic.List<string> MailGuids { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(141, Name = @"unread_mail_guids")]
+        public global::System.Collections.Generic.List<string> UnreadMailGuids { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(142, Name = @"gear_sold_by_friends")]
+        public global::System.Collections.Generic.List<GearSoldByFriendData> GearSoldByFriends { get; } = new global::System.Collections.Generic.List<GearSoldByFriendData>();
+
+        [global::ProtoBuf.ProtoMember(143, Name = @"profile_sdu_list")]
+        public global::System.Collections.Generic.List<OakSDUSaveGameData> ProfileSduLists { get; } = new global::System.Collections.Generic.List<OakSDUSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(144, Name = @"unlocked_customizations")]
+        public global::System.Collections.Generic.List<OakCustomizationSaveGameData> UnlockedCustomizations { get; } = new global::System.Collections.Generic.List<OakCustomizationSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(145, Name = @"unlocked_inventory_customization_parts")]
+        public global::System.Collections.Generic.List<OakInventoryCustomizationPartInfo> UnlockedInventoryCustomizationParts { get; } = new global::System.Collections.Generic.List<OakInventoryCustomizationPartInfo>();
+
+        [global::ProtoBuf.ProtoMember(146, Name = @"guardian_rank")]
+        public GuardianRankProfileData GuardianRank { get; set; }
+
+        [global::ProtoBuf.ProtoMember(147, Name = @"unlocked_crew_quarters_decorations")]
+        public global::System.Collections.Generic.List<CrewQuartersDecorationItemSaveGameData> UnlockedCrewQuartersDecorations { get; } = new global::System.Collections.Generic.List<CrewQuartersDecorationItemSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(148, Name = @"unlocked_crew_quarters_rooms")]
+        public global::System.Collections.Generic.List<CrewQuartersRoomItemSaveGameData> UnlockedCrewQuartersRooms { get; } = new global::System.Collections.Generic.List<CrewQuartersRoomItemSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(150, Name = @"enable_mouse_acceleration")]
+        public bool EnableMouseAcceleration { get; set; }
+
+        [global::ProtoBuf.ProtoMember(151, Name = @"enable_gamepad_input")]
+        public bool EnableGamepadInput { get; set; }
+
+        [global::ProtoBuf.ProtoMember(152, Name = @"use_classic_gamepad_input")]
+        public bool UseClassicGamepadInput { get; set; }
+
+        [global::ProtoBuf.ProtoMember(153, Name = @"master_volume")]
+        public float MasterVolume { get; set; }
+
+        [global::ProtoBuf.ProtoMember(154, Name = @"monitor_display_type")]
+        public uint MonitorDisplayType { get; set; }
+
+        [global::ProtoBuf.ProtoMember(155, Name = @"graphics_mode")]
+        public uint GraphicsMode { get; set; }
+
+        [global::ProtoBuf.ProtoMember(156, Name = @"frame_rate_limit")]
+        public uint FrameRateLimit { get; set; }
+
+        [global::ProtoBuf.ProtoMember(157, Name = @"base_vehicle_fov")]
+        public float BaseVehicleFov { get; set; }
+
+        [global::ProtoBuf.ProtoMember(158, Name = @"graphics_quality")]
+        public uint GraphicsQuality { get; set; }
+
+        [global::ProtoBuf.ProtoMember(159, Name = @"anisotropic_filtering")]
+        public uint AnisotropicFiltering { get; set; }
+
+        [global::ProtoBuf.ProtoMember(160, Name = @"shadow_quality")]
+        public uint ShadowQuality { get; set; }
+
+        [global::ProtoBuf.ProtoMember(161, Name = @"display_performance_stats")]
+        public uint DisplayPerformanceStats { get; set; }
+
+        [global::ProtoBuf.ProtoMember(162, Name = @"texture_detail")]
+        public uint TextureDetail { get; set; }
+
+        [global::ProtoBuf.ProtoMember(163, Name = @"draw_distance")]
+        public uint DrawDistance { get; set; }
+
+        [global::ProtoBuf.ProtoMember(164, Name = @"clutter")]
+        public uint Clutter { get; set; }
+
+        [global::ProtoBuf.ProtoMember(165, Name = @"tessellation")]
+        public uint Tessellation { get; set; }
+
+        [global::ProtoBuf.ProtoMember(166, Name = @"foliage")]
+        public uint Foliage { get; set; }
+
+        [global::ProtoBuf.ProtoMember(167, Name = @"foliage_shadows")]
+        public bool FoliageShadows { get; set; }
+
+        [global::ProtoBuf.ProtoMember(168, Name = @"planar_reflections")]
+        public bool PlanarReflections { get; set; }
+
+        [global::ProtoBuf.ProtoMember(169, Name = @"volumetric_fog")]
+        public uint VolumetricFog { get; set; }
+
+        [global::ProtoBuf.ProtoMember(170, Name = @"screen_space_reflections")]
+        public uint ScreenSpaceReflections { get; set; }
+
+        [global::ProtoBuf.ProtoMember(171, Name = @"character_texture_detail")]
+        public uint CharacterTextureDetail { get; set; }
+
+        [global::ProtoBuf.ProtoMember(172, Name = @"character_detail")]
+        public uint CharacterDetail { get; set; }
+
+        [global::ProtoBuf.ProtoMember(173, Name = @"ambient_occlusion_quality")]
+        public uint AmbientOcclusionQuality { get; set; }
+
+        [global::ProtoBuf.ProtoMember(174, Name = @"object_motion_blur")]
+        public bool ObjectMotionBlur { get; set; }
+
+        [global::ProtoBuf.ProtoMember(175, Name = @"lens_flare")]
+        public bool LensFlare { get; set; }
+
+        [global::ProtoBuf.ProtoMember(176, Name = @"combat_number_long_format")]
+        public bool CombatNumberLongFormat { get; set; }
+
+        [global::ProtoBuf.ProtoMember(177, Name = @"show_minimap_legendaries")]
+        public bool ShowMinimapLegendaries { get; set; }
+
+        [global::ProtoBuf.ProtoMember(178, Name = @"use_player_callouts")]
+        public bool UsePlayerCallouts { get; set; }
+
+        [global::ProtoBuf.ProtoMember(179, Name = @"friend_event_notification_lifetime")]
+        public uint FriendEventNotificationLifetime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(180, Name = @"friend_event_notification_frequency")]
+        public uint FriendEventNotificationFrequency { get; set; }
+
+        [global::ProtoBuf.ProtoMember(181, Name = @"trade_request_reception_type")]
+        public uint TradeRequestReceptionType { get; set; }
+
+        [global::ProtoBuf.ProtoMember(182, Name = @"head_bob_scale")]
+        public float HeadBobScale { get; set; }
+
+        [global::ProtoBuf.ProtoMember(184, Name = @"has_seen_first_boot")]
+        public bool HasSeenFirstBoot { get; set; }
+
+        [global::ProtoBuf.ProtoMember(189, Name = @"subs_cc_size")]
+        public float SubsCcSize { get; set; }
+
+        [global::ProtoBuf.ProtoMember(190, Name = @"cc_subs_background_opacity")]
+        public float CcSubsBackgroundOpacity { get; set; }
+
+        [global::ProtoBuf.ProtoMember(191, Name = @"walking_button_scheme")]
+        public uint WalkingButtonScheme { get; set; }
+
+        [global::ProtoBuf.ProtoMember(192, Name = @"driving_button_scheme")]
+        public uint DrivingButtonScheme { get; set; }
+
+        [global::ProtoBuf.ProtoMember(193, Name = @"glyph_mode")]
+        public uint GlyphMode { get; set; }
+
+        [global::ProtoBuf.ProtoMember(194, Name = @"use_MPH")]
+        public bool useMPH { get; set; }
+
+        [global::ProtoBuf.ProtoMember(195, Name = @"registered_downloadable_entitlements")]
+        public global::System.Collections.Generic.List<RegisteredDownloadableEntitlements> RegisteredDownloadableEntitlements { get; } = new global::System.Collections.Generic.List<RegisteredDownloadableEntitlements>();
+
+        [global::ProtoBuf.ProtoMember(196, Name = @"seen_news_items")]
+        public global::System.Collections.Generic.List<string> SeenNewsItems { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(197, Name = @"auto_centering_enabled")]
+        public bool AutoCenteringEnabled { get; set; }
+
+        [global::ProtoBuf.ProtoMember(198, Name = @"increased_chance_for_subscribers")]
+        public bool IncreasedChanceForSubscribers { get; set; }
+
+        [global::ProtoBuf.ProtoMember(199, Name = @"rare_chest_event_enabled")]
+        public bool RareChestEventEnabled { get; set; }
+
+        [global::ProtoBuf.ProtoMember(200, Name = @"badass_event_enabled")]
+        public bool BadassEventEnabled { get; set; }
+
+        [global::ProtoBuf.ProtoMember(201, Name = @"pinata_event_enabled")]
+        public bool PinataEventEnabled { get; set; }
+
+        [global::ProtoBuf.ProtoMember(202, Name = @"min_time_between_badass_events")]
+        public int MinTimeBetweenBadassEvents { get; set; }
+
+        [global::ProtoBuf.ProtoMember(203, Name = @"hud_scale_multiplier")]
+        public float HudScaleMultiplier { get; set; }
+
+        [global::ProtoBuf.ProtoMember(204, Name = @"disable_spatial_audio")]
+        public bool DisableSpatialAudio { get; set; }
+
+        [global::ProtoBuf.ProtoMember(205, Name = @"total_playtime_seconds")]
+        public int TotalPlaytimeSeconds { get; set; }
+
+        [global::ProtoBuf.ProtoMember(206, Name = @"moxxis_drink_event_enabled")]
+        public bool MoxxisDrinkEventEnabled { get; set; }
+
+        [global::ProtoBuf.ProtoMember(207, Name = @"moxxis_drink_event_bits_product_id")]
+        public int MoxxisDrinkEventBitsProductId { get; set; }
+
+        [global::ProtoBuf.ProtoMember(208, Name = @"challenge_data")]
+        public global::System.Collections.Generic.List<ChallengeSaveGameData> ChallengeDatas { get; } = new global::System.Collections.Generic.List<ChallengeSaveGameData>();
+
+        [global::ProtoBuf.ProtoMember(209, Name = @"CitizenScienceLevelProgression", IsPacked = true)]
+        public int[] CitizenScienceLevelProgressions { get; set; }
+
+        [global::ProtoBuf.ProtoMember(211, Name = @"disable_event_content")]
+        public bool DisableEventContent { get; set; }
+
+        [global::ProtoBuf.ProtoMember(212, Name = @"desired_friend_sync_state")]
+        public uint DesiredFriendSyncState { get; set; }
+
+        [global::ProtoBuf.ProtoMember(213, Name = @"needs_shift_first_boot")]
+        public bool NeedsShiftFirstBoot { get; set; }
+
+        [global::ProtoBuf.ProtoMember(214, Name = @"recently_met_players")]
+        public global::System.Collections.Generic.List<RecentlyMetPlayer> RecentlyMetPlayers { get; } = new global::System.Collections.Generic.List<RecentlyMetPlayer>();
+
+        [global::ProtoBuf.ProtoMember(215)]
+        public int CitizenScienceActiveBoosterIndex { get; set; }
+
+        [global::ProtoBuf.ProtoMember(216)]
+        public float CitizenScienceActiveBoosterRemainingTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(217)]
+        public float CitizenScienceActiveBoosterTotalTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(218)]
+        public int StreamerPrimaryActiveBoosterIndex { get; set; }
+
+        [global::ProtoBuf.ProtoMember(219)]
+        public float StreamerPrimaryActiveBoosterRemainingTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(220)]
+        public float StreamerPrimaryActiveBoosterTotalTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(221)]
+        public int StreamerSecondaryActiveBoosterIndex { get; set; }
+
+        [global::ProtoBuf.ProtoMember(222)]
+        public float StreamerSecondaryActiveBoosterRemainingTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(223)]
+        public float StreamerSecondaryActiveBoosterTotalTime { get; set; }
+
+        [global::ProtoBuf.ProtoMember(224)]
+        public int StreamerBoosterTier { get; set; }
+
+        [global::ProtoBuf.ProtoMember(226)]
+        public int CitizenScienceCSBucksAmount { get; set; }
+
+        [global::ProtoBuf.ProtoMember(227)]
+        public bool bCitizenScienceHasSeenIntroVideo { get; set; }
+
+        [global::ProtoBuf.ProtoMember(228)]
+        public bool bCitizenScienceTutorialDone { get; set; }
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class FriendEncountersEntry : global::ProtoBuf.IExtensible
         {
-            get { return __pbn__ShowShiftPlayerEntry.GetValueOrDefault(); }
-            set { __pbn__ShowShiftPlayerEntry = value; }
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1, Name = @"key")]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string Key { get; set; } = "";
+
+            [global::ProtoBuf.ProtoMember(2, Name = @"value")]
+            public OakFriendEncounterData Value { get; set; }
+
         }
-        public bool ShouldSerializeShowShiftPlayerEntry() => __pbn__ShowShiftPlayerEntry != null;
-        public void ResetShowShiftPlayerEntry() => __pbn__ShowShiftPlayerEntry = null;
-        private bool? __pbn__ShowShiftPlayerEntry;
 
     }
 
 }
 
-#pragma warning restore CS1591, CS0612, CS3021, IDE1006
+#pragma warning restore CS0612, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192

@@ -2,7 +2,7 @@
 // Consider using 'partial classes' to extend these types
 // Input: OakSave.proto
 
-#pragma warning disable CS1591, CS0612, CS3021, IDE1006
+#pragma warning disable CS0612, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace OakSave
 {
 
@@ -15,24 +15,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"player_class_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string PlayerClassPath
-        {
-            get { return __pbn__PlayerClassPath ?? ""; }
-            set { __pbn__PlayerClassPath = value; }
-        }
-        public bool ShouldSerializePlayerClassPath() => __pbn__PlayerClassPath != null;
-        public void ResetPlayerClassPath() => __pbn__PlayerClassPath = null;
-        private string __pbn__PlayerClassPath;
+        public string PlayerClassPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"dlc_package_id")]
-        public uint DlcPackageId
-        {
-            get { return __pbn__DlcPackageId.GetValueOrDefault(); }
-            set { __pbn__DlcPackageId = value; }
-        }
-        public bool ShouldSerializeDlcPackageId() => __pbn__DlcPackageId != null;
-        public void ResetDlcPackageId() => __pbn__DlcPackageId = null;
-        private uint? __pbn__DlcPackageId;
+        public uint DlcPackageId { get; set; }
 
     }
 
@@ -44,25 +30,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"amount")]
-        public float Amount
-        {
-            get { return __pbn__Amount.GetValueOrDefault(); }
-            set { __pbn__Amount = value; }
-        }
-        public bool ShouldSerializeAmount() => __pbn__Amount != null;
-        public void ResetAmount() => __pbn__Amount = null;
-        private float? __pbn__Amount;
+        public float Amount { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"resource_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ResourcePath
-        {
-            get { return __pbn__ResourcePath ?? ""; }
-            set { __pbn__ResourcePath = value; }
-        }
-        public bool ShouldSerializeResourcePath() => __pbn__ResourcePath != null;
-        public void ResetResourcePath() => __pbn__ResourcePath = null;
-        private string __pbn__ResourcePath;
+        public string ResourcePath { get; set; } = "";
 
     }
 
@@ -74,45 +46,17 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"game_stage")]
-        public int GameStage
-        {
-            get { return __pbn__GameStage.GetValueOrDefault(); }
-            set { __pbn__GameStage = value; }
-        }
-        public bool ShouldSerializeGameStage() => __pbn__GameStage != null;
-        public void ResetGameStage() => __pbn__GameStage = null;
-        private int? __pbn__GameStage;
+        public int GameStage { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"play_through_idx")]
-        public int PlayThroughIdx
-        {
-            get { return __pbn__PlayThroughIdx.GetValueOrDefault(); }
-            set { __pbn__PlayThroughIdx = value; }
-        }
-        public bool ShouldSerializePlayThroughIdx() => __pbn__PlayThroughIdx != null;
-        public void ResetPlayThroughIdx() => __pbn__PlayThroughIdx = null;
-        private int? __pbn__PlayThroughIdx;
+        public int PlayThroughIdx { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"region_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RegionPath
-        {
-            get { return __pbn__RegionPath ?? ""; }
-            set { __pbn__RegionPath = value; }
-        }
-        public bool ShouldSerializeRegionPath() => __pbn__RegionPath != null;
-        public void ResetRegionPath() => __pbn__RegionPath = null;
-        private string __pbn__RegionPath;
+        public string RegionPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(4, Name = @"dlc_package_id")]
-        public uint DlcPackageId
-        {
-            get { return __pbn__DlcPackageId.GetValueOrDefault(); }
-            set { __pbn__DlcPackageId = value; }
-        }
-        public bool ShouldSerializeDlcPackageId() => __pbn__DlcPackageId != null;
-        public void ResetDlcPackageId() => __pbn__DlcPackageId = null;
-        private uint? __pbn__DlcPackageId;
+        public uint DlcPackageId { get; set; }
 
     }
 
@@ -124,47 +68,19 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"game_stage")]
-        public int GameStage
-        {
-            get { return __pbn__GameStage.GetValueOrDefault(); }
-            set { __pbn__GameStage = value; }
-        }
-        public bool ShouldSerializeGameStage() => __pbn__GameStage != null;
-        public void ResetGameStage() => __pbn__GameStage = null;
-        private int? __pbn__GameStage;
+        public int GameStage { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"inventory_data")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string InventoryData
-        {
-            get { return __pbn__InventoryData ?? ""; }
-            set { __pbn__InventoryData = value; }
-        }
-        public bool ShouldSerializeInventoryData() => __pbn__InventoryData != null;
-        public void ResetInventoryData() => __pbn__InventoryData = null;
-        private string __pbn__InventoryData;
+        public string InventoryData { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"inventory_balance_data")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string InventoryBalanceData
-        {
-            get { return __pbn__InventoryBalanceData ?? ""; }
-            set { __pbn__InventoryBalanceData = value; }
-        }
-        public bool ShouldSerializeInventoryBalanceData() => __pbn__InventoryBalanceData != null;
-        public void ResetInventoryBalanceData() => __pbn__InventoryBalanceData = null;
-        private string __pbn__InventoryBalanceData;
+        public string InventoryBalanceData { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(4, Name = @"manufacturer_data")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ManufacturerData
-        {
-            get { return __pbn__ManufacturerData ?? ""; }
-            set { __pbn__ManufacturerData = value; }
-        }
-        public bool ShouldSerializeManufacturerData() => __pbn__ManufacturerData != null;
-        public void ResetManufacturerData() => __pbn__ManufacturerData = null;
-        private string __pbn__ManufacturerData;
+        public string ManufacturerData { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(5, Name = @"part_list")]
         public global::System.Collections.Generic.List<string> PartLists { get; } = new global::System.Collections.Generic.List<string>();
@@ -173,14 +89,7 @@ namespace OakSave
         public global::System.Collections.Generic.List<string> GenericPartLists { get; } = new global::System.Collections.Generic.List<string>();
 
         [global::ProtoBuf.ProtoMember(7, Name = @"additional_data")]
-        public byte[] AdditionalData
-        {
-            get { return __pbn__AdditionalData; }
-            set { __pbn__AdditionalData = value; }
-        }
-        public bool ShouldSerializeAdditionalData() => __pbn__AdditionalData != null;
-        public void ResetAdditionalData() => __pbn__AdditionalData = null;
-        private byte[] __pbn__AdditionalData;
+        public byte[] AdditionalData { get; set; }
 
         [global::ProtoBuf.ProtoMember(8, Name = @"customization_part_list")]
         public global::System.Collections.Generic.List<string> CustomizationPartLists { get; } = new global::System.Collections.Generic.List<string>();
@@ -195,45 +104,17 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"item_serial_number")]
-        public byte[] ItemSerialNumber
-        {
-            get { return __pbn__ItemSerialNumber; }
-            set { __pbn__ItemSerialNumber = value; }
-        }
-        public bool ShouldSerializeItemSerialNumber() => __pbn__ItemSerialNumber != null;
-        public void ResetItemSerialNumber() => __pbn__ItemSerialNumber = null;
-        private byte[] __pbn__ItemSerialNumber;
+        public byte[] ItemSerialNumber { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"pickup_order_index")]
-        public int PickupOrderIndex
-        {
-            get { return __pbn__PickupOrderIndex.GetValueOrDefault(); }
-            set { __pbn__PickupOrderIndex = value; }
-        }
-        public bool ShouldSerializePickupOrderIndex() => __pbn__PickupOrderIndex != null;
-        public void ResetPickupOrderIndex() => __pbn__PickupOrderIndex = null;
-        private int? __pbn__PickupOrderIndex;
+        public int PickupOrderIndex { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"flags")]
-        public int Flags
-        {
-            get { return __pbn__Flags.GetValueOrDefault(); }
-            set { __pbn__Flags = value; }
-        }
-        public bool ShouldSerializeFlags() => __pbn__Flags != null;
-        public void ResetFlags() => __pbn__Flags = null;
-        private int? __pbn__Flags;
+        public int Flags { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"weapon_skin_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string WeaponSkinPath
-        {
-            get { return __pbn__WeaponSkinPath ?? ""; }
-            set { __pbn__WeaponSkinPath = value; }
-        }
-        public bool ShouldSerializeWeaponSkinPath() => __pbn__WeaponSkinPath != null;
-        public void ResetWeaponSkinPath() => __pbn__WeaponSkinPath = null;
-        private string __pbn__WeaponSkinPath;
+        public string WeaponSkinPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(5, Name = @"development_save_data")]
         public InventoryBalanceStateInitializationData DevelopmentSaveData { get; set; }
@@ -248,46 +129,18 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"inventory_list_index")]
-        public int InventoryListIndex
-        {
-            get { return __pbn__InventoryListIndex.GetValueOrDefault(); }
-            set { __pbn__InventoryListIndex = value; }
-        }
-        public bool ShouldSerializeInventoryListIndex() => __pbn__InventoryListIndex != null;
-        public void ResetInventoryListIndex() => __pbn__InventoryListIndex = null;
-        private int? __pbn__InventoryListIndex;
+        public int InventoryListIndex { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"enabled")]
-        public bool Enabled
-        {
-            get { return __pbn__Enabled.GetValueOrDefault(); }
-            set { __pbn__Enabled = value; }
-        }
-        public bool ShouldSerializeEnabled() => __pbn__Enabled != null;
-        public void ResetEnabled() => __pbn__Enabled = null;
-        private bool? __pbn__Enabled;
+        public bool Enabled { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"slot_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SlotDataPath
-        {
-            get { return __pbn__SlotDataPath ?? ""; }
-            set { __pbn__SlotDataPath = value; }
-        }
-        public bool ShouldSerializeSlotDataPath() => __pbn__SlotDataPath != null;
-        public void ResetSlotDataPath() => __pbn__SlotDataPath = null;
-        private string __pbn__SlotDataPath;
+        public string SlotDataPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(4, Name = @"trinket_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string TrinketDataPath
-        {
-            get { return __pbn__TrinketDataPath ?? ""; }
-            set { __pbn__TrinketDataPath = value; }
-        }
-        public bool ShouldSerializeTrinketDataPath() => __pbn__TrinketDataPath != null;
-        public void ResetTrinketDataPath() => __pbn__TrinketDataPath = null;
-        private string __pbn__TrinketDataPath;
+        public string TrinketDataPath { get; set; } = "";
 
     }
 
@@ -300,44 +153,16 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"item_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ItemAssetPath
-        {
-            get { return __pbn__ItemAssetPath ?? ""; }
-            set { __pbn__ItemAssetPath = value; }
-        }
-        public bool ShouldSerializeItemAssetPath() => __pbn__ItemAssetPath != null;
-        public void ResetItemAssetPath() => __pbn__ItemAssetPath = null;
-        private string __pbn__ItemAssetPath;
+        public string ItemAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"points")]
-        public int Points
-        {
-            get { return __pbn__Points.GetValueOrDefault(); }
-            set { __pbn__Points = value; }
-        }
-        public bool ShouldSerializePoints() => __pbn__Points != null;
-        public void ResetPoints() => __pbn__Points = null;
-        private int? __pbn__Points;
+        public int Points { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"max_points")]
-        public int MaxPoints
-        {
-            get { return __pbn__MaxPoints.GetValueOrDefault(); }
-            set { __pbn__MaxPoints = value; }
-        }
-        public bool ShouldSerializeMaxPoints() => __pbn__MaxPoints != null;
-        public void ResetMaxPoints() => __pbn__MaxPoints = null;
-        private int? __pbn__MaxPoints;
+        public int MaxPoints { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"tree_identifier")]
-        public int TreeIdentifier
-        {
-            get { return __pbn__TreeIdentifier.GetValueOrDefault(); }
-            set { __pbn__TreeIdentifier = value; }
-        }
-        public bool ShouldSerializeTreeIdentifier() => __pbn__TreeIdentifier != null;
-        public void ResetTreeIdentifier() => __pbn__TreeIdentifier = null;
-        private int? __pbn__TreeIdentifier;
+        public int TreeIdentifier { get; set; }
 
     }
 
@@ -350,25 +175,11 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"ability_class_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AbilityClassPath
-        {
-            get { return __pbn__AbilityClassPath ?? ""; }
-            set { __pbn__AbilityClassPath = value; }
-        }
-        public bool ShouldSerializeAbilityClassPath() => __pbn__AbilityClassPath != null;
-        public void ResetAbilityClassPath() => __pbn__AbilityClassPath = null;
-        private string __pbn__AbilityClassPath;
+        public string AbilityClassPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"slot_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SlotAssetPath
-        {
-            get { return __pbn__SlotAssetPath ?? ""; }
-            set { __pbn__SlotAssetPath = value; }
-        }
-        public bool ShouldSerializeSlotAssetPath() => __pbn__SlotAssetPath != null;
-        public void ResetSlotAssetPath() => __pbn__SlotAssetPath = null;
-        private string __pbn__SlotAssetPath;
+        public string SlotAssetPath { get; set; } = "";
 
     }
 
@@ -381,36 +192,15 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"action_ability_class_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ActionAbilityClassPath
-        {
-            get { return __pbn__ActionAbilityClassPath ?? ""; }
-            set { __pbn__ActionAbilityClassPath = value; }
-        }
-        public bool ShouldSerializeActionAbilityClassPath() => __pbn__ActionAbilityClassPath != null;
-        public void ResetActionAbilityClassPath() => __pbn__ActionAbilityClassPath = null;
-        private string __pbn__ActionAbilityClassPath;
+        public string ActionAbilityClassPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"slot_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SlotAssetPath
-        {
-            get { return __pbn__SlotAssetPath ?? ""; }
-            set { __pbn__SlotAssetPath = value; }
-        }
-        public bool ShouldSerializeSlotAssetPath() => __pbn__SlotAssetPath != null;
-        public void ResetSlotAssetPath() => __pbn__SlotAssetPath = null;
-        private string __pbn__SlotAssetPath;
+        public string SlotAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"augment_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AugmentAssetPath
-        {
-            get { return __pbn__AugmentAssetPath ?? ""; }
-            set { __pbn__AugmentAssetPath = value; }
-        }
-        public bool ShouldSerializeAugmentAssetPath() => __pbn__AugmentAssetPath != null;
-        public void ResetAugmentAssetPath() => __pbn__AugmentAssetPath = null;
-        private string __pbn__AugmentAssetPath;
+        public string AugmentAssetPath { get; set; } = "";
 
     }
 
@@ -423,47 +213,19 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"ability_class_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AbilityClassPath
-        {
-            get { return __pbn__AbilityClassPath ?? ""; }
-            set { __pbn__AbilityClassPath = value; }
-        }
-        public bool ShouldSerializeAbilityClassPath() => __pbn__AbilityClassPath != null;
-        public void ResetAbilityClassPath() => __pbn__AbilityClassPath = null;
-        private string __pbn__AbilityClassPath;
+        public string AbilityClassPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"augment_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AugmentAssetPath
-        {
-            get { return __pbn__AugmentAssetPath ?? ""; }
-            set { __pbn__AugmentAssetPath = value; }
-        }
-        public bool ShouldSerializeAugmentAssetPath() => __pbn__AugmentAssetPath != null;
-        public void ResetAugmentAssetPath() => __pbn__AugmentAssetPath = null;
-        private string __pbn__AugmentAssetPath;
+        public string AugmentAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"mod_slot_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ModSlotAssetPath
-        {
-            get { return __pbn__ModSlotAssetPath ?? ""; }
-            set { __pbn__ModSlotAssetPath = value; }
-        }
-        public bool ShouldSerializeModSlotAssetPath() => __pbn__ModSlotAssetPath != null;
-        public void ResetModSlotAssetPath() => __pbn__ModSlotAssetPath = null;
-        private string __pbn__ModSlotAssetPath;
+        public string ModSlotAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(4, Name = @"mod_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ModAssetPath
-        {
-            get { return __pbn__ModAssetPath ?? ""; }
-            set { __pbn__ModAssetPath = value; }
-        }
-        public bool ShouldSerializeModAssetPath() => __pbn__ModAssetPath != null;
-        public void ResetModAssetPath() => __pbn__ModAssetPath = null;
-        private string __pbn__ModAssetPath;
+        public string ModAssetPath { get; set; } = "";
 
     }
 
@@ -475,14 +237,7 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"ability_points")]
-        public int AbilityPoints
-        {
-            get { return __pbn__AbilityPoints.GetValueOrDefault(); }
-            set { __pbn__AbilityPoints = value; }
-        }
-        public bool ShouldSerializeAbilityPoints() => __pbn__AbilityPoints != null;
-        public void ResetAbilityPoints() => __pbn__AbilityPoints = null;
-        private int? __pbn__AbilityPoints;
+        public int AbilityPoints { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"tree_item_list")]
         public global::System.Collections.Generic.List<OakAbilityTreeItemSaveGameData> TreeItemLists { get; } = new global::System.Collections.Generic.List<OakAbilityTreeItemSaveGameData>();
@@ -497,14 +252,7 @@ namespace OakSave
         public global::System.Collections.Generic.List<OakActionAbilityAugmentConfigurationSaveGameData> AugmentConfigurationLists { get; } = new global::System.Collections.Generic.List<OakActionAbilityAugmentConfigurationSaveGameData>();
 
         [global::ProtoBuf.ProtoMember(6, Name = @"tree_grade")]
-        public int TreeGrade
-        {
-            get { return __pbn__TreeGrade.GetValueOrDefault(); }
-            set { __pbn__TreeGrade = value; }
-        }
-        public bool ShouldSerializeTreeGrade() => __pbn__TreeGrade != null;
-        public void ResetTreeGrade() => __pbn__TreeGrade = null;
-        private int? __pbn__TreeGrade;
+        public int TreeGrade { get; set; }
 
     }
 
@@ -516,80 +264,30 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"status")]
-        [global::System.ComponentModel.DefaultValue(MissionState.MSNotStarted)]
-        public MissionState Status
-        {
-            get { return __pbn__Status ?? MissionState.MSNotStarted; }
-            set { __pbn__Status = value; }
-        }
-        public bool ShouldSerializeStatus() => __pbn__Status != null;
-        public void ResetStatus() => __pbn__Status = null;
-        private MissionState? __pbn__Status;
+        public MissionState Status { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"has_been_viewed_in_log")]
-        public bool HasBeenViewedInLog
-        {
-            get { return __pbn__HasBeenViewedInLog.GetValueOrDefault(); }
-            set { __pbn__HasBeenViewedInLog = value; }
-        }
-        public bool ShouldSerializeHasBeenViewedInLog() => __pbn__HasBeenViewedInLog != null;
-        public void ResetHasBeenViewedInLog() => __pbn__HasBeenViewedInLog = null;
-        private bool? __pbn__HasBeenViewedInLog;
+        public bool HasBeenViewedInLog { get; set; }
 
-        [global::ProtoBuf.ProtoMember(3, Name = @"objectives_progress")]
+        [global::ProtoBuf.ProtoMember(3, Name = @"objectives_progress", IsPacked = true)]
         public int[] ObjectivesProgresses { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"mission_class_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string MissionClassPath
-        {
-            get { return __pbn__MissionClassPath ?? ""; }
-            set { __pbn__MissionClassPath = value; }
-        }
-        public bool ShouldSerializeMissionClassPath() => __pbn__MissionClassPath != null;
-        public void ResetMissionClassPath() => __pbn__MissionClassPath = null;
-        private string __pbn__MissionClassPath;
+        public string MissionClassPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(5, Name = @"active_objective_set_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ActiveObjectiveSetPath
-        {
-            get { return __pbn__ActiveObjectiveSetPath ?? ""; }
-            set { __pbn__ActiveObjectiveSetPath = value; }
-        }
-        public bool ShouldSerializeActiveObjectiveSetPath() => __pbn__ActiveObjectiveSetPath != null;
-        public void ResetActiveObjectiveSetPath() => __pbn__ActiveObjectiveSetPath = null;
-        private string __pbn__ActiveObjectiveSetPath;
+        public string ActiveObjectiveSetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(6, Name = @"dlc_package_id")]
-        public uint DlcPackageId
-        {
-            get { return __pbn__DlcPackageId.GetValueOrDefault(); }
-            set { __pbn__DlcPackageId = value; }
-        }
-        public bool ShouldSerializeDlcPackageId() => __pbn__DlcPackageId != null;
-        public void ResetDlcPackageId() => __pbn__DlcPackageId = null;
-        private uint? __pbn__DlcPackageId;
+        public uint DlcPackageId { get; set; }
 
         [global::ProtoBuf.ProtoMember(7, Name = @"kickoff_played")]
-        public bool KickoffPlayed
-        {
-            get { return __pbn__KickoffPlayed.GetValueOrDefault(); }
-            set { __pbn__KickoffPlayed = value; }
-        }
-        public bool ShouldSerializeKickoffPlayed() => __pbn__KickoffPlayed != null;
-        public void ResetKickoffPlayed() => __pbn__KickoffPlayed = null;
-        private bool? __pbn__KickoffPlayed;
+        public bool KickoffPlayed { get; set; }
 
         [global::ProtoBuf.ProtoMember(8, Name = @"league_instance")]
-        public uint LeagueInstance
-        {
-            get { return __pbn__LeagueInstance.GetValueOrDefault(); }
-            set { __pbn__LeagueInstance = value; }
-        }
-        public bool ShouldSerializeLeagueInstance() => __pbn__LeagueInstance != null;
-        public void ResetLeagueInstance() => __pbn__LeagueInstance = null;
-        private uint? __pbn__LeagueInstance;
+        public uint LeagueInstance { get; set; }
 
         [global::ProtoBuf.ProtoContract()]
         public enum MissionState
@@ -620,14 +318,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(2, Name = @"tracked_mission_class_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string TrackedMissionClassPath
-        {
-            get { return __pbn__TrackedMissionClassPath ?? ""; }
-            set { __pbn__TrackedMissionClassPath = value; }
-        }
-        public bool ShouldSerializeTrackedMissionClassPath() => __pbn__TrackedMissionClassPath != null;
-        public void ResetTrackedMissionClassPath() => __pbn__TrackedMissionClassPath = null;
-        private string __pbn__TrackedMissionClassPath;
+        public string TrackedMissionClassPath { get; set; } = "";
 
     }
 
@@ -640,24 +331,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"active_travel_station_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ActiveTravelStationName
-        {
-            get { return __pbn__ActiveTravelStationName ?? ""; }
-            set { __pbn__ActiveTravelStationName = value; }
-        }
-        public bool ShouldSerializeActiveTravelStationName() => __pbn__ActiveTravelStationName != null;
-        public void ResetActiveTravelStationName() => __pbn__ActiveTravelStationName = null;
-        private string __pbn__ActiveTravelStationName;
+        public string ActiveTravelStationName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"blacklisted")]
-        public bool Blacklisted
-        {
-            get { return __pbn__Blacklisted.GetValueOrDefault(); }
-            set { __pbn__Blacklisted = value; }
-        }
-        public bool ShouldSerializeBlacklisted() => __pbn__Blacklisted != null;
-        public void ResetBlacklisted() => __pbn__Blacklisted = null;
-        private bool? __pbn__Blacklisted;
+        public bool Blacklisted { get; set; }
 
     }
 
@@ -682,24 +359,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"discovered_area_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string DiscoveredAreaName
-        {
-            get { return __pbn__DiscoveredAreaName ?? ""; }
-            set { __pbn__DiscoveredAreaName = value; }
-        }
-        public bool ShouldSerializeDiscoveredAreaName() => __pbn__DiscoveredAreaName != null;
-        public void ResetDiscoveredAreaName() => __pbn__DiscoveredAreaName = null;
-        private string __pbn__DiscoveredAreaName;
+        public string DiscoveredAreaName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"discovered_playthroughs")]
-        public uint DiscoveredPlaythroughs
-        {
-            get { return __pbn__DiscoveredPlaythroughs.GetValueOrDefault(); }
-            set { __pbn__DiscoveredPlaythroughs = value; }
-        }
-        public bool ShouldSerializeDiscoveredPlaythroughs() => __pbn__DiscoveredPlaythroughs != null;
-        public void ResetDiscoveredPlaythroughs() => __pbn__DiscoveredPlaythroughs = null;
-        private uint? __pbn__DiscoveredPlaythroughs;
+        public uint DiscoveredPlaythroughs { get; set; }
 
     }
 
@@ -712,24 +375,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"discovered_level_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string DiscoveredLevelName
-        {
-            get { return __pbn__DiscoveredLevelName ?? ""; }
-            set { __pbn__DiscoveredLevelName = value; }
-        }
-        public bool ShouldSerializeDiscoveredLevelName() => __pbn__DiscoveredLevelName != null;
-        public void ResetDiscoveredLevelName() => __pbn__DiscoveredLevelName = null;
-        private string __pbn__DiscoveredLevelName;
+        public string DiscoveredLevelName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"discovered_playthroughs")]
-        public uint DiscoveredPlaythroughs
-        {
-            get { return __pbn__DiscoveredPlaythroughs.GetValueOrDefault(); }
-            set { __pbn__DiscoveredPlaythroughs = value; }
-        }
-        public bool ShouldSerializeDiscoveredPlaythroughs() => __pbn__DiscoveredPlaythroughs != null;
-        public void ResetDiscoveredPlaythroughs() => __pbn__DiscoveredPlaythroughs = null;
-        private uint? __pbn__DiscoveredPlaythroughs;
+        public uint DiscoveredPlaythroughs { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"discovered_area_info")]
         public global::System.Collections.Generic.List<DiscoveredAreaInfo> DiscoveredAreaInfoes { get; } = new global::System.Collections.Generic.List<DiscoveredAreaInfo>();
@@ -745,24 +394,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"discovered_planet")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string DiscoveredPlanet
-        {
-            get { return __pbn__DiscoveredPlanet ?? ""; }
-            set { __pbn__DiscoveredPlanet = value; }
-        }
-        public bool ShouldSerializeDiscoveredPlanet() => __pbn__DiscoveredPlanet != null;
-        public void ResetDiscoveredPlanet() => __pbn__DiscoveredPlanet = null;
-        private string __pbn__DiscoveredPlanet;
+        public string DiscoveredPlanet { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"is_new_planet")]
-        public bool IsNewPlanet
-        {
-            get { return __pbn__IsNewPlanet.GetValueOrDefault(); }
-            set { __pbn__IsNewPlanet = value; }
-        }
-        public bool ShouldSerializeIsNewPlanet() => __pbn__IsNewPlanet != null;
-        public void ResetIsNewPlanet() => __pbn__IsNewPlanet = null;
-        private bool? __pbn__IsNewPlanet;
+        public bool IsNewPlanet { get; set; }
 
     }
 
@@ -787,24 +422,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AssetPath
-        {
-            get { return __pbn__AssetPath ?? ""; }
-            set { __pbn__AssetPath = value; }
-        }
-        public bool ShouldSerializeAssetPath() => __pbn__AssetPath != null;
-        public void ResetAssetPath() => __pbn__AssetPath = null;
-        private string __pbn__AssetPath;
+        public string AssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"just_unlocked")]
-        public bool JustUnlocked
-        {
-            get { return __pbn__JustUnlocked.GetValueOrDefault(); }
-            set { __pbn__JustUnlocked = value; }
-        }
-        public bool ShouldSerializeJustUnlocked() => __pbn__JustUnlocked != null;
-        public void ResetJustUnlocked() => __pbn__JustUnlocked = null;
-        private bool? __pbn__JustUnlocked;
+        public bool JustUnlocked { get; set; }
 
     }
 
@@ -817,143 +438,52 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"loadout_save_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string LoadoutSaveName
-        {
-            get { return __pbn__LoadoutSaveName ?? ""; }
-            set { __pbn__LoadoutSaveName = value; }
-        }
-        public bool ShouldSerializeLoadoutSaveName() => __pbn__LoadoutSaveName != null;
-        public void ResetLoadoutSaveName() => __pbn__LoadoutSaveName = null;
-        private string __pbn__LoadoutSaveName;
+        public string LoadoutSaveName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"body_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string BodyAssetPath
-        {
-            get { return __pbn__BodyAssetPath ?? ""; }
-            set { __pbn__BodyAssetPath = value; }
-        }
-        public bool ShouldSerializeBodyAssetPath() => __pbn__BodyAssetPath != null;
-        public void ResetBodyAssetPath() => __pbn__BodyAssetPath = null;
-        private string __pbn__BodyAssetPath;
+        public string BodyAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"wheel_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string WheelAssetPath
-        {
-            get { return __pbn__WheelAssetPath ?? ""; }
-            set { __pbn__WheelAssetPath = value; }
-        }
-        public bool ShouldSerializeWheelAssetPath() => __pbn__WheelAssetPath != null;
-        public void ResetWheelAssetPath() => __pbn__WheelAssetPath = null;
-        private string __pbn__WheelAssetPath;
+        public string WheelAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(4, Name = @"armor_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ArmorAssetPath
-        {
-            get { return __pbn__ArmorAssetPath ?? ""; }
-            set { __pbn__ArmorAssetPath = value; }
-        }
-        public bool ShouldSerializeArmorAssetPath() => __pbn__ArmorAssetPath != null;
-        public void ResetArmorAssetPath() => __pbn__ArmorAssetPath = null;
-        private string __pbn__ArmorAssetPath;
+        public string ArmorAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(5, Name = @"core_mod_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string CoreModAssetPath
-        {
-            get { return __pbn__CoreModAssetPath ?? ""; }
-            set { __pbn__CoreModAssetPath = value; }
-        }
-        public bool ShouldSerializeCoreModAssetPath() => __pbn__CoreModAssetPath != null;
-        public void ResetCoreModAssetPath() => __pbn__CoreModAssetPath = null;
-        private string __pbn__CoreModAssetPath;
+        public string CoreModAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(6, Name = @"gunner_weapon_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string GunnerWeaponAssetPath
-        {
-            get { return __pbn__GunnerWeaponAssetPath ?? ""; }
-            set { __pbn__GunnerWeaponAssetPath = value; }
-        }
-        public bool ShouldSerializeGunnerWeaponAssetPath() => __pbn__GunnerWeaponAssetPath != null;
-        public void ResetGunnerWeaponAssetPath() => __pbn__GunnerWeaponAssetPath = null;
-        private string __pbn__GunnerWeaponAssetPath;
+        public string GunnerWeaponAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(7, Name = @"driver_weapon_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string DriverWeaponAssetPath
-        {
-            get { return __pbn__DriverWeaponAssetPath ?? ""; }
-            set { __pbn__DriverWeaponAssetPath = value; }
-        }
-        public bool ShouldSerializeDriverWeaponAssetPath() => __pbn__DriverWeaponAssetPath != null;
-        public void ResetDriverWeaponAssetPath() => __pbn__DriverWeaponAssetPath = null;
-        private string __pbn__DriverWeaponAssetPath;
+        public string DriverWeaponAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(8, Name = @"ornament_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string OrnamentAssetPath
-        {
-            get { return __pbn__OrnamentAssetPath ?? ""; }
-            set { __pbn__OrnamentAssetPath = value; }
-        }
-        public bool ShouldSerializeOrnamentAssetPath() => __pbn__OrnamentAssetPath != null;
-        public void ResetOrnamentAssetPath() => __pbn__OrnamentAssetPath = null;
-        private string __pbn__OrnamentAssetPath;
+        public string OrnamentAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(9, Name = @"material_decal_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string MaterialDecalAssetPath
-        {
-            get { return __pbn__MaterialDecalAssetPath ?? ""; }
-            set { __pbn__MaterialDecalAssetPath = value; }
-        }
-        public bool ShouldSerializeMaterialDecalAssetPath() => __pbn__MaterialDecalAssetPath != null;
-        public void ResetMaterialDecalAssetPath() => __pbn__MaterialDecalAssetPath = null;
-        private string __pbn__MaterialDecalAssetPath;
+        public string MaterialDecalAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(10, Name = @"material_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string MaterialAssetPath
-        {
-            get { return __pbn__MaterialAssetPath ?? ""; }
-            set { __pbn__MaterialAssetPath = value; }
-        }
-        public bool ShouldSerializeMaterialAssetPath() => __pbn__MaterialAssetPath != null;
-        public void ResetMaterialAssetPath() => __pbn__MaterialAssetPath = null;
-        private string __pbn__MaterialAssetPath;
+        public string MaterialAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(11, Name = @"color_index_1")]
-        public int ColorIndex1
-        {
-            get { return __pbn__ColorIndex1.GetValueOrDefault(); }
-            set { __pbn__ColorIndex1 = value; }
-        }
-        public bool ShouldSerializeColorIndex1() => __pbn__ColorIndex1 != null;
-        public void ResetColorIndex1() => __pbn__ColorIndex1 = null;
-        private int? __pbn__ColorIndex1;
+        public int ColorIndex1 { get; set; }
 
         [global::ProtoBuf.ProtoMember(12, Name = @"color_index_2")]
-        public int ColorIndex2
-        {
-            get { return __pbn__ColorIndex2.GetValueOrDefault(); }
-            set { __pbn__ColorIndex2 = value; }
-        }
-        public bool ShouldSerializeColorIndex2() => __pbn__ColorIndex2 != null;
-        public void ResetColorIndex2() => __pbn__ColorIndex2 = null;
-        private int? __pbn__ColorIndex2;
+        public int ColorIndex2 { get; set; }
 
         [global::ProtoBuf.ProtoMember(13, Name = @"color_index_3")]
-        public int ColorIndex3
-        {
-            get { return __pbn__ColorIndex3.GetValueOrDefault(); }
-            set { __pbn__ColorIndex3 = value; }
-        }
-        public bool ShouldSerializeColorIndex3() => __pbn__ColorIndex3 != null;
-        public void ResetColorIndex3() => __pbn__ColorIndex3 = null;
-        private int? __pbn__ColorIndex3;
+        public int ColorIndex3 { get; set; }
 
     }
 
@@ -966,14 +496,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"color_parameter")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ColorParameter
-        {
-            get { return __pbn__ColorParameter ?? ""; }
-            set { __pbn__ColorParameter = value; }
-        }
-        public bool ShouldSerializeColorParameter() => __pbn__ColorParameter != null;
-        public void ResetColorParameter() => __pbn__ColorParameter = null;
-        private string __pbn__ColorParameter;
+        public string ColorParameter { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"applied_color")]
         public Vec3 AppliedColor { get; set; }
@@ -982,24 +505,10 @@ namespace OakSave
         public Vec3 SplitColor { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"use_default_color")]
-        public bool UseDefaultColor
-        {
-            get { return __pbn__UseDefaultColor.GetValueOrDefault(); }
-            set { __pbn__UseDefaultColor = value; }
-        }
-        public bool ShouldSerializeUseDefaultColor() => __pbn__UseDefaultColor != null;
-        public void ResetUseDefaultColor() => __pbn__UseDefaultColor = null;
-        private bool? __pbn__UseDefaultColor;
+        public bool UseDefaultColor { get; set; }
 
         [global::ProtoBuf.ProtoMember(5, Name = @"use_default_split_color")]
-        public bool UseDefaultSplitColor
-        {
-            get { return __pbn__UseDefaultSplitColor.GetValueOrDefault(); }
-            set { __pbn__UseDefaultSplitColor = value; }
-        }
-        public bool ShouldSerializeUseDefaultSplitColor() => __pbn__UseDefaultSplitColor != null;
-        public void ResetUseDefaultSplitColor() => __pbn__UseDefaultSplitColor = null;
-        private bool? __pbn__UseDefaultSplitColor;
+        public bool UseDefaultSplitColor { get; set; }
 
     }
 
@@ -1011,24 +520,10 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"guardian_rank")]
-        public int GuardianRank
-        {
-            get { return __pbn__GuardianRank.GetValueOrDefault(); }
-            set { __pbn__GuardianRank = value; }
-        }
-        public bool ShouldSerializeGuardianRank() => __pbn__GuardianRank != null;
-        public void ResetGuardianRank() => __pbn__GuardianRank = null;
-        private int? __pbn__GuardianRank;
+        public int GuardianRank { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"guardian_experience")]
-        public int GuardianExperience
-        {
-            get { return __pbn__GuardianExperience.GetValueOrDefault(); }
-            set { __pbn__GuardianExperience = value; }
-        }
-        public bool ShouldSerializeGuardianExperience() => __pbn__GuardianExperience != null;
-        public void ResetGuardianExperience() => __pbn__GuardianExperience = null;
-        private int? __pbn__GuardianExperience;
+        public int GuardianExperience { get; set; }
 
     }
 
@@ -1040,35 +535,14 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"num_tokens")]
-        public int NumTokens
-        {
-            get { return __pbn__NumTokens.GetValueOrDefault(); }
-            set { __pbn__NumTokens = value; }
-        }
-        public bool ShouldSerializeNumTokens() => __pbn__NumTokens != null;
-        public void ResetNumTokens() => __pbn__NumTokens = null;
-        private int? __pbn__NumTokens;
+        public int NumTokens { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"is_enabled")]
-        public bool IsEnabled
-        {
-            get { return __pbn__IsEnabled.GetValueOrDefault(); }
-            set { __pbn__IsEnabled = value; }
-        }
-        public bool ShouldSerializeIsEnabled() => __pbn__IsEnabled != null;
-        public void ResetIsEnabled() => __pbn__IsEnabled = null;
-        private bool? __pbn__IsEnabled;
+        public bool IsEnabled { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"reward_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RewardDataPath
-        {
-            get { return __pbn__RewardDataPath ?? ""; }
-            set { __pbn__RewardDataPath = value; }
-        }
-        public bool ShouldSerializeRewardDataPath() => __pbn__RewardDataPath != null;
-        public void ResetRewardDataPath() => __pbn__RewardDataPath = null;
-        private string __pbn__RewardDataPath;
+        public string RewardDataPath { get; set; } = "";
 
     }
 
@@ -1080,25 +554,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"is_enabled")]
-        public bool IsEnabled
-        {
-            get { return __pbn__IsEnabled.GetValueOrDefault(); }
-            set { __pbn__IsEnabled = value; }
-        }
-        public bool ShouldSerializeIsEnabled() => __pbn__IsEnabled != null;
-        public void ResetIsEnabled() => __pbn__IsEnabled = null;
-        private bool? __pbn__IsEnabled;
+        public bool IsEnabled { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"perk_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string PerkDataPath
-        {
-            get { return __pbn__PerkDataPath ?? ""; }
-            set { __pbn__PerkDataPath = value; }
-        }
-        public bool ShouldSerializePerkDataPath() => __pbn__PerkDataPath != null;
-        public void ResetPerkDataPath() => __pbn__PerkDataPath = null;
-        private string __pbn__PerkDataPath;
+        public string PerkDataPath { get; set; } = "";
 
     }
 
@@ -1110,34 +570,13 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"guardian_available_tokens")]
-        public int GuardianAvailableTokens
-        {
-            get { return __pbn__GuardianAvailableTokens.GetValueOrDefault(); }
-            set { __pbn__GuardianAvailableTokens = value; }
-        }
-        public bool ShouldSerializeGuardianAvailableTokens() => __pbn__GuardianAvailableTokens != null;
-        public void ResetGuardianAvailableTokens() => __pbn__GuardianAvailableTokens = null;
-        private int? __pbn__GuardianAvailableTokens;
+        public int GuardianAvailableTokens { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"guardian_rank")]
-        public int GuardianRank
-        {
-            get { return __pbn__GuardianRank.GetValueOrDefault(); }
-            set { __pbn__GuardianRank = value; }
-        }
-        public bool ShouldSerializeGuardianRank() => __pbn__GuardianRank != null;
-        public void ResetGuardianRank() => __pbn__GuardianRank = null;
-        private int? __pbn__GuardianRank;
+        public int GuardianRank { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"guardian_experience")]
-        public int GuardianExperience
-        {
-            get { return __pbn__GuardianExperience.GetValueOrDefault(); }
-            set { __pbn__GuardianExperience = value; }
-        }
-        public bool ShouldSerializeGuardianExperience() => __pbn__GuardianExperience != null;
-        public void ResetGuardianExperience() => __pbn__GuardianExperience = null;
-        private int? __pbn__GuardianExperience;
+        public int GuardianExperience { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"rank_rewards")]
         public global::System.Collections.Generic.List<GuardianRankRewardCharacterSaveGameData> RankRewards { get; } = new global::System.Collections.Generic.List<GuardianRankRewardCharacterSaveGameData>();
@@ -1146,34 +585,13 @@ namespace OakSave
         public global::System.Collections.Generic.List<GuardianRankPerkCharacterSaveGameData> RankPerks { get; } = new global::System.Collections.Generic.List<GuardianRankPerkCharacterSaveGameData>();
 
         [global::ProtoBuf.ProtoMember(6, Name = @"guardian_reward_random_seed")]
-        public int GuardianRewardRandomSeed
-        {
-            get { return __pbn__GuardianRewardRandomSeed.GetValueOrDefault(); }
-            set { __pbn__GuardianRewardRandomSeed = value; }
-        }
-        public bool ShouldSerializeGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed != null;
-        public void ResetGuardianRewardRandomSeed() => __pbn__GuardianRewardRandomSeed = null;
-        private int? __pbn__GuardianRewardRandomSeed;
+        public int GuardianRewardRandomSeed { get; set; }
 
         [global::ProtoBuf.ProtoMember(7, Name = @"new_guardian_experience")]
-        public long NewGuardianExperience
-        {
-            get { return __pbn__NewGuardianExperience.GetValueOrDefault(); }
-            set { __pbn__NewGuardianExperience = value; }
-        }
-        public bool ShouldSerializeNewGuardianExperience() => __pbn__NewGuardianExperience != null;
-        public void ResetNewGuardianExperience() => __pbn__NewGuardianExperience = null;
-        private long? __pbn__NewGuardianExperience;
+        public long NewGuardianExperience { get; set; }
 
         [global::ProtoBuf.ProtoMember(8, Name = @"is_rank_system_enabled")]
-        public bool IsRankSystemEnabled
-        {
-            get { return __pbn__IsRankSystemEnabled.GetValueOrDefault(); }
-            set { __pbn__IsRankSystemEnabled = value; }
-        }
-        public bool ShouldSerializeIsRankSystemEnabled() => __pbn__IsRankSystemEnabled != null;
-        public void ResetIsRankSystemEnabled() => __pbn__IsRankSystemEnabled = null;
-        private bool? __pbn__IsRankSystemEnabled;
+        public bool IsRankSystemEnabled { get; set; }
 
     }
 
@@ -1185,25 +603,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"decoration_index")]
-        public int DecorationIndex
-        {
-            get { return __pbn__DecorationIndex.GetValueOrDefault(); }
-            set { __pbn__DecorationIndex = value; }
-        }
-        public bool ShouldSerializeDecorationIndex() => __pbn__DecorationIndex != null;
-        public void ResetDecorationIndex() => __pbn__DecorationIndex = null;
-        private int? __pbn__DecorationIndex;
+        public int DecorationIndex { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"decoration_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string DecorationDataPath
-        {
-            get { return __pbn__DecorationDataPath ?? ""; }
-            set { __pbn__DecorationDataPath = value; }
-        }
-        public bool ShouldSerializeDecorationDataPath() => __pbn__DecorationDataPath != null;
-        public void ResetDecorationDataPath() => __pbn__DecorationDataPath = null;
-        private string __pbn__DecorationDataPath;
+        public string DecorationDataPath { get; set; } = "";
 
     }
 
@@ -1215,28 +619,14 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"preferred_room_assignment")]
-        public int PreferredRoomAssignment
-        {
-            get { return __pbn__PreferredRoomAssignment.GetValueOrDefault(); }
-            set { __pbn__PreferredRoomAssignment = value; }
-        }
-        public bool ShouldSerializePreferredRoomAssignment() => __pbn__PreferredRoomAssignment != null;
-        public void ResetPreferredRoomAssignment() => __pbn__PreferredRoomAssignment = null;
-        private int? __pbn__PreferredRoomAssignment;
+        public int PreferredRoomAssignment { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"decorations")]
         public global::System.Collections.Generic.List<CrewQuartersDecorationSaveData> Decorations { get; } = new global::System.Collections.Generic.List<CrewQuartersDecorationSaveData>();
 
         [global::ProtoBuf.ProtoMember(3, Name = @"room_data_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string RoomDataPath
-        {
-            get { return __pbn__RoomDataPath ?? ""; }
-            set { __pbn__RoomDataPath = value; }
-        }
-        public bool ShouldSerializeRoomDataPath() => __pbn__RoomDataPath != null;
-        public void ResetRoomDataPath() => __pbn__RoomDataPath = null;
-        private string __pbn__RoomDataPath;
+        public string RoomDataPath { get; set; } = "";
 
     }
 
@@ -1248,25 +638,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"encrypted_serial_number")]
-        public byte[] EncryptedSerialNumber
-        {
-            get { return __pbn__EncryptedSerialNumber; }
-            set { __pbn__EncryptedSerialNumber = value; }
-        }
-        public bool ShouldSerializeEncryptedSerialNumber() => __pbn__EncryptedSerialNumber != null;
-        public void ResetEncryptedSerialNumber() => __pbn__EncryptedSerialNumber = null;
-        private byte[] __pbn__EncryptedSerialNumber;
+        public byte[] EncryptedSerialNumber { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"slot_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SlotAssetPath
-        {
-            get { return __pbn__SlotAssetPath ?? ""; }
-            set { __pbn__SlotAssetPath = value; }
-        }
-        public bool ShouldSerializeSlotAssetPath() => __pbn__SlotAssetPath != null;
-        public void ResetSlotAssetPath() => __pbn__SlotAssetPath = null;
-        private string __pbn__SlotAssetPath;
+        public string SlotAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"development_save_data")]
         public InventoryBalanceStateInitializationData DevelopmentSaveData { get; set; }
@@ -1293,25 +669,11 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"has_been_seen_in_log")]
-        public bool HasBeenSeenInLog
-        {
-            get { return __pbn__HasBeenSeenInLog.GetValueOrDefault(); }
-            set { __pbn__HasBeenSeenInLog = value; }
-        }
-        public bool ShouldSerializeHasBeenSeenInLog() => __pbn__HasBeenSeenInLog != null;
-        public void ResetHasBeenSeenInLog() => __pbn__HasBeenSeenInLog = null;
-        private bool? __pbn__HasBeenSeenInLog;
+        public bool HasBeenSeenInLog { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"echo_log_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string EchoLogPath
-        {
-            get { return __pbn__EchoLogPath ?? ""; }
-            set { __pbn__EchoLogPath = value; }
-        }
-        public bool ShouldSerializeEchoLogPath() => __pbn__EchoLogPath != null;
-        public void ResetEchoLogPath() => __pbn__EchoLogPath = null;
-        private string __pbn__EchoLogPath;
+        public string EchoLogPath { get; set; } = "";
 
     }
 
@@ -1323,24 +685,10 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"zone_name_id")]
-        public uint ZoneNameId
-        {
-            get { return __pbn__ZoneNameId.GetValueOrDefault(); }
-            set { __pbn__ZoneNameId = value; }
-        }
-        public bool ShouldSerializeZoneNameId() => __pbn__ZoneNameId != null;
-        public void ResetZoneNameId() => __pbn__ZoneNameId = null;
-        private uint? __pbn__ZoneNameId;
+        public uint ZoneNameId { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"map_name_id")]
-        public uint MapNameId
-        {
-            get { return __pbn__MapNameId.GetValueOrDefault(); }
-            set { __pbn__MapNameId = value; }
-        }
-        public bool ShouldSerializeMapNameId() => __pbn__MapNameId != null;
-        public void ResetMapNameId() => __pbn__MapNameId = null;
-        private uint? __pbn__MapNameId;
+        public uint MapNameId { get; set; }
 
     }
 
@@ -1355,14 +703,7 @@ namespace OakSave
         public MapIDData LastTraveledMapId { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"mayhem_level")]
-        public int MayhemLevel
-        {
-            get { return __pbn__MayhemLevel.GetValueOrDefault(); }
-            set { __pbn__MayhemLevel = value; }
-        }
-        public bool ShouldSerializeMayhemLevel() => __pbn__MayhemLevel != null;
-        public void ResetMayhemLevel() => __pbn__MayhemLevel = null;
-        private int? __pbn__MayhemLevel;
+        public int MayhemLevel { get; set; }
 
     }
 
@@ -1374,14 +715,7 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"category_progress")]
-        public byte[] CategoryProgress
-        {
-            get { return __pbn__CategoryProgress; }
-            set { __pbn__CategoryProgress = value; }
-        }
-        public bool ShouldSerializeCategoryProgress() => __pbn__CategoryProgress != null;
-        public void ResetCategoryProgress() => __pbn__CategoryProgress = null;
-        private byte[] __pbn__CategoryProgress;
+        public byte[] CategoryProgress { get; set; }
 
     }
 
@@ -1394,25 +728,11 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"slot_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SlotAssetPath
-        {
-            get { return __pbn__SlotAssetPath ?? ""; }
-            set { __pbn__SlotAssetPath = value; }
-        }
-        public bool ShouldSerializeSlotAssetPath() => __pbn__SlotAssetPath != null;
-        public void ResetSlotAssetPath() => __pbn__SlotAssetPath = null;
-        private string __pbn__SlotAssetPath;
+        public string SlotAssetPath { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"augment_asset_path")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string AugmentAssetPath
-        {
-            get { return __pbn__AugmentAssetPath ?? ""; }
-            set { __pbn__AugmentAssetPath = value; }
-        }
-        public bool ShouldSerializeAugmentAssetPath() => __pbn__AugmentAssetPath != null;
-        public void ResetAugmentAssetPath() => __pbn__AugmentAssetPath = null;
-        private string __pbn__AugmentAssetPath;
+        public string AugmentAssetPath { get; set; } = "";
 
     }
 
@@ -1436,77 +756,28 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"has_seen_skill_menu_unlock")]
-        public bool HasSeenSkillMenuUnlock
-        {
-            get { return __pbn__HasSeenSkillMenuUnlock.GetValueOrDefault(); }
-            set { __pbn__HasSeenSkillMenuUnlock = value; }
-        }
-        public bool ShouldSerializeHasSeenSkillMenuUnlock() => __pbn__HasSeenSkillMenuUnlock != null;
-        public void ResetHasSeenSkillMenuUnlock() => __pbn__HasSeenSkillMenuUnlock = null;
-        private bool? __pbn__HasSeenSkillMenuUnlock;
+        public bool HasSeenSkillMenuUnlock { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"has_seen_guardian_rank_menu_unlock")]
-        public bool HasSeenGuardianRankMenuUnlock
-        {
-            get { return __pbn__HasSeenGuardianRankMenuUnlock.GetValueOrDefault(); }
-            set { __pbn__HasSeenGuardianRankMenuUnlock = value; }
-        }
-        public bool ShouldSerializeHasSeenGuardianRankMenuUnlock() => __pbn__HasSeenGuardianRankMenuUnlock != null;
-        public void ResetHasSeenGuardianRankMenuUnlock() => __pbn__HasSeenGuardianRankMenuUnlock = null;
-        private bool? __pbn__HasSeenGuardianRankMenuUnlock;
+        public bool HasSeenGuardianRankMenuUnlock { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"has_seen_echo_boot_ammo_bar")]
-        public bool HasSeenEchoBootAmmoBar
-        {
-            get { return __pbn__HasSeenEchoBootAmmoBar.GetValueOrDefault(); }
-            set { __pbn__HasSeenEchoBootAmmoBar = value; }
-        }
-        public bool ShouldSerializeHasSeenEchoBootAmmoBar() => __pbn__HasSeenEchoBootAmmoBar != null;
-        public void ResetHasSeenEchoBootAmmoBar() => __pbn__HasSeenEchoBootAmmoBar = null;
-        private bool? __pbn__HasSeenEchoBootAmmoBar;
+        public bool HasSeenEchoBootAmmoBar { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"has_seen_echo_boot_shield_bar")]
-        public bool HasSeenEchoBootShieldBar
-        {
-            get { return __pbn__HasSeenEchoBootShieldBar.GetValueOrDefault(); }
-            set { __pbn__HasSeenEchoBootShieldBar = value; }
-        }
-        public bool ShouldSerializeHasSeenEchoBootShieldBar() => __pbn__HasSeenEchoBootShieldBar != null;
-        public void ResetHasSeenEchoBootShieldBar() => __pbn__HasSeenEchoBootShieldBar = null;
-        private bool? __pbn__HasSeenEchoBootShieldBar;
+        public bool HasSeenEchoBootShieldBar { get; set; }
 
         [global::ProtoBuf.ProtoMember(5, Name = @"has_seen_echo_boot_grenades")]
-        public bool HasSeenEchoBootGrenades
-        {
-            get { return __pbn__HasSeenEchoBootGrenades.GetValueOrDefault(); }
-            set { __pbn__HasSeenEchoBootGrenades = value; }
-        }
-        public bool ShouldSerializeHasSeenEchoBootGrenades() => __pbn__HasSeenEchoBootGrenades != null;
-        public void ResetHasSeenEchoBootGrenades() => __pbn__HasSeenEchoBootGrenades = null;
-        private bool? __pbn__HasSeenEchoBootGrenades;
+        public bool HasSeenEchoBootGrenades { get; set; }
 
         [global::ProtoBuf.ProtoMember(6, Name = @"highest_thvm_breadcrumb_seen")]
-        public int HighestThvmBreadcrumbSeen
-        {
-            get { return __pbn__HighestThvmBreadcrumbSeen.GetValueOrDefault(); }
-            set { __pbn__HighestThvmBreadcrumbSeen = value; }
-        }
-        public bool ShouldSerializeHighestThvmBreadcrumbSeen() => __pbn__HighestThvmBreadcrumbSeen != null;
-        public void ResetHighestThvmBreadcrumbSeen() => __pbn__HighestThvmBreadcrumbSeen = null;
-        private int? __pbn__HighestThvmBreadcrumbSeen;
+        public int HighestThvmBreadcrumbSeen { get; set; }
 
         [global::ProtoBuf.ProtoMember(7, Name = @"inventory_slot_unlocks_seen")]
         public global::System.Collections.Generic.List<string> InventorySlotUnlocksSeens { get; } = new global::System.Collections.Generic.List<string>();
 
         [global::ProtoBuf.ProtoMember(8, Name = @"saved_spin_offset")]
-        public int SavedSpinOffset
-        {
-            get { return __pbn__SavedSpinOffset.GetValueOrDefault(); }
-            set { __pbn__SavedSpinOffset = value; }
-        }
-        public bool ShouldSerializeSavedSpinOffset() => __pbn__SavedSpinOffset != null;
-        public void ResetSavedSpinOffset() => __pbn__SavedSpinOffset = null;
-        private int? __pbn__SavedSpinOffset;
+        public int SavedSpinOffset { get; set; }
 
     }
 
@@ -1519,34 +790,13 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"planet_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string PlanetName
-        {
-            get { return __pbn__PlanetName ?? ""; }
-            set { __pbn__PlanetName = value; }
-        }
-        public bool ShouldSerializePlanetName() => __pbn__PlanetName != null;
-        public void ResetPlanetName() => __pbn__PlanetName = null;
-        private string __pbn__PlanetName;
+        public string PlanetName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"cycle_length")]
-        public float CycleLength
-        {
-            get { return __pbn__CycleLength.GetValueOrDefault(); }
-            set { __pbn__CycleLength = value; }
-        }
-        public bool ShouldSerializeCycleLength() => __pbn__CycleLength != null;
-        public void ResetCycleLength() => __pbn__CycleLength = null;
-        private float? __pbn__CycleLength;
+        public float CycleLength { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"last_cached_time")]
-        public float LastCachedTime
-        {
-            get { return __pbn__LastCachedTime.GetValueOrDefault(); }
-            set { __pbn__LastCachedTime = value; }
-        }
-        public bool ShouldSerializeLastCachedTime() => __pbn__LastCachedTime != null;
-        public void ResetLastCachedTime() => __pbn__LastCachedTime = null;
-        private float? __pbn__LastCachedTime;
+        public float LastCachedTime { get; set; }
 
     }
 
@@ -1562,14 +812,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(2, Name = @"planet_cycle")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string PlanetCycle
-        {
-            get { return __pbn__PlanetCycle ?? ""; }
-            set { __pbn__PlanetCycle = value; }
-        }
-        public bool ShouldSerializePlanetCycle() => __pbn__PlanetCycle != null;
-        public void ResetPlanetCycle() => __pbn__PlanetCycle = null;
-        private string __pbn__PlanetCycle;
+        public string PlanetCycle { get; set; } = "";
 
     }
 
@@ -1582,24 +825,10 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"actor_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string ActorName
-        {
-            get { return __pbn__ActorName ?? ""; }
-            set { __pbn__ActorName = value; }
-        }
-        public bool ShouldSerializeActorName() => __pbn__ActorName != null;
-        public void ResetActorName() => __pbn__ActorName = null;
-        private string __pbn__ActorName;
+        public string ActorName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"timer_remaining")]
-        public int TimerRemaining
-        {
-            get { return __pbn__TimerRemaining.GetValueOrDefault(); }
-            set { __pbn__TimerRemaining = value; }
-        }
-        public bool ShouldSerializeTimerRemaining() => __pbn__TimerRemaining != null;
-        public void ResetTimerRemaining() => __pbn__TimerRemaining = null;
-        private int? __pbn__TimerRemaining;
+        public int TimerRemaining { get; set; }
 
     }
 
@@ -1612,14 +841,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"level_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string LevelName
-        {
-            get { return __pbn__LevelName ?? ""; }
-            set { __pbn__LevelName = value; }
-        }
-        public bool ShouldSerializeLevelName() => __pbn__LevelName != null;
-        public void ResetLevelName() => __pbn__LevelName = null;
-        private string __pbn__LevelName;
+        public string LevelName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"saved_actors")]
         public global::System.Collections.Generic.List<LevelPersistenceActorSaveGameData> SavedActors { get; } = new global::System.Collections.Generic.List<LevelPersistenceActorSaveGameData>();
@@ -1635,74 +857,25 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(1, Name = @"level_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string LevelName
-        {
-            get { return __pbn__LevelName ?? ""; }
-            set { __pbn__LevelName = value; }
-        }
-        public bool ShouldSerializeLevelName() => __pbn__LevelName != null;
-        public void ResetLevelName() => __pbn__LevelName = null;
-        private string __pbn__LevelName;
+        public string LevelName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(2, Name = @"fod_texture_size")]
-        public uint FodTextureSize
-        {
-            get { return __pbn__FodTextureSize.GetValueOrDefault(); }
-            set { __pbn__FodTextureSize = value; }
-        }
-        public bool ShouldSerializeFodTextureSize() => __pbn__FodTextureSize != null;
-        public void ResetFodTextureSize() => __pbn__FodTextureSize = null;
-        private uint? __pbn__FodTextureSize;
+        public uint FodTextureSize { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"num_chunks")]
-        public uint NumChunks
-        {
-            get { return __pbn__NumChunks.GetValueOrDefault(); }
-            set { __pbn__NumChunks = value; }
-        }
-        public bool ShouldSerializeNumChunks() => __pbn__NumChunks != null;
-        public void ResetNumChunks() => __pbn__NumChunks = null;
-        private uint? __pbn__NumChunks;
+        public uint NumChunks { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"discovery_percentage")]
-        public float DiscoveryPercentage
-        {
-            get { return __pbn__DiscoveryPercentage.GetValueOrDefault(); }
-            set { __pbn__DiscoveryPercentage = value; }
-        }
-        public bool ShouldSerializeDiscoveryPercentage() => __pbn__DiscoveryPercentage != null;
-        public void ResetDiscoveryPercentage() => __pbn__DiscoveryPercentage = null;
-        private float? __pbn__DiscoveryPercentage;
+        public float DiscoveryPercentage { get; set; }
 
         [global::ProtoBuf.ProtoMember(5, Name = @"data_state")]
-        public uint DataState
-        {
-            get { return __pbn__DataState.GetValueOrDefault(); }
-            set { __pbn__DataState = value; }
-        }
-        public bool ShouldSerializeDataState() => __pbn__DataState != null;
-        public void ResetDataState() => __pbn__DataState = null;
-        private uint? __pbn__DataState;
+        public uint DataState { get; set; }
 
         [global::ProtoBuf.ProtoMember(6, Name = @"data_revision")]
-        public uint DataRevision
-        {
-            get { return __pbn__DataRevision.GetValueOrDefault(); }
-            set { __pbn__DataRevision = value; }
-        }
-        public bool ShouldSerializeDataRevision() => __pbn__DataRevision != null;
-        public void ResetDataRevision() => __pbn__DataRevision = null;
-        private uint? __pbn__DataRevision;
+        public uint DataRevision { get; set; }
 
         [global::ProtoBuf.ProtoMember(7, Name = @"fod_data")]
-        public byte[] FodData
-        {
-            get { return __pbn__FodData; }
-            set { __pbn__FodData = value; }
-        }
-        public bool ShouldSerializeFodData() => __pbn__FodData != null;
-        public void ResetFodData() => __pbn__FodData = null;
-        private byte[] __pbn__FodData;
+        public byte[] FodData { get; set; }
 
     }
 
@@ -1726,34 +899,13 @@ namespace OakSave
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1, Name = @"save_game_id")]
-        public uint SaveGameId
-        {
-            get { return __pbn__SaveGameId.GetValueOrDefault(); }
-            set { __pbn__SaveGameId = value; }
-        }
-        public bool ShouldSerializeSaveGameId() => __pbn__SaveGameId != null;
-        public void ResetSaveGameId() => __pbn__SaveGameId = null;
-        private uint? __pbn__SaveGameId;
+        public uint SaveGameId { get; set; }
 
         [global::ProtoBuf.ProtoMember(2, Name = @"last_save_timestamp")]
-        public long LastSaveTimestamp
-        {
-            get { return __pbn__LastSaveTimestamp.GetValueOrDefault(); }
-            set { __pbn__LastSaveTimestamp = value; }
-        }
-        public bool ShouldSerializeLastSaveTimestamp() => __pbn__LastSaveTimestamp != null;
-        public void ResetLastSaveTimestamp() => __pbn__LastSaveTimestamp = null;
-        private long? __pbn__LastSaveTimestamp;
+        public long LastSaveTimestamp { get; set; }
 
         [global::ProtoBuf.ProtoMember(3, Name = @"time_played_seconds")]
-        public uint TimePlayedSeconds
-        {
-            get { return __pbn__TimePlayedSeconds.GetValueOrDefault(); }
-            set { __pbn__TimePlayedSeconds = value; }
-        }
-        public bool ShouldSerializeTimePlayedSeconds() => __pbn__TimePlayedSeconds != null;
-        public void ResetTimePlayedSeconds() => __pbn__TimePlayedSeconds = null;
-        private uint? __pbn__TimePlayedSeconds;
+        public uint TimePlayedSeconds { get; set; }
 
         [global::ProtoBuf.ProtoMember(4, Name = @"player_class_data")]
         public PlayerClassSaveGameData PlayerClassData { get; set; }
@@ -1765,14 +917,7 @@ namespace OakSave
         public global::System.Collections.Generic.List<RegionSaveGameData> SavedRegions { get; } = new global::System.Collections.Generic.List<RegionSaveGameData>();
 
         [global::ProtoBuf.ProtoMember(7, Name = @"experience_points")]
-        public int ExperiencePoints
-        {
-            get { return __pbn__ExperiencePoints.GetValueOrDefault(); }
-            set { __pbn__ExperiencePoints = value; }
-        }
-        public bool ShouldSerializeExperiencePoints() => __pbn__ExperiencePoints != null;
-        public void ResetExperiencePoints() => __pbn__ExperiencePoints = null;
-        private int? __pbn__ExperiencePoints;
+        public int ExperiencePoints { get; set; }
 
         [global::ProtoBuf.ProtoMember(8, Name = @"game_stats_data")]
         public global::System.Collections.Generic.List<GameStatSaveGameData> GameStatsDatas { get; } = new global::System.Collections.Generic.List<GameStatSaveGameData>();
@@ -1786,41 +931,20 @@ namespace OakSave
         [global::ProtoBuf.ProtoMember(11, Name = @"equipped_inventory_list")]
         public global::System.Collections.Generic.List<EquippedInventorySaveGameData> EquippedInventoryLists { get; } = new global::System.Collections.Generic.List<EquippedInventorySaveGameData>();
 
-        [global::ProtoBuf.ProtoMember(12, Name = @"active_weapon_list")]
+        [global::ProtoBuf.ProtoMember(12, Name = @"active_weapon_list", IsPacked = true)]
         public int[] ActiveWeaponLists { get; set; }
 
         [global::ProtoBuf.ProtoMember(13, Name = @"ability_data")]
         public OakPlayerAbilitySaveGameData AbilityData { get; set; }
 
         [global::ProtoBuf.ProtoMember(14, Name = @"last_play_through_index")]
-        public int LastPlayThroughIndex
-        {
-            get { return __pbn__LastPlayThroughIndex.GetValueOrDefault(); }
-            set { __pbn__LastPlayThroughIndex = value; }
-        }
-        public bool ShouldSerializeLastPlayThroughIndex() => __pbn__LastPlayThroughIndex != null;
-        public void ResetLastPlayThroughIndex() => __pbn__LastPlayThroughIndex = null;
-        private int? __pbn__LastPlayThroughIndex;
+        public int LastPlayThroughIndex { get; set; }
 
         [global::ProtoBuf.ProtoMember(15, Name = @"playthroughs_completed")]
-        public int PlaythroughsCompleted
-        {
-            get { return __pbn__PlaythroughsCompleted.GetValueOrDefault(); }
-            set { __pbn__PlaythroughsCompleted = value; }
-        }
-        public bool ShouldSerializePlaythroughsCompleted() => __pbn__PlaythroughsCompleted != null;
-        public void ResetPlaythroughsCompleted() => __pbn__PlaythroughsCompleted = null;
-        private int? __pbn__PlaythroughsCompleted;
+        public int PlaythroughsCompleted { get; set; }
 
         [global::ProtoBuf.ProtoMember(16, Name = @"show_new_playthrough_notification")]
-        public bool ShowNewPlaythroughNotification
-        {
-            get { return __pbn__ShowNewPlaythroughNotification.GetValueOrDefault(); }
-            set { __pbn__ShowNewPlaythroughNotification = value; }
-        }
-        public bool ShouldSerializeShowNewPlaythroughNotification() => __pbn__ShowNewPlaythroughNotification != null;
-        public void ResetShowNewPlaythroughNotification() => __pbn__ShowNewPlaythroughNotification = null;
-        private bool? __pbn__ShowNewPlaythroughNotification;
+        public bool ShowNewPlaythroughNotification { get; set; }
 
         [global::ProtoBuf.ProtoMember(17, Name = @"mission_playthroughs_data")]
         public global::System.Collections.Generic.List<MissionPlaythroughSaveGameData> MissionPlaythroughsDatas { get; } = new global::System.Collections.Generic.List<MissionPlaythroughSaveGameData>();
@@ -1833,14 +957,7 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(23, Name = @"last_active_travel_station")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string LastActiveTravelStation
-        {
-            get { return __pbn__LastActiveTravelStation ?? ""; }
-            set { __pbn__LastActiveTravelStation = value; }
-        }
-        public bool ShouldSerializeLastActiveTravelStation() => __pbn__LastActiveTravelStation != null;
-        public void ResetLastActiveTravelStation() => __pbn__LastActiveTravelStation = null;
-        private string __pbn__LastActiveTravelStation;
+        public string LastActiveTravelStation { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(24, Name = @"vehicles_unlocked_data")]
         public global::System.Collections.Generic.List<VehicleUnlockedSaveGameData> VehiclesUnlockedDatas { get; } = new global::System.Collections.Generic.List<VehicleUnlockedSaveGameData>();
@@ -1852,14 +969,7 @@ namespace OakSave
         public global::System.Collections.Generic.List<OakCARMenuVehicleConfigSaveData> VehicleLoadouts { get; } = new global::System.Collections.Generic.List<OakCARMenuVehicleConfigSaveData>();
 
         [global::ProtoBuf.ProtoMember(27, Name = @"vehicle_last_loadout_index")]
-        public int VehicleLastLoadoutIndex
-        {
-            get { return __pbn__VehicleLastLoadoutIndex.GetValueOrDefault(); }
-            set { __pbn__VehicleLastLoadoutIndex = value; }
-        }
-        public bool ShouldSerializeVehicleLastLoadoutIndex() => __pbn__VehicleLastLoadoutIndex != null;
-        public void ResetVehicleLastLoadoutIndex() => __pbn__VehicleLastLoadoutIndex = null;
-        private int? __pbn__VehicleLastLoadoutIndex;
+        public int VehicleLastLoadoutIndex { get; set; }
 
         [global::ProtoBuf.ProtoMember(28, Name = @"challenge_data")]
         public global::System.Collections.Generic.List<ChallengeSaveGameData> ChallengeDatas { get; } = new global::System.Collections.Generic.List<ChallengeSaveGameData>();
@@ -1870,7 +980,7 @@ namespace OakSave
         [global::ProtoBuf.ProtoMember(30, Name = @"selected_customizations")]
         public global::System.Collections.Generic.List<string> SelectedCustomizations { get; } = new global::System.Collections.Generic.List<string>();
 
-        [global::ProtoBuf.ProtoMember(31, Name = @"equipped_emote_customizations")]
+        [global::ProtoBuf.ProtoMember(31, Name = @"equipped_emote_customizations", IsPacked = true)]
         public int[] EquippedEmoteCustomizations { get; set; }
 
         [global::ProtoBuf.ProtoMember(32, Name = @"selected_color_customizations")]
@@ -1889,14 +999,7 @@ namespace OakSave
         public global::System.Collections.Generic.List<EchoLogSaveGameData> UnlockedEchoLogs { get; } = new global::System.Collections.Generic.List<EchoLogSaveGameData>();
 
         [global::ProtoBuf.ProtoMember(37, Name = @"has_played_special_echo_log_insert_already")]
-        public bool HasPlayedSpecialEchoLogInsertAlready
-        {
-            get { return __pbn__HasPlayedSpecialEchoLogInsertAlready.GetValueOrDefault(); }
-            set { __pbn__HasPlayedSpecialEchoLogInsertAlready = value; }
-        }
-        public bool ShouldSerializeHasPlayedSpecialEchoLogInsertAlready() => __pbn__HasPlayedSpecialEchoLogInsertAlready != null;
-        public void ResetHasPlayedSpecialEchoLogInsertAlready() => __pbn__HasPlayedSpecialEchoLogInsertAlready = null;
-        private bool? __pbn__HasPlayedSpecialEchoLogInsertAlready;
+        public bool HasPlayedSpecialEchoLogInsertAlready { get; set; }
 
         [global::ProtoBuf.ProtoMember(38, Name = @"nickname_mappings")]
         public global::System.Collections.Generic.List<NicknameMappingsEntry> NicknameMappings { get; } = new global::System.Collections.Generic.List<NicknameMappingsEntry>();
@@ -1915,34 +1018,13 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(43, Name = @"preferred_character_name")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string PreferredCharacterName
-        {
-            get { return __pbn__PreferredCharacterName ?? ""; }
-            set { __pbn__PreferredCharacterName = value; }
-        }
-        public bool ShouldSerializePreferredCharacterName() => __pbn__PreferredCharacterName != null;
-        public void ResetPreferredCharacterName() => __pbn__PreferredCharacterName = null;
-        private string __pbn__PreferredCharacterName;
+        public string PreferredCharacterName { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(44, Name = @"name_character_limit")]
-        public int NameCharacterLimit
-        {
-            get { return __pbn__NameCharacterLimit.GetValueOrDefault(); }
-            set { __pbn__NameCharacterLimit = value; }
-        }
-        public bool ShouldSerializeNameCharacterLimit() => __pbn__NameCharacterLimit != null;
-        public void ResetNameCharacterLimit() => __pbn__NameCharacterLimit = null;
-        private int? __pbn__NameCharacterLimit;
+        public int NameCharacterLimit { get; set; }
 
         [global::ProtoBuf.ProtoMember(45, Name = @"preferred_group_mode")]
-        public uint PreferredGroupMode
-        {
-            get { return __pbn__PreferredGroupMode.GetValueOrDefault(); }
-            set { __pbn__PreferredGroupMode = value; }
-        }
-        public bool ShouldSerializePreferredGroupMode() => __pbn__PreferredGroupMode != null;
-        public void ResetPreferredGroupMode() => __pbn__PreferredGroupMode = null;
-        private uint? __pbn__PreferredGroupMode;
+        public uint PreferredGroupMode { get; set; }
 
         [global::ProtoBuf.ProtoMember(46, Name = @"time_of_day_save_game_data")]
         public TimeOfDaySaveGameData TimeOfDaySaveGameData { get; set; }
@@ -1951,24 +1033,10 @@ namespace OakSave
         public global::System.Collections.Generic.List<LevelPersistenceLevelSaveGameData> LevelPersistenceDatas { get; } = new global::System.Collections.Generic.List<LevelPersistenceLevelSaveGameData>();
 
         [global::ProtoBuf.ProtoMember(48, Name = @"accumulated_level_persistence_reset_timer_seconds")]
-        public uint AccumulatedLevelPersistenceResetTimerSeconds
-        {
-            get { return __pbn__AccumulatedLevelPersistenceResetTimerSeconds.GetValueOrDefault(); }
-            set { __pbn__AccumulatedLevelPersistenceResetTimerSeconds = value; }
-        }
-        public bool ShouldSerializeAccumulatedLevelPersistenceResetTimerSeconds() => __pbn__AccumulatedLevelPersistenceResetTimerSeconds != null;
-        public void ResetAccumulatedLevelPersistenceResetTimerSeconds() => __pbn__AccumulatedLevelPersistenceResetTimerSeconds = null;
-        private uint? __pbn__AccumulatedLevelPersistenceResetTimerSeconds;
+        public uint AccumulatedLevelPersistenceResetTimerSeconds { get; set; }
 
         [global::ProtoBuf.ProtoMember(49, Name = @"mayhem_level")]
-        public uint MayhemLevel
-        {
-            get { return __pbn__MayhemLevel.GetValueOrDefault(); }
-            set { __pbn__MayhemLevel = value; }
-        }
-        public bool ShouldSerializeMayhemLevel() => __pbn__MayhemLevel != null;
-        public void ResetMayhemLevel() => __pbn__MayhemLevel = null;
-        private uint? __pbn__MayhemLevel;
+        public uint MayhemLevel { get; set; }
 
         [global::ProtoBuf.ProtoMember(50, Name = @"gbx_zone_map_fod_save_game_data")]
         public GbxZoneMapFODSaveGameData GbxZoneMapFodSaveGameData { get; set; }
@@ -1990,37 +1058,16 @@ namespace OakSave
 
         [global::ProtoBuf.ProtoMember(56, Name = @"save_game_guid")]
         [global::System.ComponentModel.DefaultValue("")]
-        public string SaveGameGuid
-        {
-            get { return __pbn__SaveGameGuid ?? ""; }
-            set { __pbn__SaveGameGuid = value; }
-        }
-        public bool ShouldSerializeSaveGameGuid() => __pbn__SaveGameGuid != null;
-        public void ResetSaveGameGuid() => __pbn__SaveGameGuid = null;
-        private string __pbn__SaveGameGuid;
+        public string SaveGameGuid { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(57, Name = @"guardian_rank_character_data")]
         public GuardianRankCharacterSaveGameData GuardianRankCharacterData { get; set; }
 
         [global::ProtoBuf.ProtoMember(58, Name = @"optional_objective_reward_fixup_applied")]
-        public bool OptionalObjectiveRewardFixupApplied
-        {
-            get { return __pbn__OptionalObjectiveRewardFixupApplied.GetValueOrDefault(); }
-            set { __pbn__OptionalObjectiveRewardFixupApplied = value; }
-        }
-        public bool ShouldSerializeOptionalObjectiveRewardFixupApplied() => __pbn__OptionalObjectiveRewardFixupApplied != null;
-        public void ResetOptionalObjectiveRewardFixupApplied() => __pbn__OptionalObjectiveRewardFixupApplied = null;
-        private bool? __pbn__OptionalObjectiveRewardFixupApplied;
+        public bool OptionalObjectiveRewardFixupApplied { get; set; }
 
         [global::ProtoBuf.ProtoMember(59, Name = @"vehicle_part_rewards_fixup_applied")]
-        public bool VehiclePartRewardsFixupApplied
-        {
-            get { return __pbn__VehiclePartRewardsFixupApplied.GetValueOrDefault(); }
-            set { __pbn__VehiclePartRewardsFixupApplied = value; }
-        }
-        public bool ShouldSerializeVehiclePartRewardsFixupApplied() => __pbn__VehiclePartRewardsFixupApplied != null;
-        public void ResetVehiclePartRewardsFixupApplied() => __pbn__VehiclePartRewardsFixupApplied = null;
-        private bool? __pbn__VehiclePartRewardsFixupApplied;
+        public bool VehiclePartRewardsFixupApplied { get; set; }
 
         [global::ProtoBuf.ProtoContract()]
         public partial class NicknameMappingsEntry : global::ProtoBuf.IExtensible
@@ -2031,25 +1078,11 @@ namespace OakSave
 
             [global::ProtoBuf.ProtoMember(1, Name = @"key")]
             [global::System.ComponentModel.DefaultValue("")]
-            public string Key
-            {
-                get { return __pbn__Key ?? ""; }
-                set { __pbn__Key = value; }
-            }
-            public bool ShouldSerializeKey() => __pbn__Key != null;
-            public void ResetKey() => __pbn__Key = null;
-            private string __pbn__Key;
+            public string Key { get; set; } = "";
 
             [global::ProtoBuf.ProtoMember(2, Name = @"value")]
             [global::System.ComponentModel.DefaultValue("")]
-            public string Value
-            {
-                get { return __pbn__Value ?? ""; }
-                set { __pbn__Value = value; }
-            }
-            public bool ShouldSerializeValue() => __pbn__Value != null;
-            public void ResetValue() => __pbn__Value = null;
-            private string __pbn__Value;
+            public string Value { get; set; } = "";
 
         }
 
@@ -2057,4 +1090,4 @@ namespace OakSave
 
 }
 
-#pragma warning restore CS1591, CS0612, CS3021, IDE1006
+#pragma warning restore CS0612, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
