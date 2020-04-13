@@ -3,6 +3,7 @@ using OakSave;
 using ProtoBuf;
 using PackageIO;
 using System.IO;
+using System.Net;
 using System.Linq;
 using Microsoft.Win32;
 using System.Windows.Data;
@@ -16,6 +17,7 @@ using Gibbed.Borderlands3.SaveFormats;
 using Gibbed.Borderlands3.ProfileFormats;
 using BL3ProfileEditor.Protobufs.Helpers;
 using BL3ProfileEditor.Protobufs.Translations;
+
 
 namespace BL3ProfileEditor
 {
@@ -36,6 +38,11 @@ namespace BL3ProfileEditor
         public MainWindow()
         {
             InitializeComponent();
+
+            // TODO: Add autoupdate
+
+            //WebRequest rq = WebRequest.Create("https://github.com/FromDarkHell/BL3ProfileEditor/blob/master/versionInformation.txt");
+            //string response = new StreamReader(rq.GetResponse().GetResponseStream()).ReadToEnd();
         }
 
         #region UI Handling
