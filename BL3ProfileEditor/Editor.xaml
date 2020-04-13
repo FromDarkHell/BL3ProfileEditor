@@ -6,7 +6,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Borderlands 3 Profile Editor" WindowState="Normal"  MinHeight="430" MinWidth="440" Height="430" Width="440" Background="{StaticResource WindowBackgroundBrush}" ResizeMode="CanMinimize">
+        Title="Borderlands 3 Profile Editor" WindowState="Normal"  MinHeight="430" MinWidth="440" Height="430" Width="440" Background="{StaticResource WindowBackgroundBrush}" ResizeMode="CanMinimize" ContentRendered="MetroWindow_ContentRendered">
 
     <Controls:MetroWindow.Resources/>
 

@@ -17,7 +17,8 @@ using Gibbed.Borderlands3.SaveFormats;
 using Gibbed.Borderlands3.ProfileFormats;
 using BL3ProfileEditor.Protobufs.Helpers;
 using BL3ProfileEditor.Protobufs.Translations;
-
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace BL3ProfileEditor
 {
@@ -38,11 +39,6 @@ namespace BL3ProfileEditor
         public MainWindow()
         {
             InitializeComponent();
-
-            // TODO: Add autoupdate
-
-            //WebRequest rq = WebRequest.Create("https://github.com/FromDarkHell/BL3ProfileEditor/blob/master/versionInformation.txt");
-            //string response = new StreamReader(rq.GetResponse().GetResponseStream()).ReadToEnd();
         }
 
         #region UI Handling
@@ -53,6 +49,7 @@ namespace BL3ProfileEditor
         {
             await this.ShowMessageAsync(title, message);
         }
+
 
         #region Button Events
         private void OpenButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -431,8 +428,46 @@ namespace BL3ProfileEditor
             loadedProfile.GuardianRank.GuardianExperience = (int)loadedProfile.GuardianRank.NewGuardianExperience;
         }
 
+
         #endregion
 
+        private async void MetroWindow_ContentRendered(object sender, EventArgs e)
+        {
+            try
+            {
+                Console.WriteLine("Requesting version information...");
+                WebResponse rp = WebRequest.Create("https://raw.githubusercontent.com/FromDarkHell/BL3ProfileEditor/master/versionInformation.txt").GetResponse();
 
+                string response = new StreamReader(rp.GetResponseStream()).ReadToEnd();
+                Console.WriteLine("Server Response: {0}", response);
+
+                Version v = new Version(response);
+
+                Version assemblyVersion = new AssemblyName(Assembly.GetExecutingAssembly().FullName).Version;
+
+                if (v.CompareTo(assemblyVersion) > 0) // Our server version is > our assembly version, meaning auto-update.
+                {
+                    var mySettings = new MetroDialogSettings()
+                    {
+                        AffirmativeButtonText = "Update",
+                        NegativeButtonText = "Cancel",
+                        ColorScheme = MetroDialogColorScheme.Theme
+                    };
+
+                    MessageDialogResult result = await this.ShowMessageAsync("Update", "There's an update for the profile editor. Do you want to download it?",
+                        MessageDialogStyle.AffirmativeAndNegative, mySettings);
+
+                    if (result == MessageDialogResult.Affirmative)
+                    {
+                        System.Diagnostics.Process.Start("https://github.com/FromDarkHell/BL3ProfileEditor");
+                        Close();
+                    }
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
     }
 }
