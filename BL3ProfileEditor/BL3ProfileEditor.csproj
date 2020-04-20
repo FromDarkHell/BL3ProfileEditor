@@ -106,6 +106,7 @@
       <DependentUpon>DebugConsole.xaml</DependentUpon>
     </Compile>
     <Compile Include="Debug\RedirectWriter.cs" />
+    <Compile Include="Protobufs\Decryption\CRC32.cs" />
     <Compile Include="Protobufs\Decryption\ProfileBogoCrypt.cs" />
     <Compile Include="Protobufs\Decryption\SaveBogoCrypt.cs" />
     <Compile Include="Protobufs\Definitions\OakProfile.cs" />

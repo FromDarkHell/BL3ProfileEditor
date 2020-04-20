@@ -4,7 +4,7 @@ import requests
 from pathlib import Path
 
 apocalyptechSheet = 'https://docs.google.com/spreadsheets/d/1v-F_3C2ceaFKJae1b6wmbelw_jLjmPPriBLzGTZMqRc/export?format=xlsx&id=1v-F_3C2ceaFKJae1b6wmbelw_jLjmPPriBLzGTZMqRc'
-emotes, decos, heads, skins, echos = [],[],[],[],[]
+emotes, decos, heads, skins, echos, trinkets, weaponSkins = [],[],[],[],[],[],[]
 
 def requestGoogleSheetAsXLSX(url):
     print("Requesting google sheet: {}".format(url))
@@ -43,13 +43,17 @@ for sheetName in sheetNames:
             echos += [assetPath]
         elif "Decorations" in sheetName:
             decos += [assetPath]
+        elif "Trinket" in sheetName:
+            trinkets += [assetPath]
+        elif "Weapon Skins" in sheetName:
+            weaponSkins += [assetPath]
 
     print("Done reading {}".format(sheetName))
 
 pathFormat = "public static readonly List<string> {0}AssetPaths = new List<string>()"
 
 assetSets = []
-nameToList = {"emotes":emotes, "deco":decos, "head":heads,"skin":skins,"echo":echos}
+nameToList = {"emotes":emotes, "deco":decos, "head":heads,"skin":skins,"echo":echos, "weapon":weaponSkins, "trinket":trinkets}
 
 for name in nameToList:
     list = nameToList[name]

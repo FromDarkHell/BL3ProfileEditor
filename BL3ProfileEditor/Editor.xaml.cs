@@ -19,6 +19,7 @@ using BL3ProfileEditor.Protobufs.Helpers;
 using BL3ProfileEditor.Protobufs.Translations;
 using System.Reflection;
 using System.Threading.Tasks;
+using BL3ProfileEditor.Protobufs.Decryption;
 
 namespace BL3ProfileEditor
 {
@@ -99,8 +100,6 @@ namespace BL3ProfileEditor
 
                 if (lowerAsset.Contains("default") || (lowerAsset.Contains("emote") && (lowerAsset.Contains("wave") || lowerAsset.Contains("cheer") || lowerAsset.Contains("laugh") || lowerAsset.Contains("point")))) continue;
 
-                //if (!lowerAsset.Contains("beastmaster")) continue;
-
                 bool bAlreadyOwnsCustomization = false;
                 foreach (OakCustomizationSaveGameData customizatonData in saveData)
                 {
@@ -122,11 +121,37 @@ namespace BL3ProfileEditor
                 }
             }
             saveData.AddRange(output);
+
+            // The weapon trinkets / skins use a different format so we'll want to add this
+            List<OakInventoryCustomizationPartInfo> weaponOut = new List<OakInventoryCustomizationPartInfo>();
+            foreach (uint assetHash in DataPathTranslations.GetWeaponCustomizationPaths())
+            {
+                bool bOwnsHash = false;
+                foreach (OakInventoryCustomizationPartInfo partInfo in loadedProfile.UnlockedInventoryCustomizationParts)
+                {
+                    if (partInfo.CustomizationPartHash.Equals(assetHash))
+                    {
+                        bOwnsHash = true;
+                        break;
+                    }
+                }
+                if (!bOwnsHash)
+                {
+                    OakInventoryCustomizationPartInfo customizationInfo = new OakInventoryCustomizationPartInfo
+                    {
+                        CustomizationPartHash = assetHash,
+                        IsNew = true
+                    };
+                    weaponOut.Add(customizationInfo);
+                }
+            }
+            loadedProfile.UnlockedInventoryCustomizationParts.AddRange(weaponOut);
         }
 
         private void LockCustomizations(object sender, System.Windows.RoutedEventArgs e)
         {
             loadedProfile.UnlockedCustomizations.RemoveRange(0, loadedProfile.UnlockedCustomizations.Count);
+            loadedProfile.UnlockedInventoryCustomizationParts.Clear();
         }
         #endregion
 
@@ -343,7 +368,6 @@ namespace BL3ProfileEditor
         private void LoadFileFromDisk()
         {
             Console.WriteLine("\n\nReading new file: \"{0}\"", filePath);
-
             IO io = new IO(filePath, Endian.Little, 0x0000000, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
             // We're gonna use this byte array for backing up the save file.
             originalBytes = io.ReadAll();

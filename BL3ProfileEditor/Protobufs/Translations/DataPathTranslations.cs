@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL3ProfileEditor.Protobufs.Decryption;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,14 @@ namespace BL3ProfileEditor.Protobufs.Translations
 {
     public static class DataPathTranslations
     {
-
+        static DataPathTranslations()
+        {
+            foreach (string assetPath in weaponAssetPaths)
+                weaponHashes.Add(CRC32.Get(assetPath));
+            foreach (string assetPath in trinketAssetPaths)
+                trinketHashes.Add(CRC32.Get(assetPath));
+            Console.WriteLine("Initialized CRC32 hashes of trinkets/weapons...");
+        }
         #region Translation Dictionaries
 
         #region Guardian Rank
@@ -520,6 +528,101 @@ namespace BL3ProfileEditor.Protobufs.Translations
             "/Game/PlayerCharacters/_Customizations/EchoDevice/ECHOTheme_29.ECHOTheme_29",
             "/Game/PlayerCharacters/_Customizations/EchoDevice/ECHOTheme_14.ECHOTheme_14"
         };
+        private static readonly List<string> weaponAssetPaths = new List<string>(){
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_15.WeaponSkin_15",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_20.WeaponSkin_20",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_1.WeaponSkin_1",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_24.WeaponSkin_24",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_13.WeaponSkin_13",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_17.WeaponSkin_17",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_5.WeaponSkin_5",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_4.WeaponSkin_4",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_16.WeaponSkin_16",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_19.WeaponSkin_19",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_22.WeaponSkin_22",
+            "/Game/PatchDLC/BloodyHarvest/Gear/Weapons/WeaponSkins/WeaponSkin_BloodyHarvest_01.WeaponSkin_BloodyHarvest_01",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_21.WeaponSkin_21",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_8.WeaponSkin_8",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_6.WeaponSkin_6",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_10.WeaponSkin_10",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_11.WeaponSkin_11",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_9.WeaponSkin_9",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_18.WeaponSkin_18",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_12.WeaponSkin_12",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_3.WeaponSkin_3",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_7.WeaponSkin_7",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_23.WeaponSkin_23",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_14.WeaponSkin_14",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_25.WeaponSkin_25",
+            "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_2.WeaponSkin_2"
+        };
+        private static readonly List<string> trinketAssetPaths = new List<string>(){
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_8.WeaponTrinket_8",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_50.WeaponTrinket_50",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_15.WeaponTrinket_15",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_14.WeaponTrinket_14",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_6.WeaponTrinket_6",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_26.WeaponTrinket_26",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_29.WeaponTrinket_29",
+            "/Game/PatchDLC/Customizations/Gear/Weapons/WeaponTrinkets/WeaponTrinket_59.WeaponTrinket_59",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_18.WeaponTrinket_18",
+            "/Game/PatchDLC/EventVDay/Gear/Weapon/WeaponTrinkets/_Shared/Trinket_League_VDay_1.Trinket_League_VDay_1",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_25.WeaponTrinket_25",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_24.WeaponTrinket_24",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_53.WeaponTrinket_53",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_22.WeaponTrinket_22",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_4.WeaponTrinket_4",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_12.WeaponTrinket_12",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_44.WeaponTrinket_44",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_58.WeaponTrinket_58",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_35.WeaponTrinket_35",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_54.WeaponTrinket_54",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_37.WeaponTrinket_37",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_51.WeaponTrinket_51",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_5.WeaponTrinket_5",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_16.WeaponTrinket_16",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_17.WeaponTrinket_17",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_2.WeaponTrinket_2",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_9.WeaponTrinket_9",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_38.WeaponTrinket_38",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_28.WeaponTrinket_28",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_19.WeaponTrinket_19",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_33.WeaponTrinket_33",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_34.WeaponTrinket_34",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_11.WeaponTrinket_11",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_31.WeaponTrinket_31",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_32.WeaponTrinket_32",
+            "/Game/PatchDLC/Dandelion/Gear/WeaponTrinkets/_Shared/Trinket_MercenaryDay_01_CandyCane.Trinket_MercenaryDay_01_CandyCane",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_52.WeaponTrinket_52",
+            "/Game/PatchDLC/Hibiscus/Gear/WeaponTrinkets/_Shared/Trinket_Hibiscus_02_Necrocookmicon.Trinket_Hibiscus_02_Necrocookmicon",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_27.WeaponTrinket_27",
+            "/Game/PatchDLC/Dandelion/Gear/WeaponTrinkets/_Shared/Trinket_Dandelion_01_JackGoldenMask.Trinket_Dandelion_01_JackGoldenMask",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_41.WeaponTrinket_41",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_39.WeaponTrinket_39",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_42.WeaponTrinket_42",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_48.WeaponTrinket_48",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_3.WeaponTrinket_3",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_30.WeaponTrinket_30",
+            "/Game/PatchDLC/BloodyHarvest/Gear/Weapons/WeaponTrinkets/_Shared/Trinket_League_BloodyHarvest_1.Trinket_League_BloodyHarvest_1",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_13.WeaponTrinket_13",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_21.WeaponTrinket_21",
+            "/Game/PatchDLC/Dandelion/Gear/WeaponTrinkets/_Shared/Trinket_Dandelion_02_Mimic.Trinket_Dandelion_02_Mimic",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_7.WeaponTrinket_7",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_20.WeaponTrinket_20",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_10.WeaponTrinket_10",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_47.WeaponTrinket_47",
+            "/Game/PatchDLC/Hibiscus/Gear/WeaponTrinkets/_Shared/Trinket_Hibiscus_01_Squidly.Trinket_Hibiscus_01_Squidly",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_49.WeaponTrinket_49",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_46.WeaponTrinket_46",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_57.WeaponTrinket_57",
+            "/Game/PatchDLC/Steam/Gear/WeaponTrinkets/WeaponTrinket_SteamPunk.WeaponTrinket_SteamPunk",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_45.WeaponTrinket_45",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_43.WeaponTrinket_43",
+            "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_40.WeaponTrinket_40"
+        };
+
+        public static readonly List<uint> weaponHashes = new List<uint>();
+        public static readonly List<uint> trinketHashes = new List<uint>();
         #endregion
 
         public static readonly string BankSDUAssetPath = "/Game/Pickups/SDU/SDU_Bank.SDU_Bank";
@@ -568,6 +671,13 @@ namespace BL3ProfileEditor.Protobufs.Translations
             return decoAssetPaths;
         }
 
+
+        public static List<uint> GetWeaponCustomizationPaths()
+        {
+            List<uint> returnVal = weaponHashes;
+            returnVal.AddRange(trinketHashes);
+            return returnVal;
+        }
         #endregion
 
         #endregion
