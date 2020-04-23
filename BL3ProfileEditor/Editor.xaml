@@ -76,7 +76,7 @@
             </TabItem>
             <TabItem Header="Other">
                 <Grid>
-                    <Controls:NumericUpDown Name="BankSDUs" Margin="10,32,287,263" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="18" Minimum="0"/>
+                    <Controls:NumericUpDown Name="BankSDUs" Margin="10,32,287,263" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="23" Minimum="0"/>
                     <Label Content="Bank SDUs" HorizontalAlignment="Left" Margin="42,1,0,0" VerticalAlignment="Top"/>
                     <Label Content="Lost Loot SDUs" HorizontalAlignment="Left" Margin="42,63,0,0" VerticalAlignment="Top"/>
                     <Controls:NumericUpDown x:Name="LLSDUs" Margin="10,89,287,206" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="8"  Minimum="0"/>
