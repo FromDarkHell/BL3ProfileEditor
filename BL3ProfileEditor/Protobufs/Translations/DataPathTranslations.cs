@@ -1,9 +1,7 @@
-﻿using BL3ProfileEditor.Protobufs.Decryption;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using BL3ProfileEditor.Protobufs.Decryption;
 
 namespace BL3ProfileEditor.Protobufs.Translations
 {
@@ -17,6 +15,7 @@ namespace BL3ProfileEditor.Protobufs.Translations
                 trinketHashes.Add(CRC32.Get(assetPath));
             Console.WriteLine("Initialized CRC32 hashes of trinkets/weapons...");
         }
+
         #region Translation Dictionaries
 
         #region Guardian Rank

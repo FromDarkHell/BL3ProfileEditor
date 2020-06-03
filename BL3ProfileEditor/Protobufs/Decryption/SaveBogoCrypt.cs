@@ -21,9 +21,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace Gibbed.Borderlands3.SaveFormats
 {

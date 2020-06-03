@@ -1,7 +1,7 @@
-﻿using PackageIO;
+﻿using System;
+using PackageIO;
 using System.Text;
 using System.Collections.Generic;
-using System;
 
 namespace BL3ProfileEditor.Protobufs.GVAS
 {

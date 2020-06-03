@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using System.Linq;
 using Microsoft.Win32;
+using System.Reflection;
 using System.Windows.Data;
 using BL3ProfileEditor.Debug;
 using MahApps.Metro.Controls;
@@ -17,9 +18,7 @@ using Gibbed.Borderlands3.SaveFormats;
 using Gibbed.Borderlands3.ProfileFormats;
 using BL3ProfileEditor.Protobufs.Helpers;
 using BL3ProfileEditor.Protobufs.Translations;
-using System.Reflection;
-using System.Threading.Tasks;
-using BL3ProfileEditor.Protobufs.Decryption;
+
 
 namespace BL3ProfileEditor
 {

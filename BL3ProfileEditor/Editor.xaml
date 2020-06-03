@@ -16,19 +16,19 @@
                 <DockPanel.Resources>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
                 </DockPanel.Resources>
-                <Button Name="OpenButton" Width="80" Click="OpenButton_Click" Margin="0,0,0,5">
+                <Button Name="OpenButton" Width="85" Click="OpenButton_Click" Margin="0,0,0,5">
                     <DockPanel LastChildFill="True">
                         <iconPacks:PackIconModern DockPanel.Dock="Left" Kind="FolderOpen" />
                         <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Open</TextBlock>
                     </DockPanel>
                 </Button>
-                <Button IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Name="SaveButton" Height="30" VerticalAlignment="Top" Width="70" Click="SaveButton_Click">
+                <Button IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Name="SaveButton" Height="30" VerticalAlignment="Top" Width="75" Click="SaveButton_Click">
                     <DockPanel LastChildFill="True">
                         <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="ContentSave" />
                         <TextBlock HorizontalAlignment="Center" Padding="10,0,0,0">Save</TextBlock>
                     </DockPanel>
                 </Button>
-                <Button Name="HelpButton" Height="30" VerticalAlignment="Top" Width="40" Click="HelpButton_Click">
+                <Button Name="HelpButton" Height="35" VerticalAlignment="Top" Width="40" Click="HelpButton_Click">
                     <DockPanel LastChildFill="True" >
                         <iconPacks:PackIconMaterial DockPanel.Dock="Left" Kind="HelpCircleOutline" />
                     </DockPanel>
@@ -36,7 +36,7 @@
 
                 <Button Name="DebugButton" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="37" Click="OpenDebugMenu">
                     <DockPanel LastChildFill="True" HorizontalAlignment="Right">
-                        <iconPacks:PackIconFontAwesome Kind="WrenchSolid" DockPanel.Dock="Right" Height="14" Width="14" />
+                        <iconPacks:PackIconFontAwesome Kind="WrenchSolid" DockPanel.Dock="Right" Height="18" Width="15"/>
                     </DockPanel>
                 </Button>
             </DockPanel>
