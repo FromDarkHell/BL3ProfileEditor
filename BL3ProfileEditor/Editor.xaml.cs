@@ -28,7 +28,6 @@ namespace BL3ProfileEditor
     /// </summary>
     public partial class MainWindow
     {
-        // TODO: Investigate `UnlockedInventoryCustomizationParts`
         public string filePath;
 
         public Profile loadedProfile;
