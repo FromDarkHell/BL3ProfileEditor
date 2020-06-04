@@ -6,12 +6,12 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Borderlands 3 Profile Editor" WindowState="Normal"  MinHeight="430" MinWidth="440" Height="430" Width="440" Background="{StaticResource MahApps.Brushes.Window.Background}" ResizeMode="CanMinimize" ContentRendered="MetroWindow_ContentRendered">
+        Title="Borderlands 3 Profile Editor" WindowState="Normal"  MinHeight="430" MinWidth="440" Background="{StaticResource MahApps.Brushes.Window.Background}" ResizeMode="CanMinimize" ContentRendered="MetroWindow_ContentRendered" Height="454" Width="469">
 
     <Controls:MetroWindow.Resources/>
 
-    <Grid HorizontalAlignment="Left" Width="436" Height="401" VerticalAlignment="Bottom">
-        <ToolBar Background="{StaticResource MahApps.Brushes.Control.Background}" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="436" Margin="0,0,0,366">
+    <Grid Margin="0,0,4,0" Height="438" VerticalAlignment="Top" >
+        <ToolBar Background="{StaticResource MahApps.Brushes.Control.Background}" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="455" Margin="0,0,0,393">
             <DockPanel Background="{StaticResource MahApps.Brushes.Control.Background}" Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}" Margin="0,0,0,-5" Height="35" VerticalAlignment="Bottom">
                 <DockPanel.Resources>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
@@ -43,50 +43,52 @@
 
         </ToolBar>
 
-        <TabControl  HorizontalAlignment="Right" Width="436" Height="366" VerticalAlignment="Bottom">
+        <TabControl  HorizontalAlignment="Right" Width="455" Height="388" VerticalAlignment="Bottom">
             <TabItem Header="Main">
-                <Grid HorizontalAlignment="Right" Width="430" Height="321" VerticalAlignment="Bottom">
+                <Grid HorizontalAlignment="Center" Width="449" Height="333" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="65*"/>
                         <ColumnDefinition Width="67*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Content="Unlock Room Decorations" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="170" Height="27" Click="UnlockRoomDecorations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" ToolTip="This won't unlock unpurchased DLC decorations"/>
-                    <Button Content="Lock Room Decorations" HorizontalAlignment="Right" Margin="0,0,18,53" VerticalAlignment="Bottom" Width="170" Grid.Column="1" Height="27" Click="LockRoomDecorations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+                    <Button Content="Unlock Room Decorations" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Width="170" Height="27" Click="UnlockRoomDecorations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" ToolTip="This won't unlock unpurchased DLC decorations"/>
+                    <Button Content="Lock Room Decorations" HorizontalAlignment="Right" Margin="0,0,5,53" VerticalAlignment="Bottom" Width="170" Grid.Column="1" Height="27" Click="LockRoomDecorations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
 
                     <Button Content="Unlock Customizations" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="170" Height="27" Click="UnlockCustomizations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" ToolTip="This won't unlock unpurchased DLC customizations"/>
-                    <Button Content="Lock Customizations" HorizontalAlignment="Right" Margin="0,0,18,10" VerticalAlignment="Bottom" Width="170" Grid.Column="1" Height="27" Click="LockCustomizations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
+                    <Button Content="Lock Customizations" HorizontalAlignment="Right" Margin="0,0,5,10" VerticalAlignment="Bottom" Width="170" Grid.Column="1" Height="27" Click="LockCustomizations" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"/>
 
-                    <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="236" VerticalAlignment="Top" Width="247" Name="GuardianRankDataGrid" Grid.ColumnSpan="2">
+                    <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="248" VerticalAlignment="Top" Width="262" Name="GuardianRankDataGrid" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn IsReadOnly="True" Header="Name"  Binding="{Binding Path=str}" Width="*"/>
                             <Controls:DataGridNumericUpDownColumn IsReadOnly="False" Header="Spent Tokens"  Binding="{Binding Path=value}" Minimum="0"  Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Label Content="Unspent Tokens" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,47,285" VerticalAlignment="Bottom"/>
-                    <Controls:NumericUpDown Name="UnspentTokensUp" Margin="0,0,10,254" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Right" Width="160" Height="26" VerticalAlignment="Bottom" Minimum="0"/>
+                    <Label Content="Unspent Tokens" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,47,306" VerticalAlignment="Bottom"/>
+                    <Controls:NumericUpDown Name="UnspentTokensUp" Margin="0,0,10,275" Grid.Column="1" IsEnabled="False" HorizontalAlignment="Right" Width="160" Height="26" VerticalAlignment="Bottom" Minimum="0"/>
 
-                    <Label Content="Guardian Rank" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,54,223" VerticalAlignment="Bottom"/>
-                    <Controls:NumericUpDown Name="GuardianRank" Margin="0,0,10,192"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" HorizontalAlignment="Right" Width="160" Height="26" VerticalAlignment="Bottom" Minimum="0"/>
+                    <Label Content="Guardian Rank" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,54,246" VerticalAlignment="Bottom"/>
+                    <Controls:NumericUpDown Name="GuardianRank" Margin="0,0,10,215"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" HorizontalAlignment="Right" Width="160" Height="26" VerticalAlignment="Bottom" Minimum="0"/>
 
-                    <Label Content="Guardian Experience" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,35,161" VerticalAlignment="Bottom"/>
-                    <Controls:NumericUpDown Name="GuardianXP" Margin="0,0,10,130"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" HorizontalAlignment="Right" Width="160" Height="26" VerticalAlignment="Bottom" Minimum="0"/>
+                    <Label Content="Guardian Experience" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,35,183" VerticalAlignment="Bottom"/>
+                    <Controls:NumericUpDown Name="GuardianXP" Margin="58,0,0,0"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" HorizontalAlignment="Left" Width="160" Height="26" VerticalAlignment="Center" Minimum="0"/>
+                    <Controls:NumericUpDown x:Name="GoldenKeys" Margin="58,210,0,0"  Grid.Column="1" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" HorizontalAlignment="Left" Width="160" Height="26" VerticalAlignment="Top" Minimum="0"/>
+                    <Label Content="Golden Keys" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,56,128" VerticalAlignment="Bottom"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Other">
                 <Grid>
-                    <Controls:NumericUpDown Name="BankSDUs" Margin="10,32,287,263" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="23" Minimum="0"/>
+                    <Controls:NumericUpDown Name="BankSDUs" Margin="10,32,287,285" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="23" Minimum="0"/>
                     <Label Content="Bank SDUs" HorizontalAlignment="Left" Margin="42,1,0,0" VerticalAlignment="Top"/>
                     <Label Content="Lost Loot SDUs" HorizontalAlignment="Left" Margin="42,63,0,0" VerticalAlignment="Top"/>
-                    <Controls:NumericUpDown x:Name="LLSDUs" Margin="10,89,287,206" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="8"  Minimum="0"/>
+                    <Controls:NumericUpDown x:Name="LLSDUs" Margin="10,89,287,227" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="8"  Minimum="0"/>
 
-                    <Button Content="Clear Lost Loot" Margin="280,89,10,206" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="ClearLL" />
+                    <Button Content="Clear Lost Loot" Margin="280,89,10,227" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="ClearLL" />
                     <TextBox Name="ItemCodeBox" HorizontalAlignment="Left" Height="23" Margin="10,197,0,0" VerticalAlignment="Top" Width="257" Controls:TextBoxHelper.AutoWatermark="True" Controls:TextBoxHelper.Watermark="Item Code" TextWrapping="NoWrap"/>
-                    <Button Content="Add Item Code to Bank" Margin="280,197,10,98" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="AddItemCodeToBank" />
+                    <Button Content="Add Item Code to Bank" Margin="280,197,10,120" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="AddItemCodeToBank" />
                     <Label Content="Citizen Science Currency" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-                    <Controls:NumericUpDown x:Name="CSCurrency" Margin="10,152,287,143" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"  Minimum="0"/>
-                    <Button Content="Inject Guardian Rank into Saves" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="InjectGRSaves" Margin="215,243,10,45" />
+                    <Controls:NumericUpDown x:Name="CSCurrency" Margin="10,152,287,161" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"  Minimum="0"/>
+                    <Button Content="Inject Guardian Rank into Saves" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="InjectGRSaves" Margin="242,243,10,61" />
                 </Grid>
             </TabItem>
 

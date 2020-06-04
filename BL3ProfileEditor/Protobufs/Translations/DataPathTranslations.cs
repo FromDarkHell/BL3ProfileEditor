@@ -13,7 +13,9 @@ namespace BL3ProfileEditor.Protobufs.Translations
                 weaponHashes.Add(CRC32.Get(assetPath));
             foreach (string assetPath in trinketAssetPaths)
                 trinketHashes.Add(CRC32.Get(assetPath));
-            Console.WriteLine("Initialized CRC32 hashes of trinkets/weapons...");
+
+            GoldenKeyHash = CRC32.Get(GoldenKeyCurrencyPath);
+            Console.WriteLine("Initialized CRC32 hashes of trinkets/weapons/keys...");
         }
 
         #region Translation Dictionaries
@@ -637,7 +639,9 @@ namespace BL3ProfileEditor.Protobufs.Translations
 
         public static readonly string BankSDUAssetPath = "/Game/Pickups/SDU/SDU_Bank.SDU_Bank";
         public static readonly string LLSDUAssetPath = "/Game/Pickups/SDU/SDU_LostLoot.SDU_LostLoot";
+        public static readonly string GoldenKeyCurrencyPath = "/Game/Gear/_Shared/_Design/InventoryCategories/InventoryCategory_GoldenKey.InventoryCategory_GoldenKey";
 
+        public static readonly uint GoldenKeyHash;
         #endregion
 
         #region Functions

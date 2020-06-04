@@ -355,6 +355,8 @@ namespace BL3ProfileEditor
             BankSDUs.SetBinding(NumericUpDown.ValueProperty, new Binding("SduLevel") { Source = loadedProfile.ProfileSduLists.Where(x => x.SduDataPath.Equals(DataPathTranslations.BankSDUAssetPath)) });
             LLSDUs.SetBinding(NumericUpDown.ValueProperty, new Binding("SduLevel") { Source = loadedProfile.ProfileSduLists.Where(x => x.SduDataPath.Equals(DataPathTranslations.LLSDUAssetPath)) });
             CSCurrency.SetBinding(NumericUpDown.ValueProperty, new Binding("CitizenScienceCSBucksAmount") { Source = loadedProfile });
+
+            GoldenKeys.SetBinding(NumericUpDown.ValueProperty, new Binding("Quantity") { Source = loadedProfile.BankInventoryCategoryLists.Where(x => x.BaseCategoryDefinitionHash.Equals(DataPathTranslations.GoldenKeyHash)) } );
         }
 
         #endregion
