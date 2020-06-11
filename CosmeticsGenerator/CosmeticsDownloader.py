@@ -59,7 +59,7 @@ for name in nameToList:
     list = nameToList[name]
     assetSet = pathFormat.format(name) + '{\n'
     for asset in list:
-        assetSet += '"{0}",\n'.format(asset)
+        assetSet += '            "{0}",\n'.format(asset)
     assetSet = assetSet[:-2] + "\n};"
     assetSets += [assetSet]
 
