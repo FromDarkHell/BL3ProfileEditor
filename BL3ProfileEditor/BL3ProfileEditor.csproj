@@ -10,6 +10,7 @@
     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
     <PublishTrimmed>true</PublishTrimmed>
     <PublishSingleFile>true</PublishSingleFile>
+    <PackageProjectUrl>https://github.com/FromDarkHell/BL3ProfileEditor</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

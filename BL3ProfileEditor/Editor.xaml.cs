@@ -436,20 +436,31 @@ namespace BL3ProfileEditor
                 {
                     if (rankData.RewardDataPath.Equals(assetPath))
                     {
-                        rankData.NumTokens = p.value;
+                        rankData.NumTokens = (int)p.Value;
                         bRankDataSaved = true;
                         break;
                     }
                 }
 
                 if (!bRankDataSaved)
-                    loadedProfile.GuardianRank.RankRewards.Add(new GuardianRankRewardSaveGameData() { RewardDataPath = assetPath, NumTokens = p.value });
+                    loadedProfile.GuardianRank.RankRewards.Add(new GuardianRankRewardSaveGameData() { RewardDataPath = assetPath, NumTokens = (int)p.Value });
 
-                if (p.value == 0)
+                if (p.Value == 0)
                     loadedProfile.GuardianRank.RankRewards.RemoveAll(x => x.RewardDataPath.Equals(assetPath));
             }
 
             loadedProfile.GuardianRank.GuardianExperience = (int)loadedProfile.GuardianRank.NewGuardianExperience;
+
+            // If the save loaded previously never had any golden keys, the hashes won't be here... :/
+            if(
+                !loadedProfile.BankInventoryCategoryLists.Select(x => x.BaseCategoryDefinitionHash).Contains(DataPathTranslations.GoldenKeyHash) && GoldenKeys.Value != null) {
+
+                loadedProfile.BankInventoryCategoryLists.Add(new InventoryCategorySaveData
+                {
+                    BaseCategoryDefinitionHash = DataPathTranslations.GoldenKeyHash,
+                    Quantity = (int)GoldenKeys.Value
+                });
+            }
         }
 
 

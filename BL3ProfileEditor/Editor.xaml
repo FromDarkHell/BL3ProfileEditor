@@ -60,7 +60,7 @@
                     <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="248" VerticalAlignment="Top" Width="262" Name="GuardianRankDataGrid" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn IsReadOnly="True" Header="Name"  Binding="{Binding Path=str}" Width="*"/>
-                            <Controls:DataGridNumericUpDownColumn IsReadOnly="False" Header="Spent Tokens"  Binding="{Binding Path=value}" Minimum="0"  Width="*"/>
+                            <Controls:DataGridNumericUpDownColumn IsReadOnly="False" Header="Spent Tokens"  Binding="{Binding Path=Value}" Minimum="0"  Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
