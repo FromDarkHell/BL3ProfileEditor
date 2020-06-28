@@ -89,6 +89,7 @@
                     <Label Content="Citizen Science Currency" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
                     <Controls:NumericUpDown x:Name="CSCurrency" Margin="10,152,287,161" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}"  Minimum="0"/>
                     <Button Content="Inject Guardian Rank into Saves" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="InjectGRSaves" Margin="242,243,10,61" />
+                    <Button Content="Clear Bank" Margin="280,32,10,284" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="ClearBank" />
                 </Grid>
             </TabItem>
 

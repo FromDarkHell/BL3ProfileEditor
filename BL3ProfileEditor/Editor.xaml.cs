@@ -194,6 +194,11 @@ namespace BL3ProfileEditor
             loadedProfile.LostLootInventoryLists.Clear();
         }
 
+        private void ClearBank(object sender, System.Windows.RoutedEventArgs e)
+        {
+            loadedProfile.BankInventoryLists.Clear();
+        }
+
         private List<byte[]> getItemCodesFromString(string str)
         {
             string totalItemCodes = str;
