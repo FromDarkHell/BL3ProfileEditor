@@ -81,7 +81,7 @@
                     <Controls:NumericUpDown Name="BankSDUs" Margin="10,32,287,285" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="23" Minimum="0"/>
                     <Label Content="Bank SDUs" HorizontalAlignment="Left" Margin="42,1,0,0" VerticalAlignment="Top"/>
                     <Label Content="Lost Loot SDUs" HorizontalAlignment="Left" Margin="42,63,0,0" VerticalAlignment="Top"/>
-                    <Controls:NumericUpDown x:Name="LLSDUs" Margin="10,89,287,227" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="8"  Minimum="0"/>
+                    <Controls:NumericUpDown x:Name="LLSDUs" Margin="10,89,287,227" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Maximum="10"  Minimum="0"/>
 
                     <Button Content="Clear Lost Loot" Margin="280,89,10,227" IsEnabled="{Binding IsEnabled, ElementName=UnspentTokensUp, Mode=OneWay}" Click="ClearLL" />
                     <TextBox Name="ItemCodeBox" HorizontalAlignment="Left" Height="23" Margin="10,197,0,0" VerticalAlignment="Top" Width="257" Controls:TextBoxHelper.AutoWatermark="True" Controls:TextBoxHelper.Watermark="Item Code" TextWrapping="NoWrap"/>
