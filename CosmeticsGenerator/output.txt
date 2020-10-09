@@ -583,6 +583,7 @@ public static readonly List<string> weaponAssetPaths = new List<string>(){
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_9.WeaponSkin_9",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_18.WeaponSkin_18",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_12.WeaponSkin_12",
+            "/Game/PatchDLC/BloodyHarvest/Gear/Weapons/WeaponSkins/WeaponSkin_BloodyHarvest_02.WeaponSkin_BloodyHarvest_02",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_3.WeaponSkin_3",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_7.WeaponSkin_7",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_23.WeaponSkin_23",

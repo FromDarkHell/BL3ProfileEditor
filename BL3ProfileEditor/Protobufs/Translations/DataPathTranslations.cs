@@ -630,6 +630,7 @@ namespace BL3ProfileEditor.Protobufs.Translations
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_9.WeaponSkin_9",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_18.WeaponSkin_18",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_12.WeaponSkin_12",
+            "/Game/PatchDLC/BloodyHarvest/Gear/Weapons/WeaponSkins/WeaponSkin_BloodyHarvest_02.WeaponSkin_BloodyHarvest_02",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_3.WeaponSkin_3",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_7.WeaponSkin_7",
             "/Game/Gear/WeaponSkins/_Design/SkinParts/WeaponSkin_23.WeaponSkin_23",
@@ -707,6 +708,7 @@ namespace BL3ProfileEditor.Protobufs.Translations
             "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_43.WeaponTrinket_43",
             "/Game/Gear/WeaponTrinkets/_Design/TrinketParts/WeaponTrinket_40.WeaponTrinket_40"
 };
+
 
 
 
