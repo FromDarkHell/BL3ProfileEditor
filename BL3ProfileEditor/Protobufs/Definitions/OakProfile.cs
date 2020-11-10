@@ -929,6 +929,9 @@ namespace OakSave
         [global::ProtoBuf.ProtoMember(228)]
         public bool bCitizenScienceTutorialDone { get; set; }
 
+        [global::ProtoBuf.ProtoMember(230)]
+        public bool fixed_initial_zonemap_rotation { get; set; }
+
         [global::ProtoBuf.ProtoContract()]
         public partial class FriendEncountersEntry : global::ProtoBuf.IExtensible
         {
