@@ -35,30 +35,10 @@ message OakFriendEncounterData {
   uint32 num_encounters = 1;
   int64 time_last_encounter = 2;
 }
-message OakMailItem {
-  uint32 mail_item_type = 1;
-  string sender_display_name = 2;
-  string subject = 3;
-  string body = 4;
-  string gear_serial_number = 5;
-  string mail_guid = 6;
-  int64 date_sent = 7;
-  int64 expiration_date = 8;
-  string from_player_id = 9;
-  bool has_been_read = 10;
-}
 message GearSoldByFriendData {
   string gear_serial_number = 1;
   int32 player_class_identifier_hash = 2;
   string friend_net_id = 3;
-}
-message OakCustomizationSaveGameData {
-  bool is_new = 1;
-  string customization_asset_path = 2;
-}
-message OakInventoryCustomizationPartInfo {
-  uint32 customization_part_hash = 1;
-  bool is_new = 2;
 }
 message GuardianRankRewardSaveGameData {
   int32 num_tokens = 1;
@@ -71,14 +51,6 @@ message GuardianRankProfileData {
   int32 guardian_experience = 4;
   int32 guardian_reward_random_seed = 5;
   int64 new_guardian_experience = 6;
-}
-message CrewQuartersDecorationItemSaveGameData {
-  bool is_new = 1;
-  string decoration_item_asset_path = 2;
-}
-message CrewQuartersRoomItemSaveGameData {
-  bool is_new = 1;
-  string room_item_asset_path = 2;
 }
 message RecentlyMetPlayer {
   string shift_player_id = 1;
@@ -264,12 +236,13 @@ message Profile {
   bool pinata_event_enabled = 201;
   int32 min_time_between_badass_events = 202;
   float hud_scale_multiplier = 203;
-  bool disable_spatial_audio = 204;
+  bool disable_spatial_audio__or__has_reset_console_fov = 204;
   int32 total_playtime_seconds = 205;
   bool moxxis_drink_event_enabled = 206;
   int32 moxxis_drink_event_bits_product_id = 207;
   repeated ChallengeSaveGameData challenge_data = 208;
   repeated int32 CitizenScienceLevelProgression = 209;
+  bool default_dead_zone_inner_updated = 210;
   bool disable_event_content = 211;
   uint32 desired_friend_sync_state = 212;
   bool needs_shift_first_boot = 213;
@@ -287,5 +260,9 @@ message Profile {
   int32 CitizenScienceCSBucksAmount = 226;
   bool bCitizenScienceHasSeenIntroVideo = 227;
   bool bCitizenScienceTutorialDone = 228;
+  bool enable_trigger_feedback = 229;
   bool fixed_initial_zonemap_rotation = 230;
+  VaultCardSaveGameData vault_card = 231;
+  uint32 player_selected_league = 232;
+  bool needs_shift_first_boot_primary = 233;
 }
