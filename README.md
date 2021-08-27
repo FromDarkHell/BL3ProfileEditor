@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+FromDarkHell/BL3ProfileEditor requesst to convert to XBOX
 # Borderlands 3 Profile Editor
  
 A slightly wonky program created so that way *you!* can edit your profile.sav file for Borderlands 3.
@@ -18,4 +18,3 @@ A slightly wonky program created so that way *you!* can edit your profile.sav fi
 =======
 # BL3ProfileEditor
  FromDarkHell used by Murd3rP4rty&10snuggles01many for XboxOne Conversion
->>>>>>> Stashed changes
