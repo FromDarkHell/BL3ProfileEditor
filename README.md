@@ -1,4 +1,9 @@
-# Borderlands 3 Profile Editor
+# Archived
+**This repo is now archived in favor of the [BL3 Save Editor](https://github.com/FromDarkHell/BL3SaveEditor) by yours truly.**
+
+<hr>
+
+## Borderlands 3 Profile Editor
  
 A slightly wonky program created so that way *you!* can edit your profile.sav file for Borderlands 3.
 
